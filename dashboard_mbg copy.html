@@ -1,0 +1,3552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Makan Bergizi Gratis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --dark-gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f5576c;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f8f9fa;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --hover-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Enhanced Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand i {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .btn-login {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Enhanced Hero Section */
+        .hero-section {
+            background: var(--primary-gradient);
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/seed/healthy-food-pattern/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-100px) translateX(50px);
+            }
+            50% {
+                transform: translateY(-50px) translateX(-50px);
+            }
+            75% {
+                transform: translateY(-150px) translateX(25px);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-hero {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-hero-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .btn-hero-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-hero-outline:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            position: relative;
+            animation: float-image 6s ease-in-out infinite;
+        }
+        
+        @keyframes float-image {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        /* Enhanced Statistics Section */
+        .stats-section {
+            padding: 80px 0;
+            background: white;
+            position: relative;
+            margin-top: -50px;
+            border-radius: 30px 30px 0 0;
+            z-index: 10;
+        }
+        
+        .stat-card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .stat-card-modern::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
+        }
+        
+        .stat-card-modern:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .stat-icon-modern {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            color: #fff;
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+        
+        .stat-card-modern::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: "bootstrap-icons";
+            font-size: 90px;
+            color: rgba(0, 0, 0, 0.12); /* abu gelap transparan */
+            z-index: 1;
+            pointer-events: none;
+        }
+.col-lg-4:nth-of-type(1) .stat-card-modern::after { content:"\f4cf"; }
+.col-lg-4:nth-of-type(2) .stat-card-modern::after { content:"\f3e8"; }
+.col-lg-4:nth-of-type(3) .stat-card-modern::after {  content: "\f1f3"; }
+.col-lg-4:nth-of-type(4) .stat-card-modern::after { content:"\f417"; }
+.col-lg-4:nth-of-type(4) .stat-card-modern::after { content:"\f417"; }
+.col-lg-4:nth-of-type(5) .stat-card-modern::after { content: "\f673"; }
+.col-lg-4:nth-of-type(6) .stat-card-modern::after { content: "\f672"; }
+        
+        .stat-icon-modern.gradient-1 {
+            background: var(--primary-gradient);
+        }
+        
+        .stat-icon-modern.gradient-2 {
+            background: var(--secondary-gradient);
+        }
+        
+        .stat-icon-modern.gradient-3 {
+            background: var(--success-gradient);
+        }
+        
+        .stat-icon-modern.gradient-4 {
+            background: var(--warning-gradient);
+        }
+        
+        .stat-icon-modern i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .stat-number-modern {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .about-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: transform 0.6s ease;
+        }
+        
+        .about-icon i {
+            font-size: 3rem;
+            color: white;
+            transition: transform 0.6s ease;
+        }
+        .about-card:hover .about-icon i {
+        transform: rotate(360deg);
+        }
+        
+        .about-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .about-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Data Distribution Section */
+        .data-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .data-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .data-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .data-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-gradient);
+        }
+        
+        .data-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .data-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .data-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .data-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .data-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .data-table {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-top: 30px;
+        }
+        
+        .data-table-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .data-table-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .data-table-body {
+            padding: 0;
+        }
+        
+        .data-table-item {
+            padding: 20px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .data-table-item:hover {
+            background-color: rgba(102, 126, 234, 0.05);
+        }
+        
+        .data-table-item:last-child {
+            border-bottom: none;
+        }
+        
+        .data-table-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .data-table-value {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .data-table-badge {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-top: 30px;
+        }
+        
+        .district-list {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .district-item {
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .district-item:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        .district-name {
+            font-weight: 600;
+        }
+        
+        .district-value {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .district-item:hover .district-value {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        /* Regulations Section */
+        .regulations-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .regulation-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .regulation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .regulation-number {
+            background: var(--primary-gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .regulation-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .regulation-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .regulation-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .btn-regulation {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-regulation:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .map-container {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            height: 600px;
+            position: relative;
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+            z-index: 1000;
+            min-width: 300px;
+        }
+        
+        .map-search {
+            margin-bottom: 15px;
+        }
+        
+        .map-filter {
+            margin-bottom: 15px;
+        }
+        
+        .map-legend {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+        
+        /* Menu Section */
+        .menu-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .menu-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        
+        .menu-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .menu-body {
+            padding: 30px;
+        }
+        
+        .menu-day {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .menu-items {
+            margin-bottom: 20px;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .menu-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: var(--success-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .menu-details {
+            flex: 1;
+        }
+        
+        .menu-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+        
+        .menu-calories {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .nutrition-info {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .nutrition-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .nutrition-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .nutrition-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .nutrition-value {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Enhanced Distribution Section */
+        .distribution-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .data-tabs {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+        
+        .nav-tabs-modern {
+            border: none;
+            margin-bottom: 30px;
+        }
+        
+        .nav-tabs-modern .nav-link {
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 12px 25px;
+            margin-right: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs-modern .nav-link:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .nav-tabs-modern .nav-link.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .filter-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+        
+        .filter-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .filter-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .filter-group {
+            margin-bottom: 25px;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .form-control-modern,
+        .form-select-modern {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-control-modern:focus,
+        .form-select-modern:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .data-table-modern {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-top: 30px;
+        }
+        
+        .table-modern {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0;
+        }
+        
+        .table-modern thead th {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .table-modern thead th:first-child {
+            border-top-left-radius: 15px;
+        }
+        
+        .table-modern thead th:last-child {
+            border-top-right-radius: 15px;
+        }
+        
+        .table-modern tbody td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+        
+        .table-modern tbody tr:hover {
+            background-color: rgba(102, 126, 234, 0.05);
+        }
+        
+        .table-modern tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .school-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        
+        .badge-sd {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+        
+        .badge-smp {
+            background: rgba(33, 150, 243, 0.1);
+            color: #2196F3;
+        }
+        
+        .badge-sma {
+            background: rgba(156, 39, 176, 0.1);
+            color: #9C27B0;
+        }
+        
+        .badge-tk {
+            background: rgba(255, 152, 0, 0.1);
+            color: #FF9800;
+        }
+        
+        .badge-posyandu {
+            background: rgba(233, 30, 99, 0.1);
+            color: #E91E63;
+        }
+        
+        .badge-dapur {
+            background: rgba(0, 188, 212, 0.1);
+            color: #00BCD4;
+        }
+        
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        
+        .status-active {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+        
+        .status-inactive {
+            background: rgba(244, 67, 54, 0.1);
+            color: #F44336;
+        }
+        
+        .status-pending {
+            background: rgba(255, 152, 0, 0.1);
+            color: #FF9800;
+        }
+        
+        .pagination-modern {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .pagination-modern .page-link {
+            border: 2px solid #e0e0e0;
+            color: var(--text-dark);
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-modern .page-link:hover {
+            background: var(--primary-gradient);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .pagination-modern .page-item.active .page-link {
+            background: var(--primary-gradient);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            padding-left: 45px;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            z-index: 10;
+        }
+        
+        .stats-summary {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .stat-item-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-item-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: #000;
+        }
+        
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn-export {
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-export:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .accordion-modern {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .accordion-item-modern {
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .accordion-item-modern:last-child {
+            border-bottom: none;
+        }
+        
+        .accordion-button-modern {
+            background: white;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 20px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .accordion-button-modern:not(.collapsed) {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: none;
+        }
+        
+        .accordion-button-modern::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23667eea'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-button-modern:not(.collapsed)::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transform: rotate(180deg);
+        }
+        
+        .accordion-body-modern {
+            padding: 20px 30px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        /* Enhanced Footer */
+        .footer-modern {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-modern::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/seed/footer-pattern/1920/600.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .social-icons-modern {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-icon-modern {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon-modern:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .newsletter-form {
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 30px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .newsletter-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        
+        .newsletter-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-button:hover {
+            background: #ff4757;
+            transform: translateY(-50%) translateX(-2px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Enhanced Login Modal */
+        .modal-content-modern {
+            border: none;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        
+        .modal-header-modern {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 30px;
+        }
+        
+        .modal-body-modern {
+            padding: 40px;
+            background: white;
+        }
+        
+        .login-form-modern {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .form-floating-modern {
+            margin-bottom: 20px;
+        }
+        
+        .form-control-modern-login {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control-modern-login:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .btn-login-modern {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-login-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Custom scrollbar for lists */
+        .district-list::-webkit-scrollbar,
+        .sppg-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .district-list::-webkit-scrollbar-track,
+        .sppg-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .district-list::-webkit-scrollbar-thumb,
+        .sppg-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        .district-list::-webkit-scrollbar-thumb:hover,
+        .sppg-list::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .map-controls {
+                position: static;
+                margin-top: 20px;
+                min-width: 100%;
+            }
+            
+            .stats-summary {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-number-modern {
+                font-size: 2.2rem;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+            
+            .data-table-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .nav-tabs-modern .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin-right: 5px;
+            }
+            
+            .table-modern {
+                font-size: 0.9rem;
+            }
+            
+            .table-modern th,
+            .table-modern td {
+                padding: 10px 5px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-hero {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stats-section,
+            .about-section,
+            .data-section,
+            .regulations-section,
+            .map-section,
+            .menu-section,
+            .distribution-section,
+            .faq-section {
+                padding: 60px 0;
+            }
+            
+            .export-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f0f0f0;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#beranda">
+                <i class="bi bi-egg-fried"></i>
+                Makan Bergizi Gratis
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#statistik">Statistik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#regulasi">Regulasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#peta-mbg">Peta MBG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sebaran-mbg">Sebaran MBG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu-mbg">Menu MBG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-person-circle"></i> Masuk
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section id="beranda" class="hero-section">
+        <div class="hero-particles">
+            <div class="particle" style="width: 20px; height: 20px; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 30px; height: 30px; left: 30%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; left: 50%; animation-delay: 4s;"></div>
+            <div class="particle" style="width: 25px; height: 25px; left: 70%; animation-delay: 6s;"></div>
+            <div class="particle" style="width: 35px; height: 35px; left: 90%; animation-delay: 8s;"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title">Program Makan Bergizi Gratis untuk Generasi Sehat</h1>
+                    <p class="hero-subtitle">Wujudkan Indonesia bebas stunting dan malnutrisi melalui program makanan bergizi gratis yang tersebar di seluruh nusantara.</p>
+                    <div class="hero-buttons">
+                        <a href="#tentang" class="btn-hero btn-hero-primary">
+                            <i class="bi bi-rocket-takeoff"></i> Mulai Sekarang
+                        </a>
+                        <a href="#statistik" class="btn-hero btn-hero-outline">
+                            <i class="bi bi-bar-chart"></i> Lihat Statistik
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="https://picsum.photos/seed/healthy-food-hero/600/500.jpg" alt="Makanan Bergizi">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Statistics Section -->
+   <section class="stats-section">
+<div class="container">
+<div class="row g-4">
+
+<!-- 1 -->
+<div class="col-lg-4 col-md-4" data-aos="fade-up">
+<div class="stat-card-modern">
+<div class="stat-icon-modern gradient-1"><i class="bi bi-people-fill"></i></div>
+<div class="stat-number-modern" data-target="2500000">
+<span class="number">0</span>
+</div>
+<div class="stat-label">
+    <b>Penerima Manfaat</b></div>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+<div class="stat-card-modern">
+<div class="stat-icon-modern gradient-2"><i class="bi bi-geo-alt-fill"></i></div>
+<div class="stat-number-modern" data-target="5000">
+<span class="number">0</span>
+</div>
+<div class="stat-label">
+    <b>Lokasi Distribusi</b></div>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+<div class="stat-card-modern">
+<div class="stat-icon-modern gradient-3"><i class="bi bi-calendar-check-fill"></i></div>
+<div class="stat-number-modern" data-target="365">
+<span class="number">0</span>
+</div>
+<div class="stat-label">
+    <b>Hari Operasional</b></div>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+<div class="stat-card-modern">
+<div class="stat-icon-modern gradient-4"><i class="bi bi-heart-pulse-fill"></i></div>
+<div class="stat-number-modern" data-target="98">
+<span class="number">0</span><span>%</span>
+</div>
+<div class="stat-label">
+    <b>Tingkat Kepuasan</b></div>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+    <div class="stat-card-modern">
+        <div class="stat-icon-modern gradient-3">
+            <i class="bi bi-calendar-arrow-up"></i>
+        </div>
+
+        <div class="stat-number-modern" data-target="87">
+            <span class="number">0</span><span>%</span>
+        </div>
+
+        <div class="stat-label">
+            <b>Peningkatan Gizi</b>
+        </div>
+
+        <div class="stat-desc">
+            Perbaikan status gizi penerima
+        </div>
+    </div>
+</div>
+
+
+<!-- 6 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+<div class="stat-card-modern">
+<div class="stat-icon-modern gradient-4"><i class="bi bi-graph-down-arrow"></i></div>
+<div class="stat-number-modern" data-target="23">
+<span class="number">0</span><span>%</span>
+</div>
+<div class="stat-label"><b>Penurunan Stunting</b></div>
+<div class="stat-desc">Dampak program terhadap stunting</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+    <!-- About Section -->
+    <section id="tentang" class="about-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Tentang Program MBG</h2>
+                <p class="section-subtitle">Mengenal lebih dekat program Makan Bergizi Gratis dan tujuannya</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h4 class="about-title">Visi & Misi</h4>
+                        <p class="about-description">Mewujudkan generasi Indonesia yang sehat, cerdas, dan produktif melalui akses nutrisi berkualitas tinggi untuk semua anak bangsa.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h4 class="about-title">Tujuan Program</h4>
+                        <p class="about-description">Mengurangi angka stunting, meningkatkan kualitas gizi masyarakat, dan mendukung pertumbuhan optimal anak-anak Indonesia.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="about-title">Komitmen Pemerintah</h4>
+                        <p class="about-description">Program nasional yang didukung penuh oleh pemerintah untuk memastikan ketersediaan makanan bergizi bagi seluruh lapisan masyarakat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Distribution Section -->
+    <section id="statistik" class="data-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Statistik Penyaluran Program MBG</h2>
+                <p class="section-subtitle">Data lengkap tentang penyaluran program Makan Bergizi Gratis di Indonesia</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="data-card">
+                        <div class="data-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4 class="data-title">Kecamatan</h4>
+                        <div class="data-number" data-target="514">0</div>
+                        <p class="data-description">Total kecamatan di Indonesia yang tercakup dalam program MBG</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="data-card">
+                        <div class="data-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h4 class="data-title">Total SPPG</h4>
+                        <div class="data-number" data-target="8750">0</div>
+                        <p class="data-description">Satuan Pelayanan Penyediaan Gizi di seluruh Indonesia</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="data-card">
+                        <div class="data-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4 class="data-title">Kelompok Penerima</h4>
+                        <div class="data-number" data-target="12500">0</div>
+                        <p class="data-description">Total kelompok penerima manfaat di seluruh Indonesia</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="data-card">
+                        <div class="data-icon">
+                            <i class="bi bi-person-check-fill"></i>
+                        </div>
+                        <h4 class="data-title">Penerima Manfaat</h4>
+                        <div class="data-number" data-target="2500000">0</div>
+                        <p class="data-description">Total individu penerima manfaat di seluruh Indonesia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="data-table">
+                        <div class="data-table-header">
+                            <h3 class="data-table-title">Distribusi Berdasarkan Jenjang Pendidikan</h3>
+                            <button class="btn btn-light btn-sm">
+                                <i class="bi bi-download"></i> Unduh Data
+                            </button>
+                        </div>
+                        <div class="data-table-body">
+                            <div class="data-table-item">
+                                <div class="data-table-label">
+                                    <i class="bi bi-mortarboard-fill text-primary"></i>
+                                    SMA & Sederajat
+                                </div>
+                                <div class="data-table-value">650.000</div>
+                            </div>
+                            <div class="data-table-item">
+                                <div class="data-table-label">
+                                    <i class="bi bi-book-fill text-success"></i>
+                                    SMP & Sederajat
+                                </div>
+                                <div class="data-table-value">915.000</div>
+                            </div>
+                            <div class="data-table-item">
+                                <div class="data-table-label">
+                                    <i class="bi bi-pencil-fill text-warning"></i>
+                                    SD & Sederajat
+                                </div>
+                                <div class="data-table-value">765.000</div>
+                            </div>
+                            <div class="data-table-item">
+                                <div class="data-table-label">
+                                    <i class="bi bi-balloon-fill text-danger"></i>
+                                    TK / PAUD & Sederajat
+                                </div>
+                                <div class="data-table-value">170.000</div>
+                            </div>
+                            <div class="data-table-item">
+                                <div class="data-table-label">
+                                    <i class="bi bi-building-fill text-info"></i>
+                                    Total Sekolah
+                                </div>
+                                <div class="data-table-value">85.230</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulations Section -->
+    <section id="regulasi" class="regulations-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Regulasi Program MBG</h2>
+                <p class="section-subtitle">Dasar hukum dan peraturan yang mengatur program Makan Bergizi Gratis</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="regulation-card">
+                        <div class="regulation-number">1</div>
+                        <h4 class="regulation-title">Peraturan Presiden No. 83 Tahun 2023</h4>
+                        <div class="regulation-date"><i class="bi bi-calendar3"></i> 15 November 2023</div>
+                        <p class="regulation-description">Peraturan Presiden tentang Penyelenggaraan Makan Bergizi Gratis yang menjadi dasar hukum utama program MBG di seluruh Indonesia.</p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                    <div class="regulation-card">
+                        <div class="regulation-number">2</div>
+                        <h4 class="regulation-title">Peraturan Menteri Kesehatan No. 45 Tahun 2023</h4>
+                        <div class="regulation-date"><i class="bi bi-calendar3"></i> 20 November 2023</div>
+                        <p class="regulation-description">Pedoman teknis pelaksanaan program MBG termasuk standar gizi, kualitas pangan, dan mekanisme distribusi.</p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                    <div class="regulation-card">
+                        <div class="regulation-number">3</div>
+                        <h4 class="regulation-title">Peraturan Menteri Pendidikan No. 28 Tahun 2023</h4>
+                        <div class="regulation-date"><i class="bi bi-calendar3"></i> 25 November 2023</div>
+                        <p class="regulation-description">Integrasi program MBG dengan sistem pendidikan dan mekanisme pelaksanaan di satuan pendidikan.</p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                    <div class="regulation-card">
+                        <div class="regulation-number">4</div>
+                        <h4 class="regulation-title">Keputusan Menteri Dalam Negeri No. 180 Tahun 2023</h4>
+                        <div class="regulation-date"><i class="bi bi-calendar3"></i> 30 November 2023</div>
+                        <p class="regulation-description">Pedoman pelaksanaan program MBG di daerah termasuk pembentukan SPPG dan alokasi anggaran.</p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="peta-mbg" class="map-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Peta Sebaran Program MBG</h2>
+                <p class="section-subtitle">Lokasi Satuan Pelayanan Penyediaan Gizi (SPPG) di seluruh Indonesia</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1234567890"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                        <div class="map-controls">
+                            <h5 class="mb-3">Filter Lokasi</h5>
+                            <div class="map-search">
+                                <input type="text" class="form-control" placeholder="Cari lokasi...">
+                            </div>
+                            <div class="map-filter">
+                                <select class="form-select">
+                                    <option selected>Semua Provinsi</option>
+                                    <option>DKI Jakarta</option>
+                                    <option>Jawa Barat</option>
+                                    <option>Jawa Tengah</option>
+                                    <option>Jawa Timur</option>
+                                    <option>Sumatera Utara</option>
+                                </select>
+                            </div>
+                            <div class="map-filter">
+                                <select class="form-select">
+                                    <option selected>Semua Jenjang</option>
+                                    <option>TK/PAUD</option>
+                                    <option>SD</option>
+                                    <option>SMP</option>
+                                    <option>SMA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-legend">
+                        <h5 class="mb-3">Legenda</h5>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #4CAF50;"></div>
+                            <span>SPPG Aktif</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #FF9800;"></div>
+                            <span>SPPG dalam Pengembangan</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #F44336;"></div>
+                            <span>SPPG Tidak Aktif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Distribution Section -->
+    <section id="sebaran-mbg" class="distribution-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Sebaran MBG di Kota Bogor</h2>
+                <p class="section-subtitle">Informasi lengkap sebaran program Makan Bergizi Gratis di Kota Bogor</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="data-tabs">
+                        <!-- Tab Navigation -->
+                        <ul class="nav nav-tabs nav-tabs-modern" id="dataTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="sekolah-tab" data-bs-toggle="tab" data-bs-target="#sekolah" type="button" role="tab">
+                                    <i class="bi bi-building"></i> Data Sekolah
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="posyandu-tab" data-bs-toggle="tab" data-bs-target="#posyandu" type="button" role="tab">
+                                    <i class="bi bi-hospital"></i> Data Posyandu
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="dapur-tab" data-bs-toggle="tab" data-bs-target="#dapur" type="button" role="tab">
+                                    <i class="bi bi-house-heart"></i> Dapur MBG / SPPG
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="dataTabsContent">
+                            <!-- Sekolah Tab -->
+                            <div class="tab-pane fade show active" id="sekolah" role="tabpanel">
+                                <div class="stats-summary">
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">277</span>
+                                        <span class="stat-item-label">Total Sekolah</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">245</span>
+                                        <span class="stat-item-label">Mendapat MBG</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">32</span>
+                                        <span class="stat-item-label">Dalam Proses</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">125.450</span>
+                                        <span class="stat-item-label">Siswa Penerima</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="filter-card">
+                                    <h3 class="filter-title">Filter Data Sekolah</h3>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Tahun Ajaran</label>
+                                                <select class="form-select-modern" id="tahunAjaranSekolah">
+                                                    <option value="2023/2024" selected>2023/2024</option>
+                                                    <option value="2022/2023">2022/2023</option>
+                                                    <option value="2021/2022">2021/2022</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Jenjang</label>
+                                                <select class="form-select-modern" id="jenjangSekolah">
+                                                    <option value="all" selected>Semua Jenjang</option>
+                                                    <option value="tk">TK/PAUD</option>
+                                                    <option value="sd">SD</option>
+                                                    <option value="smp">SMP</option>
+                                                    <option value="sma">SMA</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Status MBG</label>
+                                                <select class="form-select-modern" id="statusSekolah">
+                                                    <option value="all" selected>Semua Status</option>
+                                                    <option value="aktif">Mendapat MBG</option>
+                                                    <option value="proses">Dalam Proses</option>
+                                                    <option value="belum">Belum Mendapat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Kecamatan</label>
+                                                <select class="form-select-modern" id="kecamatanSekolah">
+                                                    <option value="all" selected>Semua Kecamatan</option>
+                                                    <option value="bogor-utara">Bogor Utara</option>
+                                                    <option value="bogor-selatan">Bogor Selatan</option>
+                                                    <option value="bogor-timur">Bogor Timur</option>
+                                                    <option value="bogor-barat">Bogor Barat</option>
+                                                    <option value="tanah-sareal">Tanah Sareal</option>
+                                                    <option value="bogor-tengah">Bogor Tengah</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-8">
+                                            <div class="search-box">
+                                                <i class="bi bi-search"></i>
+                                                <input type="text" class="form-control-modern" placeholder="Cari nama sekolah..." id="searchSekolah">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-primary w-100" id="applyFilterSekolah">
+                                                <i class="bi bi-funnel"></i> Terapkan Filter
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="export-buttons">
+                                        <button class="btn-export">
+                                            <i class="bi bi-file-earmark-excel"></i> Export Excel
+                                        </button>
+                                        <button class="btn-export">
+                                            <i class="bi bi-file-earmark-pdf"></i> Export PDF
+                                        </button>
+                                        <button class="btn-export">
+                                            <i class="bi bi-printer"></i> Cetak
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="data-table-modern">
+                                    <table class="table-modern">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Sekolah</th>
+                                                <th>Jenjang</th>
+                                                <th>Kecamatan</th>
+                                                <th>Status MBG</th>
+                                                <th>Jumlah Siswa</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="sekolahTableBody">
+                                            <tr>
+                                                <td>1</td>
+                                                <td>SDN Menteng 01</td>
+                                                <td><span class="school-badge badge-sd">SD</span></td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>450</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>SMPN 3 Bogor</td>
+                                                <td><span class="school-badge badge-smp">SMP</span></td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>680</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>SMAN 1 Bogor</td>
+                                                <td><span class="school-badge badge-sma">SMA</span></td>
+                                                <td>Bogor Utara</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>890</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>SDN Cibuluh 02</td>
+                                                <td><span class="school-badge badge-sd">SD</span></td>
+                                                <td>Bogor Timur</td>
+                                                <td><span class="status-badge status-pending">Dalam Proses</span></td>
+                                                <td>320</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>PAUD Tunas Bangsa</td>
+                                                <td><span class="school-badge badge-tk">PAUD</span></td>
+                                                <td>Bogor Barat</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>85</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>SMPN 5 Bogor</td>
+                                                <td><span class="school-badge badge-smp">SMP</span></td>
+                                                <td>Bogor Selatan</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>520</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>SDN Sukasari 01</td>
+                                                <td><span class="school-badge badge-sd">SD</span></td>
+                                                <td>Tanah Sareal</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>380</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>TK Harapan Bangsa</td>
+                                                <td><span class="school-badge badge-tk">TK</span></td>
+                                                <td>Bogor Utara</td>
+                                                <td><span class="status-badge status-pending">Dalam Proses</span></td>
+                                                <td>65</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>SMAN 4 Bogor</td>
+                                                <td><span class="school-badge badge-sma">SMA</span></td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>750</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>SDN Baranangsiang 03</td>
+                                                <td><span class="school-badge badge-sd">SD</span></td>
+                                                <td>Bogor Selatan</td>
+                                                <td><span class="status-badge status-inactive">Belum Mendapat</span></td>
+                                                <td>290</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    <div class="pagination-modern">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Posyandu Tab -->
+                            <div class="tab-pane fade" id="posyandu" role="tabpanel">
+                                <div class="stats-summary">
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">156</span>
+                                        <span class="stat-item-label">Total Posyandu</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">142</span>
+                                        <span class="stat-item-label">Mendapat MBG</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">14</span>
+                                        <span class="stat-item-label">Dalam Proses</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">8.920</span>
+                                        <span class="stat-item-label">Balita Penerima</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="filter-card">
+                                    <h3 class="filter-title">Filter Data Posyandu</h3>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Tahun</label>
+                                                <select class="form-select-modern" id="tahunPosyandu">
+                                                    <option value="2023" selected>2023</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2021">2021</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Status MBG</label>
+                                                <select class="form-select-modern" id="statusPosyandu">
+                                                    <option value="all" selected>Semua Status</option>
+                                                    <option value="aktif">Mendapat MBG</option>
+                                                    <option value="proses">Dalam Proses</option>
+                                                    <option value="belum">Belum Mendapat</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Kecamatan</label>
+                                                <select class="form-select-modern" id="kecamatanPosyandu">
+                                                    <option value="all" selected>Semua Kecamatan</option>
+                                                    <option value="bogor-utara">Bogor Utara</option>
+                                                    <option value="bogor-selatan">Bogor Selatan</option>
+                                                    <option value="bogor-timur">Bogor Timur</option>
+                                                    <option value="bogor-barat">Bogor Barat</option>
+                                                    <option value="tanah-sareal">Tanah Sareal</option>
+                                                    <option value="bogor-tengah">Bogor Tengah</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-8">
+                                            <div class="search-box">
+                                                <i class="bi bi-search"></i>
+                                                <input type="text" class="form-control-modern" placeholder="Cari nama posyandu..." id="searchPosyandu">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-primary w-100" id="applyFilterPosyandu">
+                                                <i class="bi bi-funnel"></i> Terapkan Filter
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="export-buttons">
+                                        <button class="btn-export">
+                                            <i class="bi bi-file-earmark-excel"></i> Export Excel
+                                        </button>
+                                        <button class="btn-export">
+                                            <i class="bi bi-file-earmark-pdf"></i> Export PDF
+                                        </button>
+                                        <button class="btn-export">
+                                            <i class="bi bi-printer"></i> Cetak
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="data-table-modern">
+                                    <table class="table-modern">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Posyandu</th>
+                                                <th>Kecamatan</th>
+                                                <th>Status MBG</th>
+                                                <th>Jumlah Balita</th>
+                                                <th>Jumlah Ibu Hamil</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="posyanduTableBody">
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Posyandu Melati</td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>85</td>
+                                                <td>12</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Posyandu Mawar</td>
+                                                <td>Bogor Selatan</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>92</td>
+                                                <td>15</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Posyandu Anggrek</td>
+                                                <td>Bogor Utara</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>78</td>
+                                                <td>10</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Posyandu Teratai</td>
+                                                <td>Bogor Timur</td>
+                                                <td><span class="status-badge status-pending">Dalam Proses</span></td>
+                                                <td>65</td>
+                                                <td>8</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Posyandu Kamboja</td>
+                                                <td>Bogor Barat</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>88</td>
+                                                <td>14</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Posyandu Sakura</td>
+                                                <td>Tanah Sareal</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>72</td>
+                                                <td>11</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Posyandu Dahlia</td>
+                                                <td>Bogor Utara</td>
+                                                <td><span class="status-badge status-pending">Dalam Proses</span></td>
+                                                <td>58</td>
+                                                <td>9</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>Posyandu Flamboyan</td>
+                                                <td>Bogor Selatan</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>95</td>
+                                                <td>16</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Posyandu Kenanga</td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-inactive">Belum Mendapat</span></td>
+                                                <td>45</td>
+                                                <td>7</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>Posyandu Bougenville</td>
+                                                <td>Bogor Barat</td>
+                                                <td><span class="status-badge status-active">Mendapat MBG</span></td>
+                                                <td>82</td>
+                                                <td>13</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    <div class="pagination-modern">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Dapur MBG/SPPG Tab -->
+                            <div class="tab-pane fade" id="dapur" role="tabpanel">
+                                <div class="stats-summary">
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">85</span>
+                                        <span class="stat-item-label">Total Dapur MBG</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">78</span>
+                                        <span class="stat-item-label">Aktif</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">7</span>
+                                        <span class="stat-item-label">Dalam Proses</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-item-number">15.680</span>
+                                        <span class="stat-item-label">Porsi/Hari</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="filter-card">
+                                    <h3 class="filter-title">Filter Data Dapur MBG/SPPG</h3>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Tahun Operasional</label>
+                                                <select class="form-select-modern" id="tahunDapur">
+                                                    <option value="2023" selected>2023</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2021">2021</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Status Operasional</label>
+                                                <select class="form-select-modern" id="statusDapur">
+                                                    <option value="all" selected>Semua Status</option>
+                                                    <option value="aktif">Aktif</option>
+                                                    <option value="proses">Dalam Proses</option>
+                                                    <option value="tidak">Tidak Aktif</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Tipe Dapur</label>
+                                                <select class="form-select-modern" id="tipeDapur">
+                                                    <option value="all" selected>Semua Tipe</option>
+                                                    <option value="sekolah">Dapur Sekolah</option>
+                                                    <option value="komunitas">Dapur Komunitas</option>
+                                                    <option value="posyandu">Dapur Posyandu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="filter-group">
+                                                <label class="filter-label">Kecamatan</label>
+                                                <select class="form-select-modern" id="kecamatanDapur">
+                                                    <option value="all" selected>Semua Kecamatan</option>
+                                                    <option value="bogor-utara">Bogor Utara</option>
+                                                    <option value="bogor-selatan">Bogor Selatan</option>
+                                                    <option value="bogor-timur">Bogor Timur</option>
+                                                    <option value="bogor-barat">Bogor Barat</option>
+                                                    <option value="tanah-sareal">Tanah Sareal</option>
+                                                    <option value="bogor-tengah">Bogor Tengah</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-8">
+                                            <div class="search-box">
+                                                <i class="bi bi-search"></i>
+                                                <input type="text" class="form-control-modern" placeholder="Cari nama dapur/SPPG..." id="searchDapur">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-primary w-100" id="applyFilterDapur">
+                                                <i class="bi bi-funnel"></i> Terapkan Filter
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="export-buttons">
+                                        <button class="btn-export">
+                                            <i class="bi bi-file-earmark-excel"></i> Export Excel
+                                        </button>
+                                        <button class="btn-export">
+                                            <i class="bi bi-file-earmark-pdf"></i> Export PDF
+                                        </button>
+                                        <button class="btn-export">
+                                            <i class="bi bi-printer"></i> Cetak
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="data-table-modern">
+                                    <table class="table-modern">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Dapur/SPPG</th>
+                                                <th>Tipe</th>
+                                                <th>Kecamatan</th>
+                                                <th>Status</th>
+                                                <th>Kapasitas</th>
+                                                <th>Porsi/Hari</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dapurTableBody">
+                                            <tr>
+                                                <td>1</td>
+                                                <td>SPPG SDN Menteng 01</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Sekolah</span></td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>450 porsi</td>
+                                                <td>420</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>SPPG SMPN 3 Bogor</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Sekolah</span></td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>680 porsi</td>
+                                                <td>650</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>SPPG SMAN 1 Bogor</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Sekolah</span></td>
+                                                <td>Bogor Utara</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>890 porsi</td>
+                                                <td>850</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Dapur MBG Cibuluh</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Komunitas</span></td>
+                                                <td>Bogor Timur</td>
+                                                <td><span class="status-badge status-pending">Dalam Proses</span></td>
+                                                <td>500 porsi</td>
+                                                <td>320</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>SPPG PAUD Tunas Bangsa</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Sekolah</span></td>
+                                                <td>Bogor Barat</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>120 porsi</td>
+                                                <td>85</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>SPPG Posyandu Melati</td>
+                                                <td><span class="school-badge badge-posyandu">Dapur Posyandu</span></td>
+                                                <td>Bogor Selatan</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>200 porsi</td>
+                                                <td>180</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Dapur MBG Sukasari</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Komunitas</span></td>
+                                                <td>Tanah Sareal</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>600 porsi</td>
+                                                <td>550</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>SPPG TK Harapan Bangsa</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Sekolah</span></td>
+                                                <td>Bogor Utara</td>
+                                                <td><span class="status-badge status-pending">Dalam Proses</span></td>
+                                                <td>100 porsi</td>
+                                                <td>65</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>SPPG SMAN 4 Bogor</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Sekolah</span></td>
+                                                <td>Bogor Tengah</td>
+                                                <td><span class="status-badge status-active">Aktif</span></td>
+                                                <td>750 porsi</td>
+                                                <td>720</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>Dapur MBG Baranangsiang</td>
+                                                <td><span class="school-badge badge-dapur">Dapur Komunitas</span></td>
+                                                <td>Bogor Selatan</td>
+                                                <td><span class="status-badge status-inactive">Tidak Aktif</span></td>
+                                                <td>400 porsi</td>
+                                                <td>0</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                    <button class="btn btn-sm btn-outline-success"><i class="bi bi-pencil"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                    <div class="pagination-modern">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu-mbg" class="menu-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Menu Makanan Bergizi</h2>
+                <p class="section-subtitle">Menu seimbang yang disajikan dalam program MBG</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3>Menu Senin - Kamis</h3>
+                        </div>
+                        <div class="menu-body">
+                            <div class="menu-day">Hari Biasa</div>
+                            <div class="menu-items">
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-egg-fried"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Nasi, Ayam Bakar, Sayur Asem</div>
+                                        <div class="menu-calories">450-550 kcal</div>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-cup-straw"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Buah Segar (Pisang/Jeruk)</div>
+                                        <div class="menu-calories">80-120 kcal</div>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-cup"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Susu UHT</div>
+                                        <div class="menu-calories">150 kcal</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nutrition-info">
+                                <div class="nutrition-title">Informasi Nutrisi</div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Protein</span>
+                                    <span class="nutrition-value">25g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Karbohidrat</span>
+                                    <span class="nutrition-value">45g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Lemak</span>
+                                    <span class="nutrition-value">15g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3>Menu Jumat</h3>
+                        </div>
+                        <div class="menu-body">
+                            <div class="menu-day">Hari Spesial</div>
+                            <div class="menu-items">
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-bowl"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Nasi, Soto Ayam, Telur Rebus</div>
+                                        <div class="menu-calories">480-580 kcal</div>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-cookie"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Kerupuk & Bawang Goreng</div>
+                                        <div class="menu-calories">50-80 kcal</div>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-cup-hot"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Teh Manis Hangat</div>
+                                        <div class="menu-calories">60 kcal</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nutrition-info">
+                                <div class="nutrition-title">Informasi Nutrisi</div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Protein</span>
+                                    <span class="nutrition-value">28g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Karbohidrat</span>
+                                    <span class="nutrition-value">52g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Lemak</span>
+                                    <span class="nutrition-value">18g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3>Menu Sabtu - Minggu</h3>
+                        </div>
+                        <div class="menu-body">
+                            <div class="menu-day">Akhir Pekan</div>
+                            <div class="menu-items">
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-egg-fried"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Nasi Goreng Spesial</div>
+                                        <div class="menu-calories">500-600 kcal</div>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-layers"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Sayur Cap Cay & Telur Dadar</div>
+                                        <div class="menu-calories">150-200 kcal</div>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">
+                                        <i class="bi bi-cup-straw"></i>
+                                    </div>
+                                    <div class="menu-details">
+                                        <div class="menu-name">Jus Buah Segar</div>
+                                        <div class="menu-calories">100-150 kcal</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nutrition-info">
+                                <div class="nutrition-title">Informasi Nutrisi</div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Protein</span>
+                                    <span class="nutrition-value">22g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Karbohidrat</span>
+                                    <span class="nutrition-value">58g</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-label">Lemak</span>
+                                    <span class="nutrition-value">16g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+                <p class="section-subtitle">Informasi penting tentang program Makan Bergizi Gratis</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="accordion accordion-modern" id="faqAccordion">
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading1">
+                                <button class="accordion-button accordion-button-modern" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                    Siapa saja yang bisa mendaftar program Makan Bergizi Gratis?
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Program ini terbuka untuk:
+                                    <ul>
+                                        <li>Anak-anak usia 6-18 tahun dari keluarga pra-sejahtera</li>
+                                        <li>Ibu hamil dan menyusui dari keluarga berpenghasilan rendah</li>
+                                        <li>Lansia di atas 60 tahun yang tidak memiliki penghasilan tetap</li>
+                                        <li>Penyandang disabilitas dengan keterbatasan ekonomi</li>
+                                    </ul>
+                                    Persyaratan utama adalah memiliki KTP dan KK yang masih berlaku.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading2">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                    Apakah makanan yang disajikan halal dan aman?
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Ya, semua makanan yang disajikan:
+                                    <ul>
+                                        <li>Telah tersertifikasi halal dari MUI</li>
+                                        <li>Memenuhi standar keamanan pangan BPOM</li>
+                                        <li>Disiapkan di dapur yang bersih dan terstandar</li>
+                                        <li>Dikemas dengan higienis</li>
+                                        <li>Memiliki tanggal kedaluwarsa yang jelas</li>
+                                    </ul>
+                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan makanan.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading3">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                    Bagaimana cara melaporkan jika ada masalah dengan makanan?
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Anda dapat melaporkan masalah melalui:
+                                    <ol>
+                                        <li>Hotline 24 jam: 1500-234</li>
+                                        <li>Aplikasi mobile "Makan Bergizi Gratis"</li>
+                                        <li>Website resmi di kolom pengaduan</li>
+                                        <li>Menghubungi petugas di lokasi distribusi</li>
+                                    </ol>
+                                    Setiap laporan akan ditindaklanjuti maksimal 6 jam dan kami memberikan kompensasi jika terbukti ada kesalahan dari pihak kami.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading4">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                    Apakah bisa mewakilkan pengambilan makanan?
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Ya, pengambilan bisa diwakilkan dengan syarat:
+                                    <ul>
+                                        <li>Membawa kartu penerima manfaat asli</li>
+                                        <li>Membawa fotokopi KTP penerima dan penerima kuasa</li>
+                                        <li>Surat kuasa bermaterai (untuk jangka panjang)</li>
+                                        <li>Penerima kuasa harus berusia minimal 17 tahun</li>
+                                    </ul>
+                                    Untuk kasus khusus (lansia atau disabilitas), kami menyediakan layanan antar ke rumah.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-modern">
+        <div class="container footer-content">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-brand">Makan Bergizi Gratis</h3>
+                    <p class="footer-description">Program nasional untuk Indonesia sehat dan bebas stunting. Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.</p>
+                    <div class="social-icons-modern">
+                        <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Link Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="#beranda"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#tentang"><i class="bi bi-chevron-right"></i> Tentang Program</a></li>
+                        <li><a href="#statistik"><i class="bi bi-chevron-right"></i> Statistik</a></li>
+                        <li><a href="#regulasi"><i class="bi bi-chevron-right"></i> Regulasi</a></li>
+                        <li><a href="#peta-mbg"><i class="bi bi-chevron-right"></i> Peta MBG</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Download Aplikasi</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Pengaduan</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Kontak Darurat</a></li>
+                        <li><a href="#faq"><i class="bi bi-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Karir</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="footer-description">Dapatkan informasi terbaru tentang program dan tips gizi seimbang langsung di email Anda.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda">
+                        <button type="submit" class="newsletter-button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+                    <div class="mt-3">
+                        <small>Hotline: 1500-234 | Email: info@makanbergizigratis.go.id</small>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Program Makan Bergizi Gratis. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title" id="loginModalLabel">
+                        <i class="bi bi-egg-fried"></i> Masuk ke Dashboard
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <form class="login-form-modern">
+                        <div class="form-floating form-floating-modern mb-3">
+                            <input type="text" class="form-control form-control-modern-login" id="username" placeholder="Username atau Email">
+                            <label for="username">Username atau Email</label>
+                        </div>
+                        <div class="form-floating form-floating-modern mb-3">
+                            <input type="password" class="form-control form-control-modern-login" id="password" placeholder="Password">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Ingat saya
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-login-modern">Masuk</button>
+                        <div class="text-center mt-3">
+                            <a href="#" class="text-decoration-none">Lupa password?</a>
+                        </div>
+                        <hr class="my-4">
+                        <div class="text-center">
+                            <p>Belum punya akun? <a href="#" class="text-decoration-none fw-bold">Daftar sekarang</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.navbar-nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.stat-number-modern, .data-number');
+        const speed = 200;
+        let hasCounted = false;
+
+        const countUp = () => {
+            counters.forEach(counter => {
+                const target = +counter.dataset.target;
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                } else {
+                    if (target >= 1000000) {
+                        counter.innerText = (target / 1000000).toFixed(1) + 'Jt+';
+                    } else if (target >= 1000) {
+                        counter.innerText = (target / 1000).toFixed(0) + 'K+';
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+            });
+        };
+        setInterval(countUp, 20);
+        const statistikSection = document.querySelector('#statistik');
+    if (statistikSection) {
+    counterObserver.observe(statistikSection);}
+
+        // Trigger counter animation when in viewport
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    countUp();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => {
+            observer.observe(counter.parentElement.parentElement);
+        });
+
+        // Form submission
+        document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Handle login logic here
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            modal.hide();
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Handle newsletter subscription
+            this.querySelector('.newsletter-input').value = '';
+            alert('Terima kasih telah berlangganan newsletter kami!');
+        });
+
+        // Distribution Chart
+        const distributionCtx = document.getElementById('distributionChart');
+        if (distributionCtx) {
+            new Chart(distributionCtx.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['SMA & Sederajat', 'SMP & Sederajat', 'SD & Sederajat', 'TK / PAUD & Sederajat'],
+                    datasets: [{
+                        data: [650000, 915000, 765000, 170000],
+                        backgroundColor: [
+                            'rgba(102, 126, 234, 0.8)',
+                            'rgba(118, 75, 162, 0.8)',
+                            'rgba(79, 172, 254, 0.8)',
+                            'rgba(250, 112, 154, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(102, 126, 234, 1)',
+                            'rgba(118, 75, 162, 1)',
+                            'rgba(79, 172, 254, 1)',
+                            'rgba(250, 112, 154, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: 'Poppins',
+                                    size: 12
+                                },
+                                padding: 20
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Distribusi Penerima Manfaat Berdasarkan Jenjang Pendidikan',
+                            font: {
+                                family: 'Poppins',
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Filter functionality for data tables
+        function applyFilter(tableId, filterData) {
+            const tableBody = document.getElementById(tableId);
+            if (!tableBody) return;
+            
+            // Show loading state
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="${tableBody.parentElement.querySelector('thead tr').children.length}" class="text-center py-4">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Memfilter data...</p>
+                    </td>
+                </tr>
+            `;
+            
+            // Simulate API call with setTimeout
+            setTimeout(() => {
+                // In a real application, this would make an API call with filterData
+                // For demo purposes, we'll just restore the original data
+                location.reload(); // Simple reload for demo
+            }, 1000);
+        }
+
+        // School filter
+        document.getElementById('applyFilterSekolah')?.addEventListener('click', function() {
+            const filterData = {
+                tahun: document.getElementById('tahunAjaranSekolah').value,
+                jenjang: document.getElementById('jenjangSekolah').value,
+                status: document.getElementById('statusSekolah').value,
+                kecamatan: document.getElementById('kecamatanSekolah').value,
+                search: document.getElementById('searchSekolah').value
+            };
+            
+            applyFilter('sekolahTableBody', filterData);
+        });
+
+        // Posyandu filter
+        document.getElementById('applyFilterPosyandu')?.addEventListener('click', function() {
+            const filterData = {
+                tahun: document.getElementById('tahunPosyandu').value,
+                status: document.getElementById('statusPosyandu').value,
+                kecamatan: document.getElementById('kecamatanPosyandu').value,
+                search: document.getElementById('searchPosyandu').value
+            };
+            
+            applyFilter('posyanduTableBody', filterData);
+        });
+
+        // Dapur filter
+        document.getElementById('applyFilterDapur')?.addEventListener('click', function() {
+            const filterData = {
+                tahun: document.getElementById('tahunDapur').value,
+                status: document.getElementById('statusDapur').value,
+                tipe: document.getElementById('tipeDapur').value,
+                kecamatan: document.getElementById('kecamatanDapur').value,
+                search: document.getElementById('searchDapur').value
+            };
+            
+            applyFilter('dapurTableBody', filterData);
+        });
+
+        // Export functionality
+        document.querySelectorAll('.btn-export').forEach(button => {
+            button.addEventListener('click', function() {
+                const exportType = this.textContent.trim();
+                alert(`Fitur Export ${exportType} akan segera tersedia!`);
+            });
+        });
+
+        // View and Edit buttons
+        document.querySelectorAll('.btn-outline-primary, .btn-outline-success').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.classList.contains('btn-outline-primary') ? 'View' : 'Edit';
+                const row = this.closest('tr');
+                const name = row.cells[1].textContent;
+                alert(`${action} data untuk: ${name}`);
+            });
+        });
+    </script>
+</body>
+</html>
