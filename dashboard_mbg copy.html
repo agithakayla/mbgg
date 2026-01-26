@@ -2810,6 +2810,203 @@
                 </div>
             </div>
 
+            <style>
+
+
+/* ================= TITLE ================= */
+.title-pill {
+  display: inline-block;
+  background: #e3eaf1;
+  padding: 10px 36px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin: 30px 0 20px;
+}
+.section-header {
+  margin-bottom: 16px;
+}
+.section-header input {
+  margin-left: auto;
+  padding: 10px 16px;
+  min-width: 240px;
+  border-radius: 12px;
+  border: 1px solid #d6e0ea;
+  outline: none;
+   display: flex;
+  align-items: center;
+}
+
+/* KHUSUS header yang ada search */
+.section-header.table-header {
+  display: flex;
+  align-items: center;
+}
+
+.section-header.table-header input {
+  margin-left: auto;
+}
+
+
+
+/* ================= TABLE ================= */
+.table-wrapper {
+  background: #fff;
+  border-radius: 16px;
+  overflow-x: auto;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+  color: #fff;
+  padding: 14px;
+}
+
+th.sortable {
+  cursor: pointer;
+}
+
+td {
+  padding: 14px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background: #f4f7fb;
+}
+
+
+td:first-child {
+  font-weight: 600;
+}
+
+/* ================= MAX BADGE ================= */
+.max-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 6px;
+  background: #ff7043;
+  color: white;
+  font-weight: 700;
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #1e88e5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background: #b0bec5;
+}
+</style>
+</head>
+
+
+<div class="container">
+
+<!-- ================= TABLE 1 ================= -->
+<div class="section-header">
+  <div class="title-pill">Jumlah Institusi per Kecamatan</div>
+  <input type="text" placeholder="Cari kecamatan..." onkeyup="searchTable(this,0)">
+</div>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+  <th>Kecamatan</th>
+  <th class="sortable">SMA</th>
+  <th class="sortable">SMP</th>
+  <th class="sortable">SD</th>
+  <th class="sortable">TK</th>
+  <th class="sortable">Pondok</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Bogor Utara</td><td>10</td><td>15</td><td>20</td><td>25</td><td>80</td></tr>
+<tr><td>Bogor Selatan</td><td>12</td><td>18</td><td>22</td><td>28</td><td>45</td></tr>
+<tr><td>Bogor Timur</td><td>5</td><td>8</td><td>12</td><td>15</td><td>12</td></tr>
+<tr><td>Bogor Barat</td><td>25</td><td>40</td><td>45</td><td>35</td><td>60</td></tr>
+<tr><td>Bogor Tengah</td><td>10</td><td>20</td><td>25</td><td>15</td><td>55</td></tr>
+<tr><td>Tanah Sareal</td><td>15</td><td>30</td><td>35</td><td>28</td><td>65</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pagination">
+  <button onclick="prevPage(0)">Prev</button>
+  <button onclick="nextPage(0)">Next</button>
+</div>
+
+</div>
+
+<script>
+const rowsPerPage = 4;
+let currentPage = [0];
+
+/* ================= PAGINATION ================= */
+function paginate(i){
+  const rows = document.getElementsByTagName("table")[i].tBodies[0].rows;
+  [...rows].forEach((r,idx)=>{
+    r.style.display =
+      idx >= currentPage[i]*rowsPerPage &&
+      idx < (currentPage[i]+1)*rowsPerPage
+      ? "" : "none";
+  });
+}
+
+function nextPage(i){ currentPage[i]++; paginate(i); }
+function prevPage(i){ if(currentPage[i]>0) currentPage[i]--; paginate(i); }
+
+/* ================= SEARCH ================= */
+function searchTable(input,i){
+  const filter = input.value.toLowerCase();
+  const rows = document.getElementsByTagName("table")[i].tBodies[0].rows;
+  [...rows].forEach(r=>{
+    r.style.display = r.innerText.toLowerCase().includes(filter) ? "" : "none";
+  });
+}
+
+/* ================= SORT ================= */
+document.querySelectorAll("th.sortable").forEach((th,idx)=>{
+  th.onclick = ()=>{
+    const table = th.closest("table");
+    const rows = [...table.tBodies[0].rows];
+    const asc = th.classList.toggle("asc");
+    rows.sort((a,b)=>
+      asc
+      ? a.cells[idx].innerText - b.cells[idx].innerText
+      : b.cells[idx].innerText - a.cells[idx].innerText
+    );
+    rows.forEach(r=>table.tBodies[0].appendChild(r));
+  };
+});
+
+</script>
+
+
             <!-- Summary -->
             <div class="dist-summary-card">
                 <div class="dist-summary-grid">
@@ -2833,7 +3030,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Regulations Section -->
     <section id="regulasi" class="regulations-section">
