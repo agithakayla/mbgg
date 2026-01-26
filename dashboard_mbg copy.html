@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-        
+
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -23,55 +24,57 @@
             --text-dark: #2d3436;
             --text-light: #636e72;
             --bg-light: #f8f9fa;
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --hover-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: var(--text-dark);
             overflow-x: hidden;
+            line-height: 1.7;
+            /* Increased line height */
         }
-        
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             background: var(--primary-color);
             border-radius: 10px;
         }
-        
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--secondary-color);
         }
-        
+
         /* Enhanced Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             padding: 15px 0;
         }
-        
+
         .navbar.scrolled {
             padding: 10px 0;
             background: rgba(255, 255, 255, 0.98);
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
@@ -81,7 +84,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .navbar-brand i {
             background: var(--primary-gradient);
             -webkit-background-clip: text;
@@ -89,7 +92,7 @@
             margin-right: 10px;
             font-size: 2rem;
         }
-        
+
         .navbar-nav .nav-link {
             color: var(--text-dark) !important;
             font-weight: 500;
@@ -97,7 +100,7 @@
             position: relative;
             transition: all 0.3s ease;
         }
-        
+
         .navbar-nav .nav-link::after {
             content: "";
             position: absolute;
@@ -109,12 +112,12 @@
             background: var(--primary-gradient);
             transition: width 0.3s ease;
         }
-        
+
         .navbar-nav .nav-link:hover::after,
         .navbar-nav .nav-link.active::after {
             width: 80%;
         }
-        
+
         .btn-login {
             background: var(--primary-gradient);
             border: none;
@@ -125,12 +128,12 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
-        
+
         .btn-login:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
-        
+
         /* Enhanced Hero Section */
         .hero-section {
             background: var(--primary-gradient);
@@ -138,7 +141,7 @@
             padding: 120px 0 80px;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: "";
             position: absolute;
@@ -152,7 +155,7 @@
             opacity: 0.1;
             z-index: 0;
         }
-        
+
         .hero-particles {
             position: absolute;
             top: 0;
@@ -162,56 +165,61 @@
             overflow: hidden;
             z-index: 1;
         }
-        
+
         .particle {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 20s infinite;
         }
-        
+
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) translateX(0);
             }
+
             25% {
                 transform: translateY(-100px) translateX(50px);
             }
+
             50% {
                 transform: translateY(-50px) translateX(-50px);
             }
+
             75% {
                 transform: translateY(-150px) translateX(25px);
             }
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 800;
             color: white;
             margin-bottom: 25px;
             line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-subtitle {
             font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 40px;
             font-weight: 300;
         }
-        
+
         .hero-buttons {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
-        
+
         .btn-hero {
             padding: 15px 40px;
             font-size: 1.1rem;
@@ -223,50 +231,53 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .btn-hero-primary {
             background: white;
             color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-        
+
         .btn-hero-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-hero-outline {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
-        
+
         .btn-hero-outline:hover {
             background: white;
             color: var(--primary-color);
             transform: translateY(-3px);
         }
-        
+
         .hero-image {
             position: relative;
             animation: float-image 6s ease-in-out infinite;
         }
-        
+
         @keyframes float-image {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
         }
-        
+
         .hero-image img {
             width: 100%;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
         }
-        
+
         /* Enhanced Statistics Section */
         .stats-section {
             padding: 80px 0;
@@ -276,7 +287,7 @@
             border-radius: 30px 30px 0 0;
             z-index: 10;
         }
-        
+
         .stat-card-modern {
             background: white;
             border-radius: 20px;
@@ -285,12 +296,12 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             cursor: pointer;
             overflow: hidden;
             transition: all 0.4s ease;
         }
-        
+
         .stat-card-modern::before {
             content: "";
             position: absolute;
@@ -300,12 +311,12 @@
             height: 5px;
             background: var(--primary-gradient);
         }
-        
+
         .stat-card-modern:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: var(--hover-shadow);
         }
-        
+
         .stat-icon-modern {
             width: 80px;
             height: 80px;
@@ -319,7 +330,7 @@
             transition: all 0.4s ease;
             z-index: 2;
         }
-        
+
         .stat-card-modern::after {
             content: "";
             position: absolute;
@@ -327,39 +338,61 @@
             right: 20px;
             font-family: "bootstrap-icons";
             font-size: 90px;
-            color: rgba(0, 0, 0, 0.12); /* abu gelap transparan */
+            color: rgba(0, 0, 0, 0.12);
+            /* abu gelap transparan */
             z-index: 1;
             pointer-events: none;
         }
-.col-lg-4:nth-of-type(1) .stat-card-modern::after { content:"\f4cf"; }
-.col-lg-4:nth-of-type(2) .stat-card-modern::after { content:"\f3e8"; }
-.col-lg-4:nth-of-type(3) .stat-card-modern::after {  content: "\f1f3"; }
-.col-lg-4:nth-of-type(4) .stat-card-modern::after { content:"\f417"; }
-.col-lg-4:nth-of-type(4) .stat-card-modern::after { content:"\f417"; }
-.col-lg-4:nth-of-type(5) .stat-card-modern::after { content: "\f673"; }
-.col-lg-4:nth-of-type(6) .stat-card-modern::after { content: "\f672"; }
-        
+
+        .col-lg-4:nth-of-type(1) .stat-card-modern::after {
+            content: "\f4cf";
+        }
+
+        .col-lg-4:nth-of-type(2) .stat-card-modern::after {
+            content: "\f3e8";
+        }
+
+        .col-lg-4:nth-of-type(3) .stat-card-modern::after {
+            content: "\f1f3";
+        }
+
+        .col-lg-4:nth-of-type(4) .stat-card-modern::after {
+            content: "\f417";
+        }
+
+        .col-lg-4:nth-of-type(4) .stat-card-modern::after {
+            content: "\f417";
+        }
+
+        .col-lg-4:nth-of-type(5) .stat-card-modern::after {
+            content: "\f673";
+        }
+
+        .col-lg-4:nth-of-type(6) .stat-card-modern::after {
+            content: "\f672";
+        }
+
         .stat-icon-modern.gradient-1 {
             background: var(--primary-gradient);
         }
-        
+
         .stat-icon-modern.gradient-2 {
             background: var(--secondary-gradient);
         }
-        
+
         .stat-icon-modern.gradient-3 {
             background: var(--success-gradient);
         }
-        
+
         .stat-icon-modern.gradient-4 {
             background: var(--warning-gradient);
         }
-        
+
         .stat-icon-modern i {
             font-size: 2.5rem;
             color: white;
         }
-        
+
         .stat-number-modern {
             font-size: 2.8rem;
             font-weight: 800;
@@ -368,24 +401,25 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
-        
+
         .stat-label {
             font-size: 1rem;
             color: var(--text-light);
             font-weight: 500;
         }
-        
+
         /* About Section */
         .about-section {
             padding: 100px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        
+
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            /* Increased from 60px */
         }
-        
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 800;
@@ -394,7 +428,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title::after {
             content: "";
             position: absolute;
@@ -406,14 +440,14 @@
             background: var(--primary-gradient);
             border-radius: 2px;
         }
-        
+
         .section-subtitle {
             font-size: 1.1rem;
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         .about-card {
             background: white;
             border-radius: 25px;
@@ -423,12 +457,12 @@
             height: 100%;
         }
 
-        
+
         .about-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--hover-shadow);
         }
-        
+
         .about-icon {
             width: 100px;
             height: 100px;
@@ -440,290 +474,448 @@
             margin: 0 auto 25px;
             transition: transform 0.6s ease;
         }
-        
+
         .about-icon i {
             font-size: 3rem;
             color: white;
             transition: transform 0.6s ease;
         }
+
         .about-card:hover .about-icon i {
-        transform: rotate(360deg);
+            transform: rotate(360deg);
         }
-        
+
         .about-title {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 15px;
         }
-        
+
         .about-description {
             color: var(--text-light);
             line-height: 1.6;
         }
-        
+
         /* Data Distribution Section */
-        .data-section {
-            padding: 100px 0;
-            background: white;
+        .dist-container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
         }
-        
-        .data-card {
+
+        .dist-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .dist-header h1 {
+            color: #2d3436;
+            /* Changed from white to dark since background is likely white/light now, or we need a bg wrapper */
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
+        }
+
+        .dist-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .dist-stats-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            /* Increased from 30px */
+            margin-bottom: 60px;
+            /* Increased from 40px */
+        }
+
+        /* Card Styles */
+        .dist-stat-card {
             background: white;
             border-radius: 25px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            height: 100%;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 0.8s ease-out backwards;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            /* Added border for consistency */
         }
-        
-        .data-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
+
+        .dist-stat-card:nth-child(1) {
+            animation-delay: 0.1s;
         }
-        
-        .data-card::before {
+
+        .dist-stat-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dist-stat-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .dist-stat-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .dist-stat-card::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--primary-gradient);
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
         }
-        
-        .data-icon {
-            width: 80px;
-            height: 80px;
+
+        .dist-stat-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .dist-stat-icon-wrapper {
+            width: 90px;
+            height: 90px;
             border-radius: 20px;
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            animation: float 3s ease-in-out infinite;
         }
-        
-        .data-icon i {
-            font-size: 2.5rem;
-            color: white;
-        }
-        
-        .data-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-        
-        .data-number {
+
+        .dist-stat-icon {
             font-size: 3rem;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+            line-height: 1;
+            /* Fix vertical alignment */
+        }
+
+        .dist-stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dist-stat-number {
+            font-size: 3.5rem;
             font-weight: 800;
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
+            line-height: 1;
         }
-        
-        .data-description {
-            color: var(--text-light);
+
+        .dist-stat-description {
+            font-size: 0.95rem;
+            color: #888;
             line-height: 1.6;
         }
-        
-        .data-table {
+
+        /* Distribution Chart Card */
+        .dist-chart-section {
             background: white;
             border-radius: 25px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            margin-top: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+            margin-bottom: 30px;
         }
-        
-        .data-table-header {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 20px 30px;
+
+        .dist-chart-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        
-        .data-table-title {
-            font-size: 1.3rem;
+
+        .dist-chart-title {
+            font-size: 2rem;
             font-weight: 700;
-            margin: 0;
+            color: #2d3436;
         }
-        
-        .data-table-body {
-            padding: 0;
-        }
-        
-        .data-table-item {
-            padding: 20px 30px;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .data-table-item:hover {
-            background-color: rgba(102, 126, 234, 0.05);
-        }
-        
-        .data-table-item:last-child {
-            border-bottom: none;
-        }
-        
-        .data-table-label {
-            font-weight: 600;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .data-table-value {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        .data-table-badge {
-            background: rgba(102, 126, 234, 0.1);
-            color: var(--primary-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .chart-container {
-            position: relative;
-            height: 400px;
-            margin-top: 30px;
-        }
-        
-        .district-list {
-            background: white;
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: var(--card-shadow);
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        
-        .district-item {
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            background: #f8f9fa;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .district-item:hover {
-            background: var(--primary-gradient);
-            color: white;
-            transform: translateX(10px);
-        }
-        
-        .district-name {
-            font-weight: 600;
-        }
-        
-        .district-value {
-            background: rgba(102, 126, 234, 0.1);
-            color: var(--primary-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .district-item:hover .district-value {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-        
-        /* Regulations Section */
-        .regulations-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-        
-        .regulation-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-color);
-        }
-        
-        .regulation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-        
-        .regulation-number {
-            background: var(--primary-gradient);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .regulation-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-        
-        .regulation-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .regulation-description {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .btn-regulation {
-            background: var(--primary-gradient);
+
+        .dist-download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 12px 30px;
+            border-radius: 25px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-        
-        .btn-regulation:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+
+        .dist-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
-        
+
+        /* Distribution Grid */
+        .dist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            /* Increased from 25px */
+        }
+
+        .dist-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dist-item::after {
+            content: attr(data-icon);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 5rem;
+            opacity: 0.1;
+        }
+
+        .dist-item:nth-child(1) {
+            border-left-color: #667eea;
+        }
+
+        .dist-item:nth-child(2) {
+            border-left-color: #764ba2;
+        }
+
+        .dist-item:nth-child(3) {
+            border-left-color: #4facfe;
+        }
+
+        .dist-item:nth-child(4) {
+            border-left-color: #f5576c;
+        }
+
+        .dist-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .dist-item-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .dist-item-icon {
+            font-size: 2.5rem;
+        }
+
+        .dist-item-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .dist-item-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .dist-item:nth-child(1) .dist-item-value {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dist-item:nth-child(2) .dist-item-value {
+            background: linear-gradient(135deg, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dist-item:nth-child(3) .dist-item-value {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dist-item:nth-child(4) .dist-item-value {
+            background: linear-gradient(135deg, #f5576c, #fa709a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dist-percent-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .dist-percent-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 2s ease-out;
+            animation: fillBar 2s ease-out forwards;
+        }
+
+        .dist-item:nth-child(1) .dist-percent-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 26%;
+        }
+
+        .dist-item:nth-child(2) .dist-percent-fill {
+            background: linear-gradient(90deg, #764ba2, #f093fb);
+            width: 36.6%;
+        }
+
+        .dist-item:nth-child(3) .dist-percent-fill {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            width: 30.6%;
+        }
+
+        .dist-item:nth-child(4) .dist-percent-fill {
+            background: linear-gradient(90deg, #f5576c, #fa709a);
+            width: 6.8%;
+        }
+
+        .dist-percent-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Summary Card */
+        .dist-summary-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 30px;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .dist-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .dist-summary-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .dist-summary-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fillBar {
+            from {
+                width: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .chart-section {
+                padding: 30px 20px;
+            }
+
+            .chart-title {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .item-value {
+                font-size: 2rem;
+            }
+        }
+
         /* Map Section */
         .map-section {
             padding: 100px 0;
             background: white;
         }
-        
+
         .map-container {
             border-radius: 25px;
             overflow: hidden;
@@ -731,7 +923,7 @@
             height: 600px;
             position: relative;
         }
-        
+
         .map-controls {
             position: absolute;
             top: 20px;
@@ -743,41 +935,41 @@
             z-index: 1000;
             min-width: 300px;
         }
-        
+
         .map-search {
             margin-bottom: 15px;
         }
-        
+
         .map-filter {
             margin-bottom: 15px;
         }
-        
+
         .map-legend {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 20px;
             margin-top: 20px;
         }
-        
+
         .legend-item {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 10px;
         }
-        
+
         .legend-color {
             width: 20px;
             height: 20px;
             border-radius: 5px;
         }
-        
+
         /* Menu Section */
         .menu-section {
             padding: 100px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        
+
         .menu-card {
             background: white;
             border-radius: 25px;
@@ -786,29 +978,29 @@
             transition: all 0.3s ease;
             height: 100%;
         }
-        
+
         .menu-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--hover-shadow);
         }
-        
+
         .menu-header {
             background: var(--primary-gradient);
             color: white;
             padding: 20px 30px;
             text-align: center;
         }
-        
+
         .menu-header h3 {
             margin: 0;
             font-size: 1.5rem;
             font-weight: 700;
         }
-        
+
         .menu-body {
             padding: 30px;
         }
-        
+
         .menu-day {
             font-size: 1.2rem;
             font-weight: 700;
@@ -817,11 +1009,11 @@
             padding-bottom: 10px;
             border-bottom: 2px solid #f0f0f0;
         }
-        
+
         .menu-items {
             margin-bottom: 20px;
         }
-        
+
         .menu-item {
             display: flex;
             align-items: center;
@@ -832,12 +1024,12 @@
             border-radius: 15px;
             transition: all 0.3s ease;
         }
-        
+
         .menu-item:hover {
             background: rgba(102, 126, 234, 0.1);
             transform: translateX(5px);
         }
-        
+
         .menu-icon {
             width: 50px;
             height: 50px;
@@ -849,47 +1041,47 @@
             color: white;
             font-size: 1.5rem;
         }
-        
+
         .menu-details {
             flex: 1;
         }
-        
+
         .menu-name {
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 5px;
         }
-        
+
         .menu-calories {
             font-size: 0.9rem;
             color: var(--text-light);
         }
-        
+
         .nutrition-info {
             background: rgba(102, 126, 234, 0.1);
             border-radius: 15px;
             padding: 20px;
             margin-top: 20px;
         }
-        
+
         .nutrition-title {
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 15px;
         }
-        
+
         .nutrition-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-        
+
         .nutrition-label {
             font-weight: 600;
             color: var(--text-dark);
         }
-        
+
         .nutrition-value {
             background: var(--primary-gradient);
             color: white;
@@ -898,13 +1090,13 @@
             font-weight: 600;
             font-size: 0.9rem;
         }
-        
+
         /* Enhanced Distribution Section */
         .distribution-section {
             padding: 100px 0;
             background: white;
         }
-        
+
         .data-tabs {
             background: white;
             border-radius: 25px;
@@ -912,12 +1104,12 @@
             box-shadow: var(--card-shadow);
             margin-bottom: 30px;
         }
-        
+
         .nav-tabs-modern {
             border: none;
             margin-bottom: 30px;
         }
-        
+
         .nav-tabs-modern .nav-link {
             background: #f8f9fa;
             border: 2px solid transparent;
@@ -928,18 +1120,18 @@
             color: var(--text-dark);
             transition: all 0.3s ease;
         }
-        
+
         .nav-tabs-modern .nav-link:hover {
             background: rgba(102, 126, 234, 0.1);
             border-color: var(--primary-color);
         }
-        
+
         .nav-tabs-modern .nav-link.active {
             background: var(--primary-gradient);
             color: white;
             border-color: var(--primary-color);
         }
-        
+
         .filter-card {
             background: white;
             border-radius: 25px;
@@ -947,7 +1139,7 @@
             box-shadow: var(--card-shadow);
             margin-bottom: 30px;
         }
-        
+
         .filter-title {
             font-size: 1.3rem;
             font-weight: 700;
@@ -956,7 +1148,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .filter-title::after {
             content: "";
             position: absolute;
@@ -967,18 +1159,18 @@
             background: var(--primary-gradient);
             border-radius: 2px;
         }
-        
+
         .filter-group {
             margin-bottom: 25px;
         }
-        
+
         .filter-label {
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 10px;
             display: block;
         }
-        
+
         .form-control-modern,
         .form-select-modern {
             border: 2px solid #e0e0e0;
@@ -988,13 +1180,13 @@
             transition: all 0.3s ease;
             width: 100%;
         }
-        
+
         .form-control-modern:focus,
         .form-select-modern:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
         }
-        
+
         .data-table-modern {
             background: white;
             border-radius: 25px;
@@ -1002,13 +1194,13 @@
             box-shadow: var(--card-shadow);
             margin-top: 30px;
         }
-        
+
         .table-modern {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 0;
         }
-        
+
         .table-modern thead th {
             background: var(--primary-gradient);
             color: white;
@@ -1016,29 +1208,29 @@
             font-weight: 600;
             border: none;
         }
-        
+
         .table-modern thead th:first-child {
             border-top-left-radius: 15px;
         }
-        
+
         .table-modern thead th:last-child {
             border-top-right-radius: 15px;
         }
-        
+
         .table-modern tbody td {
             padding: 15px;
             border-bottom: 1px solid #f0f0f0;
             vertical-align: middle;
         }
-        
+
         .table-modern tbody tr:hover {
             background-color: rgba(102, 126, 234, 0.05);
         }
-        
+
         .table-modern tbody tr:last-child td {
             border-bottom: none;
         }
-        
+
         .school-badge {
             padding: 5px 15px;
             border-radius: 20px;
@@ -1046,37 +1238,37 @@
             font-size: 0.85rem;
             display: inline-block;
         }
-        
+
         .badge-sd {
             background: rgba(76, 175, 80, 0.1);
             color: #4CAF50;
         }
-        
+
         .badge-smp {
             background: rgba(33, 150, 243, 0.1);
             color: #2196F3;
         }
-        
+
         .badge-sma {
             background: rgba(156, 39, 176, 0.1);
             color: #9C27B0;
         }
-        
+
         .badge-tk {
             background: rgba(255, 152, 0, 0.1);
             color: #FF9800;
         }
-        
+
         .badge-posyandu {
             background: rgba(233, 30, 99, 0.1);
             color: #E91E63;
         }
-        
+
         .badge-dapur {
             background: rgba(0, 188, 212, 0.1);
             color: #00BCD4;
         }
-        
+
         .status-badge {
             padding: 5px 15px;
             border-radius: 20px;
@@ -1084,28 +1276,28 @@
             font-size: 0.85rem;
             display: inline-block;
         }
-        
+
         .status-active {
             background: rgba(76, 175, 80, 0.1);
             color: #4CAF50;
         }
-        
+
         .status-inactive {
             background: rgba(244, 67, 54, 0.1);
             color: #F44336;
         }
-        
+
         .status-pending {
             background: rgba(255, 152, 0, 0.1);
             color: #FF9800;
         }
-        
+
         .pagination-modern {
             margin-top: 20px;
             display: flex;
             justify-content: center;
         }
-        
+
         .pagination-modern .page-link {
             border: 2px solid #e0e0e0;
             color: var(--text-dark);
@@ -1114,28 +1306,28 @@
             border-radius: 10px;
             transition: all 0.3s ease;
         }
-        
+
         .pagination-modern .page-link:hover {
             background: var(--primary-gradient);
             border-color: var(--primary-color);
             color: white;
         }
-        
+
         .pagination-modern .page-item.active .page-link {
             background: var(--primary-gradient);
             border-color: var(--primary-color);
             color: white;
         }
-        
+
         .search-box {
             position: relative;
             margin-bottom: 20px;
         }
-        
+
         .search-box input {
             padding-left: 45px;
         }
-        
+
         .search-box i {
             position: absolute;
             left: 15px;
@@ -1144,7 +1336,7 @@
             color: var(--text-light);
             z-index: 10;
         }
-        
+
         .stats-summary {
             background: var(--primary-gradient);
             color: white;
@@ -1155,30 +1347,30 @@
             justify-content: space-around;
             flex-wrap: wrap;
         }
-        
+
         .stat-item {
             text-align: center;
             padding: 10px;
         }
-        
+
         .stat-item-number {
             font-size: 2rem;
             font-weight: 700;
             display: block;
         }
-        
+
         .stat-item-label {
             font-size: 0.9rem;
             opacity: 0.9;
             color: #000;
         }
-        
+
         .export-buttons {
             display: flex;
             gap: 10px;
             margin-top: 20px;
         }
-        
+
         .btn-export {
             background: white;
             border: 2px solid var(--primary-color);
@@ -1192,34 +1384,34 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .btn-export:hover {
             background: var(--primary-gradient);
             color: white;
             border-color: var(--primary-color);
         }
-        
+
         /* FAQ Section */
         .faq-section {
             padding: 100px 0;
             background: white;
         }
-        
+
         .accordion-modern {
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
         }
-        
+
         .accordion-item-modern {
             border: none;
             border-bottom: 1px solid #e0e0e0;
         }
-        
+
         .accordion-item-modern:last-child {
             border-bottom: none;
         }
-        
+
         .accordion-button-modern {
             background: white;
             color: var(--text-dark);
@@ -1228,29 +1420,29 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .accordion-button-modern:not(.collapsed) {
             background: var(--primary-gradient);
             color: white;
             box-shadow: none;
         }
-        
+
         .accordion-button-modern::after {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23667eea'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
             transition: transform 0.3s ease;
         }
-        
+
         .accordion-button-modern:not(.collapsed)::after {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
             transform: rotate(180deg);
         }
-        
+
         .accordion-body-modern {
             padding: 20px 30px;
             color: var(--text-light);
             line-height: 1.8;
         }
-        
+
         /* Enhanced Footer */
         .footer-modern {
             background: var(--dark-gradient);
@@ -1259,7 +1451,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .footer-modern::before {
             content: "";
             position: absolute;
@@ -1272,24 +1464,24 @@
             background-position: center;
             opacity: 0.05;
         }
-        
+
         .footer-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .footer-brand {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
         }
-        
+
         .footer-description {
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.8;
             margin-bottom: 30px;
         }
-        
+
         .footer-title {
             font-size: 1.2rem;
             font-weight: 700;
@@ -1298,7 +1490,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .footer-title::after {
             content: "";
             position: absolute;
@@ -1309,16 +1501,16 @@
             background: var(--accent-color);
             border-radius: 2px;
         }
-        
+
         .footer-links {
             list-style: none;
             padding: 0;
         }
-        
+
         .footer-links li {
             margin-bottom: 12px;
         }
-        
+
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -1327,18 +1519,18 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .footer-links a:hover {
             color: var(--accent-color);
             transform: translateX(5px);
         }
-        
+
         .social-icons-modern {
             display: flex;
             gap: 15px;
             margin-top: 30px;
         }
-        
+
         .social-icon-modern {
             width: 45px;
             height: 45px;
@@ -1352,17 +1544,17 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-icon-modern:hover {
             background: var(--accent-color);
             transform: translateY(-5px);
         }
-        
+
         .newsletter-form {
             position: relative;
             margin-top: 20px;
         }
-        
+
         .newsletter-input {
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.2);
@@ -1372,17 +1564,17 @@
             width: 100%;
             transition: all 0.3s ease;
         }
-        
+
         .newsletter-input::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         .newsletter-input:focus {
             background: rgba(255, 255, 255, 0.15);
             border-color: var(--accent-color);
             outline: none;
         }
-        
+
         .newsletter-button {
             position: absolute;
             right: 5px;
@@ -1396,12 +1588,12 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .newsletter-button:hover {
             background: #ff4757;
             transform: translateY(-50%) translateX(-2px);
         }
-        
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 60px;
@@ -1409,35 +1601,35 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         /* Enhanced Login Modal */
         .modal-content-modern {
             border: none;
             border-radius: 25px;
             overflow: hidden;
         }
-        
+
         .modal-header-modern {
             background: var(--primary-gradient);
             color: white;
             border: none;
             padding: 30px;
         }
-        
+
         .modal-body-modern {
             padding: 40px;
             background: white;
         }
-        
+
         .login-form-modern {
             max-width: 400px;
             margin: 0 auto;
         }
-        
+
         .form-floating-modern {
             margin-bottom: 20px;
         }
-        
+
         .form-control-modern-login {
             border: 2px solid #e0e0e0;
             border-radius: 15px;
@@ -1445,12 +1637,12 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .form-control-modern-login:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
         }
-        
+
         .btn-login-modern {
             background: var(--primary-gradient);
             border: none;
@@ -1462,109 +1654,109 @@
             transition: all 0.3s ease;
             width: 100%;
         }
-        
+
         .btn-login-modern:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
-        
+
         /* Custom scrollbar for lists */
         .district-list::-webkit-scrollbar,
         .sppg-list::-webkit-scrollbar {
             width: 8px;
         }
-        
+
         .district-list::-webkit-scrollbar-track,
         .sppg-list::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 10px;
         }
-        
+
         .district-list::-webkit-scrollbar-thumb,
         .sppg-list::-webkit-scrollbar-thumb {
             background: var(--primary-color);
             border-radius: 10px;
         }
-        
+
         .district-list::-webkit-scrollbar-thumb:hover,
         .sppg-list::-webkit-scrollbar-thumb:hover {
             background: var(--secondary-color);
         }
-        
+
         /* Responsive Design */
         @media (max-width: 991px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .map-controls {
                 position: static;
                 margin-top: 20px;
                 min-width: 100%;
             }
-            
+
             .stats-summary {
                 flex-direction: column;
             }
         }
-        
+
         @media (max-width: 767px) {
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.1rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
-            
+
             .stat-number-modern {
                 font-size: 2.2rem;
             }
-            
+
             .map-container {
                 height: 400px;
             }
-            
+
             .data-table-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .nav-tabs-modern .nav-link {
                 padding: 10px 15px;
                 font-size: 0.9rem;
                 margin-right: 5px;
             }
-            
+
             .table-modern {
                 font-size: 0.9rem;
             }
-            
+
             .table-modern th,
             .table-modern td {
                 padding: 10px 5px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero-section {
                 padding: 80px 0 60px;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
             }
-            
+
             .btn-hero {
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .stats-section,
             .about-section,
             .data-section,
@@ -1575,12 +1767,12 @@
             .faq-section {
                 padding: 60px 0;
             }
-            
+
             .export-buttons {
                 flex-direction: column;
             }
         }
-        
+
         /* Loading Animation */
         .loader {
             position: fixed;
@@ -1595,12 +1787,12 @@
             z-index: 9999;
             transition: opacity 0.5s ease;
         }
-        
+
         .loader.hidden {
             opacity: 0;
             pointer-events: none;
         }
-        
+
         .loader-circle {
             width: 50px;
             height: 50px;
@@ -1609,12 +1801,17 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -1636,24 +1833,25 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
-        
+
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .back-to-top:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
     </style>
 </head>
+
 <body>
     <!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-circle"></div>
     </div>
-    
+
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
         <i class="bi bi-arrow-up"></i>
@@ -1712,7 +1910,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="hero-title">Program Makan Bergizi Gratis untuk Generasi Sehat</h1>
-                    <p class="hero-subtitle">Wujudkan Indonesia bebas stunting dan malnutrisi melalui program makanan bergizi gratis yang tersebar di seluruh nusantara.</p>
+                    <p class="hero-subtitle">Wujudkan Indonesia bebas stunting dan malnutrisi melalui program makanan
+                        bergizi gratis yang tersebar di seluruh nusantara.</p>
                     <div class="hero-buttons">
                         <a href="#tentang" class="btn-hero btn-hero-primary">
                             <i class="bi bi-rocket-takeoff"></i> Mulai Sekarang
@@ -1732,95 +1931,99 @@
     </section>
 
     <!-- Enhanced Statistics Section -->
-   <section class="stats-section">
-<div class="container">
-<div class="row g-4">
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
 
-<!-- 1 -->
-<div class="col-lg-4 col-md-4" data-aos="fade-up">
-<div class="stat-card-modern">
-<div class="stat-icon-modern gradient-1"><i class="bi bi-people-fill"></i></div>
-<div class="stat-number-modern" data-target="2500000">
-<span class="number">0</span>
-</div>
-<div class="stat-label">
-    <b>Penerima Manfaat</b></div>
-</div>
-</div>
+                <!-- 1 -->
+                <div class="col-lg-4 col-md-4" data-aos="fade-up">
+                    <div class="stat-card-modern">
+                        <div class="stat-icon-modern gradient-1"><i class="bi bi-people-fill"></i></div>
+                        <div class="stat-number-modern" data-target="2500000">
+                            <span class="number">0</span>
+                        </div>
+                        <div class="stat-label">
+                            <b>Penerima Manfaat</b>
+                        </div>
+                    </div>
+                </div>
 
-<!-- 2 -->
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-<div class="stat-card-modern">
-<div class="stat-icon-modern gradient-2"><i class="bi bi-geo-alt-fill"></i></div>
-<div class="stat-number-modern" data-target="5000">
-<span class="number">0</span>
-</div>
-<div class="stat-label">
-    <b>Lokasi Distribusi</b></div>
-</div>
-</div>
+                <!-- 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card-modern">
+                        <div class="stat-icon-modern gradient-2"><i class="bi bi-geo-alt-fill"></i></div>
+                        <div class="stat-number-modern" data-target="5000">
+                            <span class="number">0</span>
+                        </div>
+                        <div class="stat-label">
+                            <b>Lokasi Distribusi</b>
+                        </div>
+                    </div>
+                </div>
 
-<!-- 3 -->
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-<div class="stat-card-modern">
-<div class="stat-icon-modern gradient-3"><i class="bi bi-calendar-check-fill"></i></div>
-<div class="stat-number-modern" data-target="365">
-<span class="number">0</span>
-</div>
-<div class="stat-label">
-    <b>Hari Operasional</b></div>
-</div>
-</div>
+                <!-- 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card-modern">
+                        <div class="stat-icon-modern gradient-3"><i class="bi bi-calendar-check-fill"></i></div>
+                        <div class="stat-number-modern" data-target="365">
+                            <span class="number">0</span>
+                        </div>
+                        <div class="stat-label">
+                            <b>Hari Operasional</b>
+                        </div>
+                    </div>
+                </div>
 
-<!-- 4 -->
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-<div class="stat-card-modern">
-<div class="stat-icon-modern gradient-4"><i class="bi bi-heart-pulse-fill"></i></div>
-<div class="stat-number-modern" data-target="98">
-<span class="number">0</span><span>%</span>
-</div>
-<div class="stat-label">
-    <b>Tingkat Kepuasan</b></div>
-</div>
-</div>
+                <!-- 4 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card-modern">
+                        <div class="stat-icon-modern gradient-4"><i class="bi bi-heart-pulse-fill"></i></div>
+                        <div class="stat-number-modern" data-target="98">
+                            <span class="number">0</span><span>%</span>
+                        </div>
+                        <div class="stat-label">
+                            <b>Tingkat Kepuasan</b>
+                        </div>
+                    </div>
+                </div>
 
-<!-- 5 -->
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-    <div class="stat-card-modern">
-        <div class="stat-icon-modern gradient-3">
-           <i class="bi bi-graph-up-arrow"></i>
+                <!-- 5 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card-modern">
+                        <div class="stat-icon-modern gradient-3">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+
+                        <div class="stat-number-modern" data-target="87">
+                            <span class="number">0</span><span>%</span>
+                        </div>
+
+                        <div class="stat-label">
+                            <b>Peningkatan Gizi</b>
+                        </div>
+
+                        <div class="stat-desc">
+                            Perbaikan status gizi penerima
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 6 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="stat-card-modern">
+                        <div class="stat-icon-modern gradient-4"><i class="bi bi-graph-down-arrow"></i></div>
+                        <div class="stat-number-modern" data-target="23">
+                            <span class="number">0</span><span>%</span>
+                        </div>
+                        <div class="stat-label"><b>Penurunan Stunting</b></div>
+                        <div class="stat-desc">Dampak program terhadap stunting</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-        <div class="stat-number-modern" data-target="87">
-            <span class="number">0</span><span>%</span>
-        </div>
-
-        <div class="stat-label">
-            <b>Peningkatan Gizi</b>
-        </div>
-
-        <div class="stat-desc">
-            Perbaikan status gizi penerima
-        </div>
-    </div>
-</div>
-
-
-<!-- 6 -->
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-<div class="stat-card-modern">
-<div class="stat-icon-modern gradient-4"><i class="bi bi-graph-down-arrow"></i></div>
-<div class="stat-number-modern" data-target="23">
-<span class="number">0</span><span>%</span>
-</div>
-<div class="stat-label"><b>Penurunan Stunting</b></div>
-<div class="stat-desc">Dampak program terhadap stunting</div>
-</div>
-</div>
-
-</div>
-</div>
-</section>
+    </section>
     <!-- About Section -->
     <section id="tentang" class="about-section">
         <div class="container">
@@ -1835,7 +2038,8 @@
                             <i class="bi bi-bullseye"></i>
                         </div>
                         <h4 class="about-title">Visi & Misi</h4>
-                        <p class="about-description">Mewujudkan generasi Indonesia yang sehat, cerdas, dan produktif melalui akses nutrisi berkualitas tinggi untuk semua anak bangsa.</p>
+                        <p class="about-description">Mewujudkan generasi Indonesia yang sehat, cerdas, dan produktif
+                            melalui akses nutrisi berkualitas tinggi untuk semua anak bangsa.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -1844,7 +2048,8 @@
                             <i class="bi bi-award"></i>
                         </div>
                         <h4 class="about-title">Tujuan Program</h4>
-                        <p class="about-description">Mengurangi angka stunting, meningkatkan kualitas gizi masyarakat, dan mendukung pertumbuhan optimal anak-anak Indonesia.</p>
+                        <p class="about-description">Mengurangi angka stunting, meningkatkan kualitas gizi masyarakat,
+                            dan mendukung pertumbuhan optimal anak-anak Indonesia.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -1853,209 +2058,341 @@
                             <i class="bi bi-shield-check"></i>
                         </div>
                         <h4 class="about-title">Komitmen Pemerintah</h4>
-                        <p class="about-description">Program nasional yang didukung penuh oleh pemerintah untuk memastikan ketersediaan makanan bergizi bagi seluruh lapisan masyarakat.</p>
+                        <p class="about-description">Program nasional yang didukung penuh oleh pemerintah untuk
+                            memastikan ketersediaan makanan bergizi bagi seluruh lapisan masyarakat.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Data Distribution Section -->
-    <section id="statistik" class="data-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Statistik Penyaluran Program MBG</h2>
-                <p class="section-subtitle">Data lengkap tentang penyaluran program Makan Bergizi Gratis di Indonesia</p>
-            </div>
-            
-            <div class="row g-4 mb-5">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="data-card">
-                        <div class="data-icon">
-                            <i class="bi bi-geo-alt-fill"></i>
-                        </div>
-                        <h4 class="data-title">Kecamatan</h4>
-                        <div class="data-number" data-target="514">0</div>
-                        <p class="data-description">Total kecamatan di Indonesia yang tercakup dalam program MBG</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="data-card">
-                        <div class="data-icon">
-                            <i class="bi bi-building"></i>
-                        </div>
-                        <h4 class="data-title">Total SPPG</h4>
-                        <div class="data-number" data-target="8750">0</div>
-                        <p class="data-description">Satuan Pelayanan Penyediaan Gizi di seluruh Indonesia</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="data-card">
-                        <div class="data-icon">
-                            <i class="bi bi-people-fill"></i>
-                        </div>
-                        <h4 class="data-title">Kelompok Penerima</h4>
-                        <div class="data-number" data-target="12500">0</div>
-                        <p class="data-description">Total kelompok penerima manfaat di seluruh Indonesia</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="data-card">
-                        <div class="data-icon">
-                            <i class="bi bi-person-check-fill"></i>
-                        </div>
-                        <h4 class="data-title">Penerima Manfaat</h4>
-                        <div class="data-number" data-target="2500000">0</div>
-                        <p class="data-description">Total individu penerima manfaat di seluruh Indonesia</p>
-                    </div>
-                </div>
-            </div>
-            
-           <div class="row g-4 mb-5">
-    <div class="col-12" data-aos="fade-up">
-        <div class="data-table">
-
-            <div class="data-table-header">
-                <h3 class="data-table-title">
-                    Distribusi Berdasarkan Jenjang Pendidikan
-                </h3>
-                <button class="btn btn-light btn-sm">
-                    <i class="bi bi-download"></i> Unduh Data
-                </button>
+    <!-- Distribution Section -->
+    <section id="statistik-distribusi" class="distribution-section">
+        <div class="dist-container">
+            <!-- Header -->
+            <div class="dist-header">
+                <h1>📊 Statistik Distribusi MBG</h1>
+                <p>Data Penyaluran Program Makan Bergizi Gratis di Indonesia</p>
             </div>
 
-            <div class="data-table-body">
-
-                <div class="data-table-item">
-                    <div class="data-table-label">
-                        <i class="bi bi-mortarboard-fill text-primary"></i>
-                        SMA & Sederajat
+            <!-- Stats Cards -->
+            <div class="dist-stats-wrapper">
+                <div class="dist-stat-card">
+                    <div class="dist-stat-icon-wrapper">
+                        <div class="dist-stat-icon">🎓</div>
                     </div>
-                    <div class="data-table-value">650.000</div>
+                    <div class="dist-stat-label">Total Penerima</div>
+                    <div class="dist-stat-number">2.5M+</div>
+                    <div class="dist-stat-description">Penerima manfaat di seluruh Indonesia</div>
                 </div>
 
-                <div class="data-table-item">
-                    <div class="data-table-label">
-                        <i class="bi bi-book-fill text-success"></i>
-                        SMP & Sederajat
+                <div class="dist-stat-card">
+                    <div class="dist-stat-icon-wrapper">
+                        <div class="dist-stat-icon">🏫</div>
                     </div>
-                    <div class="data-table-value">915.000</div>
+                    <div class="dist-stat-label">Total Sekolah</div>
+                    <div class="dist-stat-number">85,230</div>
+                    <div class="dist-stat-description">Sekolah yang terdaftar dalam program</div>
                 </div>
 
-                <div class="data-table-item">
-                    <div class="data-table-label">
-                        <i class="bi bi-pencil-fill text-warning"></i>
-                        SD & Sederajat
+                <div class="dist-stat-card">
+                    <div class="dist-stat-icon-wrapper">
+                        <div class="dist-stat-icon">📍</div>
                     </div>
-                    <div class="data-table-value">765.000</div>
+                    <div class="dist-stat-label">Kecamatan</div>
+                    <div class="dist-stat-number">514</div>
+                    <div class="dist-stat-description">Kecamatan tercakup program MBG</div>
                 </div>
 
-                <div class="data-table-item">
-                    <div class="data-table-label">
-                        <i class="bi bi-balloon-fill text-danger"></i>
-                        TK / PAUD & Sederajat
+                <div class="dist-stat-card">
+                    <div class="dist-stat-icon-wrapper">
+                        <div class="dist-stat-icon">🍽️</div>
                     </div>
-                    <div class="data-table-value">170.000</div>
+                    <div class="dist-stat-label">SPPG Aktif</div>
+                    <div class="dist-stat-number">8,750</div>
+                    <div class="dist-stat-description">Satuan Pelayanan Penyediaan Gizi</div>
                 </div>
-
-                <div class="data-table-item">
-                    <div class="data-table-label">
-                        <i class="bi bi-building-fill text-info"></i>
-                        Total Sekolah
-                    </div>
-                    <div class="data-table-value">85.230</div>
-                </div>
-
             </div>
-        </div>
-    </div>
-</div>
+
+            <!-- Distribution Chart -->
+            <div class="dist-chart-section">
+                <div class="dist-chart-header">
+                    <h2 class="dist-chart-title">Distribusi Berdasarkan Jenjang Pendidikan</h2>
+                    <button class="dist-download-btn">📥 Unduh Data</button>
+                </div>
+
+                <div class="dist-grid">
+                    <div class="dist-item" data-icon="🎓">
+                        <div class="dist-item-header">
+                            <div class="dist-item-icon">🎓</div>
+                            <div class="dist-item-label">SMA & Sederajat</div>
+                        </div>
+                        <div class="dist-item-value">650,000</div>
+                        <div class="dist-percent-bar">
+                            <div class="dist-percent-fill"></div>
+                        </div>
+                        <div class="dist-percent-text">26% dari total penerima</div>
+                    </div>
+
+                    <div class="dist-item" data-icon="📚">
+                        <div class="dist-item-header">
+                            <div class="dist-item-icon">📚</div>
+                            <div class="dist-item-label">SMP & Sederajat</div>
+                        </div>
+                        <div class="dist-item-value">915,000</div>
+                        <div class="dist-percent-bar">
+                            <div class="dist-percent-fill"></div>
+                        </div>
+                        <div class="dist-percent-text">36.6% dari total penerima</div>
+                    </div>
+
+                    <div class="dist-item" data-icon="✏️">
+                        <div class="dist-item-header">
+                            <div class="dist-item-icon">✏️</div>
+                            <div class="dist-item-label">SD & Sederajat</div>
+                        </div>
+                        <div class="dist-item-value">765,000</div>
+                        <div class="dist-percent-bar">
+                            <div class="dist-percent-fill"></div>
+                        </div>
+                        <div class="dist-percent-text">30.6% dari total penerima</div>
+                    </div>
+
+                    <div class="dist-item" data-icon="🎈">
+                        <div class="dist-item-header">
+                            <div class="dist-item-icon">🎈</div>
+                            <div class="dist-item-label">TK / PAUD & Sederajat</div>
+                        </div>
+                        <div class="dist-item-value">170,000</div>
+                        <div class="dist-percent-bar">
+                            <div class="dist-percent-fill"></div>
+                        </div>
+                        <div class="dist-percent-text">6.8% dari total penerima</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="dist-summary-card">
+                <div class="dist-summary-grid">
+                    <div class="dist-summary-item">
+                        <h3>98%</h3>
+                        <p>Tingkat Kepuasan</p>
+                    </div>
+                    <div class="dist-summary-item">
+                        <h3>87%</h3>
+                        <p>Peningkatan Gizi</p>
+                    </div>
+                    <div class="dist-summary-item">
+                        <h3>23%</h3>
+                        <p>Penurunan Stunting</p>
+                    </div>
+                    <div class="dist-summary-item">
+                        <h3>365</h3>
+                        <p>Hari Operasional</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <!-- Regulations Section -->
+    <style>
+        /* Regulation Section Styles */
+        .regulations-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+            /* Lighter background to contrast with white cards */
+            position: relative;
+        }
+
+        .regulation-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Left accent border using pseudo-element */
+        .regulation-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 20px 0 0 20px;
+        }
+
+        .regulation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .regulation-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .regulation-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .regulation-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #636e72;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .regulation-date i {
+            color: #667eea;
+        }
+
+        .regulation-description {
+            color: #636e72;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+            /* Pushes button to bottom */
+        }
+
+        .btn-regulation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            width: fit-content;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-regulation:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
     <section id="regulasi" class="regulations-section">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Regulasi Program MBG</h2>
-            <p class="section-subtitle">
-                Dasar hukum dan peraturan yang mengatur program Makan Bergizi Gratis
-            </p>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Regulasi Program MBG</h2>
+                <p class="section-subtitle">
+                    Dasar hukum dan peraturan yang mengatur program Makan Bergizi Gratis
+                </p>
+            </div>
+
+            <div class="row g-5" data-aos="fade-up"> <!-- Increased gutter from g-4 to g-5 -->
+
+                <!-- Card 1 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="regulation-card">
+                        <div class="regulation-number">1</div>
+                        <h4 class="regulation-title">Peraturan Presiden No. 83 Tahun 2023</h4>
+                        <div class="regulation-date">
+                            <i class="bi bi-calendar3"></i> 15 November 2023
+                        </div>
+                        <p class="regulation-description">
+                            Peraturan Presiden tentang Penyelenggaraan Makan Bergizi Gratis yang menjadi dasar hukum
+                            utama program MBG di seluruh Indonesia.
+                        </p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="regulation-card">
+                        <div class="regulation-number">2</div>
+                        <h4 class="regulation-title">Peraturan Menteri Kesehatan No. 45 Tahun 2023</h4>
+                        <div class="regulation-date">
+                            <i class="bi bi-calendar3"></i> 20 November 2023
+                        </div>
+                        <p class="regulation-description">
+                            Pedoman teknis pelaksanaan program MBG termasuk standar gizi, kualitas pangan, dan mekanisme
+                            distribusi.
+                        </p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="regulation-card">
+                        <div class="regulation-number">3</div>
+                        <h4 class="regulation-title">Peraturan Menteri Pendidikan No. 28 Tahun 2023</h4>
+                        <div class="regulation-date">
+                            <i class="bi bi-calendar3"></i> 25 November 2023
+                        </div>
+                        <p class="regulation-description">
+                            Integrasi program MBG dengan sistem pendidikan dan mekanisme pelaksanaan di satuan
+                            pendidikan.
+                        </p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="regulation-card">
+                        <div class="regulation-number">4</div>
+                        <h4 class="regulation-title">Keputusan Menteri Dalam Negeri No. 180 Tahun 2023</h4>
+                        <div class="regulation-date">
+                            <i class="bi bi-calendar3"></i> 30 November 2023
+                        </div>
+                        <p class="regulation-description">
+                            Pedoman pelaksanaan program MBG di daerah termasuk pembentukan SPPG dan alokasi anggaran.
+                        </p>
+                        <button class="btn-regulation">
+                            <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
+                        </button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-
-        <div class="row g-4" data-aos="fade-up">
-
-            <!-- Card 1 -->
-            <div class="col-lg-6 col-md-6">
-                <div class="regulation-card">
-                    <div class="regulation-number">1</div>
-                    <h4 class="regulation-title">Peraturan Presiden No. 83 Tahun 2023</h4>
-                    <div class="regulation-date">
-                        <i class="bi bi-calendar3"></i> 15 November 2023
-                    </div>
-                    <p class="regulation-description">
-                        Peraturan Presiden tentang Penyelenggaraan Makan Bergizi Gratis yang menjadi dasar hukum utama program MBG di seluruh Indonesia.
-                    </p>
-                    <button class="btn-regulation">
-                        <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
-                    </button>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-lg-6 col-md-6">
-                <div class="regulation-card">
-                    <div class="regulation-number">2</div>
-                    <h4 class="regulation-title">Peraturan Menteri Kesehatan No. 45 Tahun 2023</h4>
-                    <div class="regulation-date">
-                        <i class="bi bi-calendar3"></i> 20 November 2023
-                    </div>
-                    <p class="regulation-description">
-                        Pedoman teknis pelaksanaan program MBG termasuk standar gizi, kualitas pangan, dan mekanisme distribusi.
-                    </p>
-                    <button class="btn-regulation">
-                        <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
-                    </button>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-lg-6 col-md-6">
-                <div class="regulation-card">
-                    <div class="regulation-number">3</div>
-                    <h4 class="regulation-title">Peraturan Menteri Pendidikan No. 28 Tahun 2023</h4>
-                    <div class="regulation-date">
-                        <i class="bi bi-calendar3"></i> 25 November 2023
-                    </div>
-                    <p class="regulation-description">
-                        Integrasi program MBG dengan sistem pendidikan dan mekanisme pelaksanaan di satuan pendidikan.
-                    </p>
-                    <button class="btn-regulation">
-                        <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
-                    </button>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-lg-6 col-md-6">
-                <div class="regulation-card">
-                    <div class="regulation-number">4</div>
-                    <h4 class="regulation-title">Keputusan Menteri Dalam Negeri No. 180 Tahun 2023</h4>
-                    <div class="regulation-date">
-                        <i class="bi bi-calendar3"></i> 30 November 2023
-                    </div>
-                    <p class="regulation-description">
-                        Pedoman pelaksanaan program MBG di daerah termasuk pembentukan SPPG dan alokasi anggaran.
-                    </p>
-                    <button class="btn-regulation">
-                        <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+    </section>
     <!-- Map Section -->
     <section id="peta-mbg" class="map-section">
         <div class="container">
@@ -2066,13 +2403,9 @@
             <div class="row">
                 <div class="col-lg-12" data-aos="fade-up">
                     <div class="map-container">
-                        <iframe 
+                        <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1234567890"
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                         </iframe>
                         <div class="map-controls">
                             <h5 class="mb-3">Filter Lokasi</h5>
@@ -2132,7 +2465,8 @@
                     <div class="accordion accordion-modern" id="faqAccordion">
                         <div class="accordion-item accordion-item-modern">
                             <h2 class="accordion-header" id="heading1">
-                                <button class="accordion-button accordion-button-modern" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                <button class="accordion-button accordion-button-modern" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse1">
                                     Siapa saja yang bisa mendaftar program Makan Bergizi Gratis?
                                 </button>
                             </h2>
@@ -2151,7 +2485,8 @@
                         </div>
                         <div class="accordion-item accordion-item-modern">
                             <h2 class="accordion-header" id="heading2">
-                                <button class="accordion-button accordion-button-modern collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse2">
                                     Apakah makanan yang disajikan halal dan aman?
                                 </button>
                             </h2>
@@ -2165,13 +2500,15 @@
                                         <li>Dikemas dengan higienis</li>
                                         <li>Memiliki tanggal kedaluwarsa yang jelas</li>
                                     </ul>
-                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan makanan.
+                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan
+                                    makanan.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item accordion-item-modern">
                             <h2 class="accordion-header" id="heading3">
-                                <button class="accordion-button accordion-button-modern collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse3">
                                     Bagaimana cara melaporkan jika ada masalah dengan makanan?
                                 </button>
                             </h2>
@@ -2184,13 +2521,15 @@
                                         <li>Website resmi di kolom pengaduan</li>
                                         <li>Menghubungi petugas di lokasi distribusi</li>
                                     </ol>
-                                    Setiap laporan akan ditindaklanjuti maksimal 6 jam dan kami memberikan kompensasi jika terbukti ada kesalahan dari pihak kami.
+                                    Setiap laporan akan ditindaklanjuti maksimal 6 jam dan kami memberikan kompensasi
+                                    jika terbukti ada kesalahan dari pihak kami.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item accordion-item-modern">
                             <h2 class="accordion-header" id="heading4">
-                                <button class="accordion-button accordion-button-modern collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse4">
                                     Apakah bisa mewakilkan pengambilan makanan?
                                 </button>
                             </h2>
@@ -2203,7 +2542,8 @@
                                         <li>Surat kuasa bermaterai (untuk jangka panjang)</li>
                                         <li>Penerima kuasa harus berusia minimal 17 tahun</li>
                                     </ul>
-                                    Untuk kasus khusus (lansia atau disabilitas), kami menyediakan layanan antar ke rumah.
+                                    Untuk kasus khusus (lansia atau disabilitas), kami menyediakan layanan antar ke
+                                    rumah.
                                 </div>
                             </div>
                         </div>
@@ -2219,7 +2559,8 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h3 class="footer-brand">Makan Bergizi Gratis</h3>
-                    <p class="footer-description">Program nasional untuk Indonesia sehat dan bebas stunting. Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.</p>
+                    <p class="footer-description">Program nasional untuk Indonesia sehat dan bebas stunting. Mewujudkan
+                        generasi emas yang cerdas dan produktif melalui nutrisi terbaik.</p>
                     <div class="social-icons-modern">
                         <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
@@ -2250,7 +2591,8 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <h5 class="footer-title">Newsletter</h5>
-                    <p class="footer-description">Dapatkan informasi terbaru tentang program dan tips gizi seimbang langsung di email Anda.</p>
+                    <p class="footer-description">Dapatkan informasi terbaru tentang program dan tips gizi seimbang
+                        langsung di email Anda.</p>
                     <form class="newsletter-form">
                         <input type="email" class="newsletter-input" placeholder="Email Anda">
                         <button type="submit" class="newsletter-button">
@@ -2276,16 +2618,19 @@
                     <h5 class="modal-title" id="loginModalLabel">
                         <i class="bi bi-egg-fried"></i> Masuk ke Dashboard
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-body-modern">
                     <form class="login-form-modern">
                         <div class="form-floating form-floating-modern mb-3">
-                            <input type="text" class="form-control form-control-modern-login" id="username" placeholder="Username atau Email">
+                            <input type="text" class="form-control form-control-modern-login" id="username"
+                                placeholder="Username atau Email">
                             <label for="username">Username atau Email</label>
                         </div>
                         <div class="form-floating form-floating-modern mb-3">
-                            <input type="password" class="form-control form-control-modern-login" id="password" placeholder="Password">
+                            <input type="password" class="form-control form-control-modern-login" id="password"
+                                placeholder="Password">
                             <label for="password">Password</label>
                         </div>
                         <div class="form-check mb-3">
@@ -2300,7 +2645,8 @@
                         </div>
                         <hr class="my-4">
                         <div class="text-center">
-                            <p>Belum punya akun? <a href="#" class="text-decoration-none fw-bold">Daftar sekarang</a></p>
+                            <p>Belum punya akun? <a href="#" class="text-decoration-none fw-bold">Daftar sekarang</a>
+                            </p>
                         </div>
                     </form>
                 </div>
@@ -2320,14 +2666,14 @@
         });
 
         // Loader
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 document.getElementById('loader').classList.add('hidden');
             }, 1000);
         });
 
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('mainNav');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -2338,8 +2684,8 @@
 
         // Back to top button
         const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             if (window.scrollY > 300) {
                 backToTop.classList.add('show');
             } else {
@@ -2347,7 +2693,7 @@
             }
         });
 
-        backToTop.addEventListener('click', function() {
+        backToTop.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -2370,15 +2716,15 @@
         });
 
         // Active navigation highlighting
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const sections = document.querySelectorAll('section[id]');
             const scrollY = window.pageYOffset;
-            
+
             sections.forEach(section => {
                 const sectionHeight = section.offsetHeight;
                 const sectionTop = section.offsetTop - 100;
                 const sectionId = section.getAttribute('id');
-                
+
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                     document.querySelectorAll('.navbar-nav a').forEach(link => {
                         link.classList.remove('active');
@@ -2416,8 +2762,9 @@
         };
         setInterval(countUp, 20);
         const statistikSection = document.querySelector('#statistik');
-    if (statistikSection) {
-    counterObserver.observe(statistikSection);}
+        if (statistikSection) {
+            counterObserver.observe(statistikSection);
+        }
 
         // Trigger counter animation when in viewport
         const observerOptions = {
@@ -2438,7 +2785,7 @@
         });
 
         // Form submission
-        document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+        document.getElementById('loginForm')?.addEventListener('submit', function (e) {
             e.preventDefault();
             // Handle login logic here
             const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
@@ -2446,7 +2793,7 @@
         });
 
         // Newsletter form
-        document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+        document.querySelector('.newsletter-form')?.addEventListener('submit', function (e) {
             e.preventDefault();
             // Handle newsletter subscription
             this.querySelector('.newsletter-input').value = '';
@@ -2513,7 +2860,7 @@
         function applyFilter(tableId, filterData) {
             const tableBody = document.getElementById(tableId);
             if (!tableBody) return;
-            
+
             // Show loading state
             tableBody.innerHTML = `
                 <tr>
@@ -2525,7 +2872,7 @@
                     </td>
                 </tr>
             `;
-            
+
             // Simulate API call with setTimeout
             setTimeout(() => {
                 // In a real application, this would make an API call with filterData
@@ -2535,7 +2882,7 @@
         }
 
         // School filter
-        document.getElementById('applyFilterSekolah')?.addEventListener('click', function() {
+        document.getElementById('applyFilterSekolah')?.addEventListener('click', function () {
             const filterData = {
                 tahun: document.getElementById('tahunAjaranSekolah').value,
                 jenjang: document.getElementById('jenjangSekolah').value,
@@ -2543,24 +2890,24 @@
                 kecamatan: document.getElementById('kecamatanSekolah').value,
                 search: document.getElementById('searchSekolah').value
             };
-            
+
             applyFilter('sekolahTableBody', filterData);
         });
 
         // Posyandu filter
-        document.getElementById('applyFilterPosyandu')?.addEventListener('click', function() {
+        document.getElementById('applyFilterPosyandu')?.addEventListener('click', function () {
             const filterData = {
                 tahun: document.getElementById('tahunPosyandu').value,
                 status: document.getElementById('statusPosyandu').value,
                 kecamatan: document.getElementById('kecamatanPosyandu').value,
                 search: document.getElementById('searchPosyandu').value
             };
-            
+
             applyFilter('posyanduTableBody', filterData);
         });
 
         // Dapur filter
-        document.getElementById('applyFilterDapur')?.addEventListener('click', function() {
+        document.getElementById('applyFilterDapur')?.addEventListener('click', function () {
             const filterData = {
                 tahun: document.getElementById('tahunDapur').value,
                 status: document.getElementById('statusDapur').value,
@@ -2568,13 +2915,13 @@
                 kecamatan: document.getElementById('kecamatanDapur').value,
                 search: document.getElementById('searchDapur').value
             };
-            
+
             applyFilter('dapurTableBody', filterData);
         });
 
         // Export functionality
         document.querySelectorAll('.btn-export').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const exportType = this.textContent.trim();
                 alert(`Fitur Export ${exportType} akan segera tersedia!`);
             });
@@ -2582,7 +2929,7 @@
 
         // View and Edit buttons
         document.querySelectorAll('.btn-outline-primary, .btn-outline-success').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const action = this.classList.contains('btn-outline-primary') ? 'View' : 'Edit';
                 const row = this.closest('tr');
                 const name = row.cells[1].textContent;
@@ -2591,4 +2938,5 @@
         });
     </script>
 </body>
+
 </html>
