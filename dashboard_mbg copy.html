@@ -164,133 +164,222 @@
         }
 
         .btn-login {
-            background: var(--primary-gradient);
+            background: #D1B06C;
             border: none;
             color: white;
             padding: 8px 25px;
             border-radius: 25px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 5px 15px rgba(209, 176, 108, 0.3);
         }
 
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 8px 25px rgba(209, 176, 108, 0.4);
         }
 
-         <style>
-        /* Regulation Section Styles */
-        .regulations-section {
-            padding: 100px 0;
-            background: #f8f9fa;
-            /* Lighter background to contrast with white cards */
-            position: relative;
+        /* Regulation Section - New Sidebar Layout */
+        .regulasi-wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .regulation-card {
+        .regulasi-sidebar {
             background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            height: 100%;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
         }
 
-        /* Left accent border using pseudo-element */
-        .regulation-card::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-            border-radius: 20px 0 0 20px;
-        }
-
-        .regulation-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .regulation-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+        .regulasi-sidebar h6 {
+            font-size: 0.85rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .regulation-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2d3436;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .regulation-date {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            color: #636e72;
+            color: #D1B06C;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 20px;
+        }
+
+        .regulasi-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .regulasi-menu li {
+            margin-bottom: 0;
+        }
+
+        .regulasi-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: #071E49;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
             font-weight: 500;
         }
 
-        .regulation-date i {
+        .regulasi-menu a:hover {
+            background: #f5f5f5;
+            border-left-color: #D1B06C;
+            color: #D1B06C;
+        }
+
+        .regulasi-menu a.active {
+            background: #f5f5f5;
+            border-left-color: #D1B06C;
+            color: #D1B06C;
+            font-weight: 600;
+        }
+
+        .regulasi-content {
+            display: grid;
+            gap: 25px;
+        }
+
+        .regulasi-card-compact {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: start;
+            transition: all 0.3s ease;
+        }
+
+        .regulasi-card-compact:hover {
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .regulasi-card-left {
+            flex: 1;
+        }
+
+        .regulasi-card-left h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #071E49;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .regulasi-card-meta {
+            font-size: 0.85rem;
             color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .regulation-description {
-            color: #636e72;
-            line-height: 1.7;
-            margin-bottom: 30px;
+        .regulasi-card-desc {
             font-size: 0.95rem;
-            flex-grow: 1;
+            color: #071E49;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        .btn-regulation {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .regulasi-card-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .regulasi-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #667eea20;
+        }
+
+        .regulasi-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .btn-download-regulasi {
+            background: #D1B06C;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
+            padding: 10px 20px;
+            border-radius: 20px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(209, 176, 108, 0.2);
             text-decoration: none;
-            width: fit-content;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
         }
 
-        .btn-regulation:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            color: white;
+        .btn-download-regulasi:hover {
+            background: #C49955;
+            box-shadow: 0 6px 16px rgba(209, 176, 108, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .regulasi-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .regulasi-sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .regulasi-card-compact {
+                grid-template-columns: 1fr;
+            }
+
+            .regulasi-card-right {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .regulasi-card-compact {
+                padding: 20px;
+            }
+
+            .regulasi-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .regulasi-card-left h4 {
+                font-size: 1.1rem;
+            }
         }
 
         /* Enhanced Hero Section */
         .hero-section {
-            background: var(--primary-gradient);
+            background: #071E49;
             position: relative;
             padding: 120px 0 80px;
             overflow: hidden;
@@ -363,7 +452,7 @@
 
         .hero-subtitle {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: white;
             margin-bottom: 40px;
             font-weight: 300;
         }
@@ -387,14 +476,15 @@
         }
 
         .btn-hero-primary {
-            background: white;
-            color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: #D1B06C;
+            color: white;
+            box-shadow: 0 10px 30px rgba(209, 176, 108, 0.3);
         }
 
         .btn-hero-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(209, 176, 108, 0.4);
+            background: #C49955;
         }
 
         .btn-hero-outline {
@@ -435,7 +525,7 @@
         /* Enhanced Statistics Section */
         .stats-section {
             padding: 80px 0;
-            background: white;
+            background: #F5FAFB;
             position: relative;
             margin-top: -50px;
             border-radius: 30px 30px 0 0;
@@ -558,20 +648,40 @@
 
         .stat-label {
             font-size: 1rem;
-            color: var(--text-light);
+            color: #2d3436;
             font-weight: 500;
         }
 
         /* About Section */
         .about-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #071E49;
+            color: white;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 80px;
             /* Increased from 60px */
+        }
+
+        /* Section dengan background gelap */
+        .about-section .section-header,
+        .distribution-section .section-header,
+        .map-section .section-header {
+            color: white;
+        }
+
+        .about-section .section-title,
+        .distribution-section .section-title,
+        .map-section .section-title {
+            color: white;
+        }
+
+        .about-section .section-subtitle,
+        .distribution-section .section-subtitle,
+        .map-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .section-title {
@@ -597,7 +707,7 @@
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: #071E49;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -609,8 +719,25 @@
             box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
             height: 100%;
+            color: #071E49;
         }
 
+        .about-card.highlight {
+            background: #071E49;
+            color: white;
+        }
+
+        .about-card.highlight .about-title {
+            color: white;
+        }
+
+        .about-card.highlight .about-description {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .about-card.highlight .about-icon {
+            background: #D4A017;
+        }
 
         .about-card:hover {
             transform: translateY(-10px);
@@ -642,290 +769,82 @@
         .about-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: #071E49;
             margin-bottom: 15px;
+        }
+
+        .about-section .about-title {
+            color: white;
         }
 
         .about-description {
-            color: var(--text-light);
+            color: #071E49;
             line-height: 1.6;
         }
 
-        /* Data Distribution Section */
-        .dist-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
+        .about-section .about-description {
+            color: rgba(255, 255, 255, 0.95);
         }
 
-        .dist-header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .dist-header h1 {
-            color: #2d3436;
-            /* Changed from white to dark since background is likely white/light now, or we need a bg wrapper */
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
-        }
-
-        .dist-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        .dist-stats-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Card Styles */
-        .dist-stat-card {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeInUp 0.8s ease-out backwards;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dist-stat-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .dist-stat-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dist-stat-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .dist-stat-card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .dist-stat-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .dist-stat-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-        }
-
-        .dist-stat-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .dist-stat-icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-            line-height: 1;
-        }
-
-        .dist-stat-label {
-            font-size: 0.75rem;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dist-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-
-        .dist-stat-description {
-            font-size: 0.75rem;
-            color: #888;
-            line-height: 1.3;
-        }
-
-        /* About Section */
-        .about-section {
+        /* Distribution Section */
+        .distribution-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #F6FAFC;
+            color: #071E49;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-            /* Increased from 60px */
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .about-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 25px;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: transform 0.6s ease;
-        }
-
-        .about-icon i {
-            font-size: 3rem;
-            color: white;
-            transition: transform 0.6s ease;
-        }
-
-        .about-card:hover .about-icon i {
-            transform: rotate(360deg);
-        }
-
-        .about-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .about-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Data Distribution Section */
+        /* Distribution Container Styles */
         .dist-container {
-            max-width: 1400px;
-            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .dist-header {
             text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
+            margin-bottom: 60px;
         }
 
         .dist-header h1 {
-            color: #2d3436;
-            /* Changed from white to dark since background is likely white/light now, or we need a bg wrapper */
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
+            color: #071E49;
             margin-bottom: 15px;
-            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
+            line-height: 1.3;
+        }
+
+        .distribution-section .dist-header h1 {
+            color: #071E49;
         }
 
         .dist-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 1.1rem;
+            color: #071E49;
+            margin: 0;
+        }
+
+        .distribution-section .dist-header p {
+            color: #071E49;
         }
 
         .dist-stats-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
         }
 
-        /* Card Styles */
         .dist-stat-card {
             background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeInUp 0.8s ease-out backwards;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dist-stat-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .dist-stat-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dist-stat-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .dist-stat-card:nth-child(4) {
-            animation-delay: 0.4s;
+            color: #071E49;
         }
 
         .dist-stat-card::before {
@@ -934,1186 +853,471 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 5px;
             background: linear-gradient(90deg, #667eea, #764ba2);
         }
 
         .dist-stat-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-        }
-
-        .dist-stat-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .dist-stat-icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-            line-height: 1;
-        }
-
-        .dist-stat-label {
-            font-size: 0.75rem;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dist-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-
-        .dist-stat-description {
-            font-size: 0.75rem;
-            color: #888;
-            line-height: 1.3;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-            /* Increased from 60px */
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-
-        .about-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .about-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 25px;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: transform 0.6s ease;
-        }
-
-        .about-icon i {
-            font-size: 3rem;
-            color: white;
-            transition: transform 0.6s ease;
-        }
-
-        .about-card:hover .about-icon i {
-            transform: rotate(360deg);
-        }
-
-        .about-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .about-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Data Distribution Section */
-        .dist-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .dist-header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .dist-header h1 {
-            color: #2d3436;
-            /* Changed from white to dark since background is likely white/light now, or we need a bg wrapper */
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
-        }
-
-        .dist-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        .dist-stats-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Card Styles */
-        .dist-stat-card {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeInUp 0.8s ease-out backwards;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dist-stat-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .dist-stat-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dist-stat-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .dist-stat-card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .dist-stat-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .dist-stat-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            border-color: #667eea;
         }
 
         .dist-stat-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .dist-stat-icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-            line-height: 1;
-        }
-
-        .dist-stat-label {
-            font-size: 0.75rem;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dist-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-
-        .dist-stat-description {
-            font-size: 0.75rem;
-            color: #888;
-            line-height: 1.3;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-            /* Increased from 60px */
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .about-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 25px;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: transform 0.6s ease;
-        }
-
-        .about-icon i {
-            font-size: 3rem;
-            color: white;
-            transition: transform 0.6s ease;
-        }
-
-        .about-card:hover .about-icon i {
-            transform: rotate(360deg);
-        }
-
-        .about-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .about-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Data Distribution Section */
-        .dist-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .dist-header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .dist-header h1 {
-            color: #2d3436;
-            /* Changed from white to dark since background is likely white/light now, or we need a bg wrapper */
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
-        }
-
-        .dist-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        .dist-stats-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Card Styles */
-        .dist-stat-card {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeInUp 0.8s ease-out backwards;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dist-stat-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .dist-stat-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dist-stat-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .dist-stat-card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .dist-stat-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .dist-stat-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-        }
-
-        .dist-stat-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
         }
 
         .dist-stat-icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-            line-height: 1;
-        }
-
-        .dist-stat-label {
-            font-size: 0.75rem;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dist-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-
-        .dist-stat-description {
-            font-size: 0.75rem;
-            color: #888;
-            line-height: 1.3;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-            /* Increased from 60px */
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            position: relative;
+            font-size: 3rem;
             display: inline-block;
+            transition: transform 0.3s ease;
         }
 
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .about-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 25px;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: transform 0.6s ease;
-        }
-
-        .about-icon i {
-            font-size: 3rem;
-            color: white;
-            transition: transform 0.6s ease;
-        }
-
-        .about-card:hover .about-icon i {
-            transform: rotate(360deg);
-        }
-
-        .about-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .about-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Data Distribution Section */
-        .dist-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .dist-header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .dist-header h1 {
-            color: #2d3436;
-            /* Changed from white to dark since background is likely white/light now, or we need a bg wrapper */
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
-        }
-
-        .dist-header p {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        .dist-stats-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Card Styles */
-        .dist-stat-card {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: fadeInUp 0.8s ease-out backwards;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dist-stat-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .dist-stat-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dist-stat-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .dist-stat-card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .dist-stat-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .dist-stat-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-        }
-
-        .dist-stat-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .dist-stat-icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-            line-height: 1;
+        .dist-stat-card:hover .dist-stat-icon {
+            transform: scale(1.2);
         }
 
         .dist-stat-label {
-            font-size: 0.75rem;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dist-stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 6px;
-            line-height: 1;
-        }
-
-        .dist-stat-description {
-            font-size: 0.75rem;
-            color: #888;
-            line-height: 1.3;
-        }
-
-        /* Distribution Chart Card */
-        .dist-chart-section {
-            background: white;
-            border-radius: 25px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 0.8s ease-out 0.5s backwards;
-            margin-bottom: 30px;
-        }
-
-        .dist-chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .dist-chart-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3436;
-        }
-
-        .dist-download-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .dist-download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-        }
-
-        /* Distribution Grid */
-        .dist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .dist-item {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 20px;
-            padding: 25px;
-            border-left: 6px solid;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dist-item::after {
-            content: attr(data-icon);
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 5rem;
-            opacity: 0.1;
-        }
-
-        .dist-item:nth-child(1) {
-            border-left-color: #667eea;
-        }
-
-        .dist-item:nth-child(2) {
-            border-left-color: #764ba2;
-        }
-
-        .dist-item:nth-child(3) {
-            border-left-color: #4facfe;
-        }
-
-        .dist-item:nth-child(4) {
-            border-left-color: #f5576c;
-        }
-
-        .dist-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .dist-item-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .dist-item-icon {
-            font-size: 2rem;
-        }
-
-        .dist-item-label {
             font-size: 0.95rem;
+            color: #667eea;
             font-weight: 600;
-            color: #2d3436;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
         }
 
-        .dist-item-value {
+        .distribution-section .dist-stat-label {
+            color: #667eea;
+        }
+
+        .dist-stat-number {
             font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            color: #071E49;
+            margin-bottom: 12px;
+            line-height: 1;
         }
 
-        .dist-item:nth-child(1) .dist-item-value {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .distribution-section .dist-stat-number {
+            color: #071E49;
         }
 
-        .dist-item:nth-child(2) .dist-item-value {
-            background: linear-gradient(135deg, #764ba2, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .dist-stat-description {
+            font-size: 0.95rem;
+            color: #071E49;
+            line-height: 1.5;
         }
 
-        .dist-item:nth-child(3) .dist-item-value {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .distribution-section .dist-stat-description {
+            color: #071E49;
         }
 
-        .dist-item:nth-child(4) .dist-item-value {
-            background: linear-gradient(135deg, #f5576c, #fa709a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .dist-percent-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 12px;
-        }
-
-        .dist-percent-fill {
-            height: 100%;
-            border-radius: 10px;
-            transition: width 2s ease-out;
-            animation: fillBar 2s ease-out forwards;
-        }
-
-        .dist-item:nth-child(1) .dist-percent-fill {
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            width: 26%;
-        }
-
-        .dist-item:nth-child(2) .dist-percent-fill {
-            background: linear-gradient(90deg, #764ba2, #f093fb);
-            width: 36.6%;
-        }
-
-        .dist-item:nth-child(3) .dist-percent-fill {
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
-            width: 30.6%;
-        }
-
-        .dist-item:nth-child(4) .dist-percent-fill {
-            background: linear-gradient(90deg, #f5576c, #fa709a);
-            width: 6.8%;
-        }
-
-        .dist-percent-text {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 8px;
-            font-weight: 500;
-        }
-
-        /* Summary Card */
-        .dist-summary-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 25px;
-            padding: 40px;
-            margin-top: 30px;
-            color: white;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .dist-summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .dist-summary-item h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            color: white;
-        }
-
-        .dist-summary-item p {
-            font-size: 1rem;
-            opacity: 0.9;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes fillBar {
-            from {
-                width: 0;
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
+            .dist-header h1 {
                 font-size: 2rem;
             }
 
-            .header p {
+            .dist-header p {
                 font-size: 1rem;
             }
 
-            .chart-section {
-                padding: 30px 20px;
+            .dist-stats-wrapper {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
             }
 
-            .chart-title {
-                font-size: 1.5rem;
+            .dist-stat-card {
+                padding: 25px 20px;
             }
 
-            .stat-number {
+            .dist-stat-icon {
                 font-size: 2.5rem;
             }
 
-            .item-value {
-                font-size: 2rem;
+            .dist-stat-number {
+                font-size: 1.8rem;
             }
         }
 
-        /* Map Section */
-        .map-section {
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 0;
+            background: #F5FAFB;
+        }
+
+        /* Cek Gizi Section Styles */
+        .cek-gizi-section {
             padding: 100px 0;
+            background: #F5FAFB;
+        }
+
+        .cek-gizi-card {
             background: white;
-        }
-
-        .map-info-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
-            border-radius: 30px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            position: relative;
-            overflow: visible;
-        }
-
-        .map-info-card::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .map-info-card::after {
-            content: "";
-            position: absolute;
-            bottom: -50%;
-            left: -50%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(118, 75, 162, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .map-info-card-horse-left {
-            position: absolute;
-            left: -30px;
-            top: 50%;
-            transform: translateY(-50%) scaleX(-1);
-            width: 300px;
-            height: 300px;
-            object-fit: contain;
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .map-info-card-horse-right {
-            position: absolute;
-            right: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
-            object-fit: contain;
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .map-info-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .map-info-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .map-info-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #2d3436;
-            margin-bottom: 15px;
-        }
-
-        .map-info-description {
-            font-size: 0.95rem;
-            color: #636e72;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .map-info-description strong {
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        .btn-view-map {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.95rem;
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            height: 100%;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            text-align: center;
         }
 
-        .btn-view-map:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        }
-
-        .modal-maps-custom {
-            --bs-modal-width: 100vw;
-            --bs-modal-margin: 0;
-            --bs-modal-padding: 0;
-        }
-
-        .modal-maps-custom .modal-dialog {
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .modal-maps-custom .modal-content {
-            border-radius: 0;
-            height: 100vh;
-        }
-
-        .modal-maps-custom .modal-header {
+        .cek-gizi-card::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            background: white;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 30px;
-            z-index: 1050;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
         }
 
-        .modal-maps-custom .modal-body {
-            padding: 0;
-            height: 100%;
-            margin-top: 70px;
+        .cek-gizi-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
         }
 
-        .map-controls-bottom {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
+        .cek-gizi-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 30px;
+            background: #D4A017;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 4rem;
+            transition: transform 0.6s ease;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            color: white;
         }
 
-        .map-control-group {
-            margin-bottom: 15px;
+        .cek-gizi-card:hover .cek-gizi-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
-        .map-control-group label {
-            display: block;
-            font-size: 0.9rem;
+        .cek-gizi-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #071E49;
+            margin-bottom: 20px;
+        }
+
+        .cek-gizi-description {
+            color: #071E49;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .cek-gizi-button {
+            background: #D4A017;
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 25px;
             font-weight: 600;
-            color: #2d3436;
-            margin-bottom: 8px;
+            font-size: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
         }
 
-        .map-control-group input,
-        .map-control-group select {
+        .cek-gizi-button:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Form Gizi Styles */
+        .form-gizi-modern {
+            max-width: 100%;
+        }
+
+        .form-group-gizi {
+            margin-bottom: 22px;
+        }
+
+        .form-group-gizi label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-group-gizi input,
+        .form-group-gizi select {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
         }
 
-        .map-control-group input:focus,
-        .map-control-group select:focus {
+        .form-group-gizi input:focus,
+        .form-group-gizi select:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.1);
             outline: none;
         }
 
-        /* Enhanced Footer */
+        .btn-cek-gizi {
+            background: #D1B06C;
+            border: none;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn-cek-gizi:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(209, 176, 108, 0.3);
+        }
+
+        /* Hasil Gizi Styles */
+        .hasil-gizi-container {
+            margin-top: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            display: none;
+            animation: slideUp 0.5s ease;
+            border-top: 6px solid #667eea;
+        }
+
+        .hasil-gizi-container.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hasil-gizi-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .hasil-gizi-status {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .status-baik {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-kurang {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-berlebih {
+            background: linear-gradient(135deg, #f5576c, #ff9a56);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hasil-gizi-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .hasil-gizi-description {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .hasil-gizi-rekomendasi {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 0;
+        }
+
+        .hasil-gizi-rekomendasi h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .hasil-gizi-rekomendasi ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hasil-gizi-rekomendasi li {
+            padding: 12px 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .hasil-gizi-rekomendasi li::before {
+            content: "✓";
+            color: white;
+            background: #4facfe;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal-content-modern {
+            border: none;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .modal-header-modern {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 30px;
+        }
+
+        .modal-body-modern {
+            padding: 40px;
+            background: white;
+        }
+
+        /* Loader & Back to Top */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f0f0f0;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
         .footer-modern {
             background: var(--dark-gradient);
             color: white;
@@ -2257,6 +1461,7 @@
             border-radius: 25px;
             font-weight: 600;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .newsletter-button:hover {
@@ -2272,135 +1477,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Enhanced Login Modal */
-        .modal-content-modern {
-            border: none;
-            border-radius: 25px;
-            overflow: hidden;
-        }
-
-        .modal-header-modern {
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            padding: 30px;
-        }
-
-        .modal-body-modern {
-            padding: 40px;
-            background: white;
-        }
-
-        .login-form-modern {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .form-floating-modern {
-            margin-bottom: 20px;
-        }
-
-        .form-control-modern-login {
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 15px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control-modern-login:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-        }
-
-        .btn-login-modern {
-            background: var(--primary-gradient);
-            border: none;
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .btn-login-modern:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Additional Styles */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-circle {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f0f0f0;
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Accordion Styles */
+        /* Accordion */
         .accordion-modern {
             border-radius: 20px;
             overflow: hidden;
@@ -2418,7 +1495,7 @@
 
         .accordion-button-modern {
             background: white;
-            color: var(--text-dark);
+            color: #071E49;
             font-weight: 600;
             padding: 20px 30px;
             transition: all 0.3s ease;
@@ -2431,57 +1508,216 @@
             box-shadow: none;
         }
 
-        .accordion-button-modern::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23667eea'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-button-modern:not(.collapsed)::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-            transform: rotate(180deg);
-        }
-
         .accordion-body-modern {
             padding: 20px 30px;
-            color: var(--text-light);
+            color: #071E49;
             line-height: 1.8;
         }
 
-        /* Distribution Section */
-        .distribution-section {
+        /* Map Section Styles */
+        .map-section {
             padding: 100px 0;
-            background: white;
+            background: #071E49;
+            color: white;
         }
 
-        /* FAQ Section */
-        .faq-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        .map-info-card {
+            background: #EAF0FA;
+            border-radius: 24px;
+            padding: 20px 32px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border: 1.5px solid rgba(7, 30, 73, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
         }
 
-        /* Responsive Footer */
+
+        .map-info-card:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        /* Map Info Card Decorative Images */
+        .map-info-card-horse-left {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .map-info-card-horse-right {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
         @media (max-width: 768px) {
-            .footer-modern {
-                padding: 50px 0 30px;
+            .map-info-card {
+                padding: 40px 25px;
+                min-height: 300px;
+                flex-direction: column;
             }
 
-            .footer-title {
-                font-size: 1rem;
+            .map-info-card-horse-left,
+            .map-info-card-horse-right {
+                width: 150px;
+                height: 150px;
             }
 
-            .footer-brand {
-                font-size: 1.5rem;
+            .map-info-card-horse-left {
+                left: 10px;
             }
 
-            .footer-links li {
-                margin-bottom: 8px;
-            }
-
-            .footer-links a {
-                font-size: 0.9rem;
+            .map-info-card-horse-right {
+                right: 10px;
             }
         }
 
+        /* Map Info Card Content Styles */
+        .map-info-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .map-info-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: #D4A017;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-info-card:hover .map-info-icon {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .map-info-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2d3436;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .map-section .map-info-title {
+            color: white;
+        }
+
+        .map-info-description {
+            color: #636e72;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .map-section .map-info-description {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .btn-view-map {
+            background: #D1B06C;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(209, 176, 108, 0.3);
+        }
+
+        .btn-view-map:hover {
+            background: #C49955;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-view-map:focus {
+            outline: none;
+            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
+        }
+
+        /* Map Info Card Responsive */
+        @media (max-width: 768px) {
+            .map-info-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .map-info-title {
+                font-size: 1.4rem;
+            }
+
+            .map-info-description {
+                font-size: 0.95rem;
+            }
+
+            .btn-view-map {
+                padding: 12px 30px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Button Baca Selengkapnya */
+        .btn-read-more {
+            background: #D1B06C;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(209, 176, 108, 0.3);
+            margin-top: 40px;
+        }
+
+        .btn-read-more:hover {
+            background: #C49955;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -2524,95 +1760,8 @@
                         <a class="nav-link" href="#regulasi">Regulasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#peta-mbg">Peta MBG</a>
+                        <a class="nav-link" href="#cek-gizi">Cek Gizi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#faq">FAQ</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <button class="btn btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="bi bi-person-circle"></i> Masuk
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Enhanced Hero Section -->
-    <section id="beranda" class="hero-section">
-        <div class="hero-particles">
-            <div class="particle" style="width: 20px; height: 20px; left: 10%; animation-delay: 0s;"></div>
-            <div class="particle" style="width: 30px; height: 30px; left: 30%; animation-delay: 2s;"></div>
-            <div class="particle" style="width: 15px; height: 15px; left: 50%; animation-delay: 4s;"></div>
-            <div class="particle" style="width: 25px; height: 25px; left: 70%; animation-delay: 6s;"></div>
-            <div class="particle" style="width: 35px; height: 35px; left: 90%; animation-delay: 8s;"></div>
-        </div>
-        <div class="container hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="hero-title">Program Makan Bergizi Gratis untuk Generasi Sehat</h1>
-                    <p class="hero-subtitle">Wujudkan Indonesia bebas stunting dan malnutrisi melalui program makanan
-                        bergizi gratis yang tersebar di seluruh nusantara.</p>
-                    <div class="hero-buttons">
-                        <a href="#tentang" class="btn-hero btn-hero-primary">
-                            <i class="bi bi-rocket-takeoff"></i> Mulai Sekarang
-                        </a>
-                        <a href="#statistik" class="btn-hero btn-hero-outline">
-                            <i class="bi bi-bar-chart"></i> Lihat Statistik
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="hero-image">
-                        <img src="https://picsum.photos/seed/healthy-food-hero/600/500.jpg" alt="Makanan Bergizi">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Statistics Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row g-4">
-
-                <!-- 1 -->
-                <div class="col-lg-4 col-md-4" data-aos="fade-up">
-                    <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-1"><i class="bi bi-people-fill"></i></div>
-                        <div class="stat-number-modern" data-target="2500000">
-                            <span class="number">0</span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Penerima Manfaat</b>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-2"><i class="bi bi-geo-alt-fill"></i></div>
-                        <div class="stat-number-modern" data-target="5000">
-                            <span class="number">0</span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Lokasi Distribusi</b>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-3"><i class="bi bi-calendar-check-fill"></i></div>
-                        <div class="stat-number-modern" data-target="365">
-                            <span class="number">0</span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Hari Operasional</b>
-                        </div>
                     </div>
                 </div>
 
@@ -2662,6 +1811,7 @@
             </div>
         </div>
     </section>
+    
     <!-- About Section -->
     <section id="tentang" class="about-section">
         <div class="container">
@@ -2671,7 +1821,7 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-card">
+                    <div class="about-card highlight">
                         <div class="about-icon">
                             <i class="bi bi-bullseye"></i>
                         </div>
@@ -2752,279 +1902,35 @@
                 </div>
             </div>
 
-            <!-- Distribution Chart -->
-            <div class="dist-chart-section">
-                <div class="dist-chart-header">
-                    <h2 class="dist-chart-title">Distribusi Berdasarkan Jenjang Pendidikan</h2>
-                    <button class="dist-download-btn">📥 Unduh Data</button>
-                </div>
-
-                <div class="dist-grid">
-                    <div class="dist-item" data-icon="🎓">
-                        <div class="dist-item-header">
-                            <div class="dist-item-icon">🎓</div>
-                            <div class="dist-item-label">SMA & Sederajat</div>
-                        </div>
-                        <div class="dist-item-value">650,000</div>
-                        <div class="dist-percent-bar">
-                            <div class="dist-percent-fill"></div>
-                        </div>
-                        <div class="dist-percent-text">26% dari total penerima</div>
-                    </div>
-
-                    <div class="dist-item" data-icon="📚">
-                        <div class="dist-item-header">
-                            <div class="dist-item-icon">📚</div>
-                            <div class="dist-item-label">SMP & Sederajat</div>
-                        </div>
-                        <div class="dist-item-value">915,000</div>
-                        <div class="dist-percent-bar">
-                            <div class="dist-percent-fill"></div>
-                        </div>
-                        <div class="dist-percent-text">36.6% dari total penerima</div>
-                    </div>
-
-                    <div class="dist-item" data-icon="✏️">
-                        <div class="dist-item-header">
-                            <div class="dist-item-icon">✏️</div>
-                            <div class="dist-item-label">SD & Sederajat</div>
-                        </div>
-                        <div class="dist-item-value">765,000</div>
-                        <div class="dist-percent-bar">
-                            <div class="dist-percent-fill"></div>
-                        </div>
-                        <div class="dist-percent-text">30.6% dari total penerima</div>
-                    </div>
-
-                    <div class="dist-item" data-icon="🎈">
-                        <div class="dist-item-header">
-                            <div class="dist-item-icon">🎈</div>
-                            <div class="dist-item-label">TK / PAUD & Sederajat</div>
-                        </div>
-                        <div class="dist-item-value">170,000</div>
-                        <div class="dist-percent-bar">
-                            <div class="dist-percent-fill"></div>
-                        </div>
-                        <div class="dist-percent-text">6.8% dari total penerima</div>
-                    </div>
-                </div>
+            <!-- Button Baca Selengkapnya -->
+            <div style="text-align: center;">
+                <button class="btn-read-more" data-bs-toggle="modal" data-bs-target="#distribusiDetailModal">
+                    <i class="bi bi-arrow-right"></i> Baca Selengkapnya
+                </button>
             </div>
+        </div>
+    </section>
 
-            <style>
-
-
-/* ================= TITLE ================= */
-.title-pill {
-  display: inline-block;
-  background: #e3eaf1;
-  padding: 10px 36px;
-  border-radius: 30px;
-  font-weight: 600;
-  margin: 30px 0 20px;
-}
-.section-header {
-  margin-bottom: 16px;
-}
-.section-header input {
-  margin-left: auto;
-  padding: 10px 16px;
-  min-width: 240px;
-  border-radius: 12px;
-  border: 1px solid #d6e0ea;
-  outline: none;
-   display: flex;
-  align-items: center;
-}
-
-/* KHUSUS header yang ada search */
-.section-header.table-header {
-  display: flex;
-  align-items: center;
-}
-
-.section-header.table-header input {
-  margin-left: auto;
-}
-
-
-
-/* ================= TABLE ================= */
-.table-wrapper {
-  background: #fff;
-  border-radius: 16px;
-  overflow-x: auto;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 700px;
-}
-
-thead th {
-  position: sticky;
-  top: 0;
-  background: linear-gradient(135deg, #1e88e5, #1565c0);
-  color: #fff;
-  padding: 14px;
-}
-
-th.sortable {
-  cursor: pointer;
-}
-
-td {
-  padding: 14px;
-  text-align: center;
-}
-
-tbody tr:nth-child(even) {
-  background: #f4f7fb;
-}
-
-
-td:first-child {
-  font-weight: 600;
-}
-
-/* ================= MAX BADGE ================= */
-.max-badge {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 2px 6px;
-  font-size: 11px;
-  border-radius: 6px;
-  background: #ff7043;
-  color: white;
-  font-weight: 700;
-}
-
-/* ================= PAGINATION ================= */
-.pagination {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.pagination button {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  background: #1e88e5;
-  color: #fff;
-  cursor: pointer;
-}
-
-.pagination button:disabled {
-  background: #b0bec5;
-}
-</style>
-</head>
-
-
-<div class="container">
-
-<!-- ================= TABLE 1 ================= -->
-<div class="section-header">
-  <div class="title-pill">Jumlah Institusi per Kecamatan</div>
-  <input type="text" placeholder="Cari kecamatan..." onkeyup="searchTable(this,0)">
-</div>
-
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-  <th>Kecamatan</th>
-  <th class="sortable">SMA</th>
-  <th class="sortable">SMP</th>
-  <th class="sortable">SD</th>
-  <th class="sortable">TK</th>
-  <th class="sortable">Pondok</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Bogor Utara</td><td>10</td><td>15</td><td>20</td><td>25</td><td>80</td></tr>
-<tr><td>Bogor Selatan</td><td>12</td><td>18</td><td>22</td><td>28</td><td>45</td></tr>
-<tr><td>Bogor Timur</td><td>5</td><td>8</td><td>12</td><td>15</td><td>12</td></tr>
-<tr><td>Bogor Barat</td><td>25</td><td>40</td><td>45</td><td>35</td><td>60</td></tr>
-<tr><td>Bogor Tengah</td><td>10</td><td>20</td><td>25</td><td>15</td><td>55</td></tr>
-<tr><td>Tanah Sareal</td><td>15</td><td>30</td><td>35</td><td>28</td><td>65</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="pagination">
-  <button onclick="prevPage(0)">Prev</button>
-  <button onclick="nextPage(0)">Next</button>
-</div>
-
-</div>
-
-<script>
-const rowsPerPage = 4;
-let currentPage = [0];
-
-/* ================= PAGINATION ================= */
-function paginate(i){
-  const rows = document.getElementsByTagName("table")[i].tBodies[0].rows;
-  [...rows].forEach((r,idx)=>{
-    r.style.display =
-      idx >= currentPage[i]*rowsPerPage &&
-      idx < (currentPage[i]+1)*rowsPerPage
-      ? "" : "none";
-  });
-}
-
-function nextPage(i){ currentPage[i]++; paginate(i); }
-function prevPage(i){ if(currentPage[i]>0) currentPage[i]--; paginate(i); }
-
-/* ================= SEARCH ================= */
-function searchTable(input,i){
-  const filter = input.value.toLowerCase();
-  const rows = document.getElementsByTagName("table")[i].tBodies[0].rows;
-  [...rows].forEach(r=>{
-    r.style.display = r.innerText.toLowerCase().includes(filter) ? "" : "none";
-  });
-}
-
-/* ================= SORT ================= */
-document.querySelectorAll("th.sortable").forEach((th,idx)=>{
-  th.onclick = ()=>{
-    const table = th.closest("table");
-    const rows = [...table.tBodies[0].rows];
-    const asc = th.classList.toggle("asc");
-    rows.sort((a,b)=>
-      asc
-      ? a.cells[idx].innerText - b.cells[idx].innerText
-      : b.cells[idx].innerText - a.cells[idx].innerText
-    );
-    rows.forEach(r=>table.tBodies[0].appendChild(r));
-  };
-});
-
-</script>
-
-
-            <!-- Summary -->
-            <div class="dist-summary-card">
-                <div class="dist-summary-grid">
-                    <div class="dist-summary-item">
-                        <h3>98%</h3>
-                        <p>Tingkat Kepuasan</p>
-                    </div>
-                    <div class="dist-summary-item">
-                        <h3>87%</h3>
-                        <p>Peningkatan Gizi</p>
-                    </div>
-                    <div class="dist-summary-item">
-                        <h3>23%</h3>
-                        <p>Penurunan Stunting</p>
-                    </div>
-                    <div class="dist-summary-item">
-                        <h3>365</h3>
-                        <p>Hari Operasional</p>
+    <!-- CEK GIZI SECTION -->
+    <section id="cek-gizi" class="cek-gizi-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Cek Status Gizi Anda</h2>
+                <p class="section-subtitle">Ketahui apakah Anda mengalami kekurangan gizi atau tidak</p>
+            </div>
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="cek-gizi-card">
+                        <div class="cek-gizi-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h3 class="cek-gizi-title">Pemeriksaan Gizi Gratis</h3>
+                        <p class="cek-gizi-description">
+                            Masukkan data diri Anda untuk mengetahui status gizi dan mendapatkan rekomendasi nutrisi yang tepat.
+                        </p>
+                        <button class="cek-gizi-button" data-bs-toggle="modal" data-bs-target="#cekGiziModal">
+                            <i class="bi bi-arrow-right"></i> Mulai Cek Gizi
+                        </button>
                     </div>
                 </div>
             </div>
@@ -3042,7 +1948,7 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
                 </p>
             </div>
 
-            <div class="row g-5" data-aos="fade-up"> <!-- Increased gutter from g-4 to g-5 -->
+            <div class="row g-5" data-aos="fade-up">
 
                 <!-- Card 1 -->
                 <div class="col-lg-6 col-md-6">
@@ -3060,7 +1966,7 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
                             <i class="bi bi-file-earmark-pdf"></i> Unduh Dokumen
                         </button>
                     </div>
-                </div>
+                               </div>
 
                 <!-- Card 2 -->
                 <div class="col-lg-6 col-md-6">
@@ -3119,6 +2025,7 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
         </div>
         <br>
     </section>
+
     <!-- Map Section -->
     <section id="peta-mbg" class="map-section">
         <div class="container">
@@ -3131,11 +2038,9 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
 
             <div class="row">
                 <div class="col-lg-12" data-aos="fade-up">
-
-                    <!-- Map Info Card -->
                     <div class="map-info-card">
-                        <img src="bogor.png" alt="Horse Left" class="map-info-card-horse-left">
-                        <img src="bogor.png" alt="Horse Right" class="map-info-card-horse-right">
+                        <img src="bogor.png" alt="Bogor Left" class="map-info-card-horse-left">
+                        <img src="bogor.png" alt="Bogor Right" class="map-info-card-horse-right">
 
                         <div class="map-info-content">
                             <div class="map-info-icon">
@@ -3152,16 +2057,11 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
                                 di setiap wilayah.
                             </p>
 
-                            <!-- Button di bawah -->
-                            <button class="btn-view-map"
-                                data-bs-toggle="modal"
-                                data-bs-target="#mapsModalCustom">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                Lihat Peta
+                            <button class="btn-view-map" data-bs-toggle="modal" data-bs-target="#mapsModalCustom">
+                                <i class="bi bi-geo-alt-fill"></i> Lihat Peta
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -3215,7 +2115,7 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
                                 <option>SMP</option>
                                 <option>SMA</option>
                             </select>
-                                               </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3269,8 +2169,7 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
                                         <li>Dikemas dengan higienis</li>
                                         <li>Memiliki tanggal kedaluwarsa yang jelas</li>
                                     </ul>
-                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan
-                                    makanan.
+                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan makanan.
                                 </div>
                             </div>
                         </div>
@@ -3423,6 +2322,184 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
         </div>
     </div>
 
+    <!-- CEK GIZI MODAL -->
+    <div class="modal fade" id="cekGiziModal" tabindex="-1" aria-labelledby="cekGiziModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title" id="cekGiziModalLabel">
+                        <i class="bi bi-heart-pulse"></i> Form Cek Gizi
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <form class="form-gizi-modern" id="formCekGizi">
+                        <div class="form-group-gizi">
+                            <label for="umur">Umur (tahun)</label>
+                            <input type="number" id="umur" name="umur" required min="1" max="120" placeholder="Contoh: 25">
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="jenisKelamin">Jenis Kelamin</label>
+                            <select id="jenisKelamin" name="jenisKelamin" required>
+                                <option value="">-- Pilih Jenis Kelamin --</option>
+                                <option value="laki-laki">Laki-laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="tinggiBadan">Tinggi Badan (cm)</label>
+                            <input type="number" id="tinggiBadan" name="tinggiBadan" required min="50" max="250" placeholder="Contoh: 170">
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="beratBadan">Berat Badan (kg)</label>
+                            <input type="number" id="beratBadan" name="beratBadan" required min="5" max="300" step="0.1" placeholder="Contoh: 65.5">
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="aktivitas">Aktivitas (opsional)</label>
+                            <select id="aktivitas" name="aktivitas">
+                                <option value="">-- Pilih Tingkat Aktivitas --</option>
+                                <option value="ringan">Ringan (Jarang olahraga)</option>
+                                <option value="sedang">Sedang (Olahraga 3-4x/minggu)</option>
+                                <option value="berat">Berat (Olahraga 5-6x/minggu)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-cek-gizi">
+                            <i class="bi bi-check-circle"></i> Cek Gizi Saya
+                        </button>
+                    </form>
+
+                    <div class="hasil-gizi-container" id="hasilGizi">
+                        <div class="hasil-gizi-header">
+                            <div class="hasil-gizi-status" id="statusGizi"></div>
+                        </div>
+
+                        <div class="hasil-gizi-info">
+                            <div class="info-item">
+                                <div class="info-label">BMI</div>
+                                <div class="info-value" id="nilaiIMT">0.0</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Kategori</div>
+                                <div class="info-value" id="kategoriIMT" style="font-size: 1rem;">--</div>
+                            </div>
+                        </div>
+
+                        <div class="hasil-gizi-description" id="deskripsiGizi"></div>
+
+                        <div class="hasil-gizi-rekomendasi">
+                            <h4><i class="bi bi-lightbulb"></i> Rekomendasi</h4>
+                            <ul id="listaRekomendasi"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Distribusi Detail -->
+    <div class="modal fade modal-distribusi" id="distribusiDetailModal" tabindex="-1" aria-labelledby="distribusiDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title" id="distribusiDetailLabel">
+                        <i class="bi bi-bar-chart"></i> Distribusi Berdasarkan Jenjang Pendidikan
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <!-- Distribution Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                        <!-- SMA -->
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">🎓</div>
+                                <div style="font-weight: 600; color: #2d3436;">SMA & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">650,000</div>
+                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div style="width: 26%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">26% dari total penerima</div>
+                        </div>
+
+                        <!-- SMP -->
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">📚</div>
+                                <div style="font-weight: 600; color: #2d3436;">SMP & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">915,000</div>
+                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div style="width: 36.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">36.6% dari total penerima</div>
+                        </div>
+
+                        <!-- SD -->
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">✏️</div>
+                                <div style="font-weight: 600; color: #2d3436;">SD & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">765,000</div>
+                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div style="width: 30.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">30.6% dari total penerima</div>
+                        </div>
+
+                        <!-- TK/PAUD -->
+                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">🎈</div>
+                                <div style="font-weight: 600; color: #2d3436;">TK / PAUD & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">170,000</div>
+                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div style="width: 6.8%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">6.8% dari total penerima</div>
+                        </div>
+                    </div>
+
+                    <!-- Analisis Detail -->
+                    <div style="background: #F6FAFC; border-radius: 20px; padding: 30px; margin-top: 30px;">
+                        <h6 style="font-size: 1.2rem; font-weight: 700; color: #071E49; margin-bottom: 20px;">
+                            <i class="bi bi-graph-up"></i> Analisis Detail
+                        </h6>
+                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
+                            <p style="margin: 0; color: #071E49; line-height: 1.6;">
+                                <strong>Distribusi Terbesar:</strong> SMP & Sederajat mendominasi dengan 36.6% dari total penerima manfaat, diikuti oleh SD & Sederajat dengan 30.6%. Ini menunjukkan fokus program pada tingkat pendidikan menengah.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
+                            <p style="margin: 0; color: #071E49; line-height: 1.6;">
+                                <strong>Penjangkauan TK/PAUD:</strong> Meskipun persentase kecil (6.8%), program tetap mencakup tingkat pra-sekolah untuk mendukung pertumbuhan optimal di usia dini.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea;">
+                            <p style="margin: 0; color: #071E49; line-height: 1.6;">
+                                <strong>Target Strategis:</strong> Program disesuaikan untuk memenuhi kebutuhan gizi di setiap jenjang pendidikan sesuai dengan tahap pertumbuhan dan perkembangan optimal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Download Data -->
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button style="background: #D4A017; color: white; border: none; padding: 12px 30px; border-radius: 20px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="bi bi-download"></i> Unduh Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
@@ -3464,7 +2541,7 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
 
         backToTop.addEventListener('click', function () {
             window.scrollTo({
-                top:  0,
+                top: 0,
                 behavior: 'smooth'
             });
         });
@@ -3506,206 +2583,167 @@ document.querySelectorAll("th.sortable").forEach((th,idx)=>{
         });
 
         // Counter animation
-        const counters = document.querySelectorAll('.stat-number-modern, .data-number');
+        const counters = document.querySelectorAll('.stat-number-modern .number');
         const speed = 200;
-        let hasCounted = false;
 
         const countUp = () => {
             counters.forEach(counter => {
-                const target = +counter.dataset.target;
+                const target = +counter.parentElement.dataset.target;
                 const count = +counter.innerText;
                 const increment = target / speed;
 
                 if (count < target) {
                     counter.innerText = Math.ceil(count + increment);
+                    setTimeout(countUp, 50);
                 } else {
-                    if (target >= 1000000) {
-                        counter.innerText = (target / 1000000).toFixed(1) + 'Jt+';
-                    } else if (target >= 1000) {
-                        counter.innerText = (target / 1000).toFixed(0) + 'K+';
-                    } else {
-                        counter.innerText = target;
-                    }
+                    counter.innerText = target;
                 }
             });
         };
-        setInterval(countUp, 20);
-        const statistikSection = document.querySelector('#statistik');
-        if (statistikSection) {
-            counterObserver.observe(statistikSection);
-        }
 
-        // Trigger counter animation when in viewport
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
+        // Trigger counter on scroll
+        window.addEventListener('scroll', () => {
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection && !statsSection.classList.contains('counted')) {
+                const rect = statsSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    statsSection.classList.add('counted');
                     countUp();
-                    observer.unobserve(entry.target);
                 }
-            });
-        }, observerOptions);
+            }
+        });
 
-        counters.forEach(counter => {
-            observer.observe(counter.parentElement.parentElement);
+        // Distribution bar animation
+        const animateBars = () => {
+            const bars = document.querySelectorAll('.dist-percent-fill');
+            bars.forEach((bar, index) => {
+                const values = [26, 36.6, 30.6, 6.8];
+                setTimeout(() => {
+                    bar.style.width = values[index] + '%';
+                }, index * 100);
+            });
+        };
+
+        // Trigger bar animation on scroll
+        window.addEventListener('scroll', () => {
+            const distSection = document.querySelector('.distribution-section');
+            if (distSection && !distSection.classList.contains('animated')) {
+                const rect = distSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    distSection.classList.add('animated');
+                    animateBars();
+                }
+            }
         });
 
         // Form submission
-        document.getElementById('loginForm')?.addEventListener('submit', function (e) {
+        document.querySelector('.login-form-modern')?.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Handle login logic here
-            const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-            modal.hide();
+            alert('Login functionality coming soon!');
+            bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
         });
 
-        // Newsletter form
-        document.querySelector('.newsletter-form')?.addEventListener('submit', function (e) {
+        // Newsletter subscription
+        document.querySelector('.newsletter-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Handle newsletter subscription
-            this.querySelector('.newsletter-input').value = '';
-            alert('Terimbagian a kasih telah berlangganan newsletter kami!');
+            alert('Terima kasih telah subscribe!');
+            e.target.reset();
         });
 
-        // Distribution Chart
-        const distributionCtx = document.getElementById('distributionChart');
-        if (distributionCtx) {
-            new Chart(distributionCtx.getContext('2d'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['SMA & Sederajat', 'SMP & Sederajat', 'SD & Sederajat', 'TK / PAUD & Sederajat'],
-                    datasets: [{
-                        data: [650000, 915000, 765000, 170000],
-                        backgroundColor: [
-                            'rgba(102, 126, 234, 0.8)',
-                            'rgba(118, 75, 162, 0.8)',
-                            'rgba(79, 172, 254, 0.8)',
-                            'rgba(250, 112, 154, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(102, 126, 234, 1)',
-                            'rgba(118, 75, 162, 1)',
-                            'rgba(79, 172, 254, 1)',
-                            'rgba(250, 112, 154, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    family: 'Poppins',
-                                    size: 12
-                                },
-                                padding: 20
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'Distribusi Penerima Manfaat Berdasarkan Jenjang Pendidikan',
-                            font: {
-                                family: 'Poppins',
-                                size: 16,
-                                weight: 'bold'
-                            },
-                            padding: {
-                                top: 10,
-                                bottom: 30
-                            }
-                        }
-                    }
-                }
+        // Form Cek Gizi
+        document.getElementById('formCekGizi')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const umur = parseFloat(document.getElementById('umur').value);
+            const jenisKelamin = document.getElementById('jenisKelamin').value;
+            const tinggiBadan = parseFloat(document.getElementById('tinggiBadan').value);
+            const beratBadan = parseFloat(document.getElementById('beratBadan').value);
+            const aktivitas = document.getElementById('aktivitas').value;
+
+            // Hitung BMI
+            const tinggiMeter = tinggiBadan / 100;
+            const bmi = beratBadan / (tinggiMeter * tinggiMeter);
+
+            // Tentukan kategori
+            let status = '';
+            let kategori = '';
+            let deskripsi = '';
+            let rekomendasi = [];
+
+            if (bmi < 18.5) {
+                status = 'Kekurangan Gizi';
+                kategori = 'Underweight';
+                deskripsi = 'Anda mengalami kekurangan gizi. Tingkatkan asupan kalori dan nutrisi dengan mengkonsumsi makanan bergizi tinggi.';
+                rekomendasi = [
+                    'Konsumsi makanan kaya protein seperti telur, ikan, dan daging',
+                    'Tambah asupan karbohidrat kompleks (nasi, roti gandum)',
+                    'Minum susu atau produk susu minimal 2 kali sehari',
+                    'Konsultasi dengan ahli gizi untuk menu makanan sesuai kebutuhan'
+                ];
+            } else if (bmi >= 18.5 && bmi < 25) {
+                status = 'Gizi Normal';
+                kategori = 'Normal';
+                deskripsi = 'Selamat! Anda memiliki status gizi yang ideal. Pertahankan pola makan sehat dan olahraga teratur.';
+                rekomendasi = [
+                    'Pertahankan pola makan sehat yang seimbang',
+                    'Olahraga minimal 30 menit setiap hari',
+                    'Konsumsi buah dan sayuran setiap hari',
+                    'Minum air putih minimal 8 gelas per hari'
+                ];
+            } else if (bmi >= 25 && bmi < 30) {
+                status = 'Berat Badan Berlebih';
+                kategori = 'Overweight';
+                deskripsi = 'Anda memiliki berat badan berlebih. Mulai kurangi asupan kalori dan tingkatkan aktivitas fisik.';
+                rekomendasi = [
+                    'Kurangi asupan makanan tinggi lemak dan gula',
+                    'Tingkatkan aktivitas fisik hingga 60 menit setiap hari',
+                    'Memperbanyak konsumsi sayur dan buah',
+                    'Hindari minuman bersoda dan alkohol'
+                ];
+            } else {
+                status = 'Obesitas';
+                kategori = 'Obese';
+                deskripsi = 'Anda mengalami obesitas. Segera konsultasikan dengan dokter untuk mendapatkan program penurunan berat badan yang tepat.';
+                rekomendasi = [
+                    'Konsultasi dengan dokter untuk program penurunan berat badan',
+                    'Ikuti program diet yang terukur dengan ahli gizi',
+                    'Lakukan olahraga rutin dengan bimbingan instruktur',
+                    'Hindari stress dan cukup istirahat'
+                ];
+            }
+
+            // Tampilkan hasil
+            document.getElementById('nilaiIMT').textContent = bmi.toFixed(1);
+            document.getElementById('kategoriIMT').textContent = kategori;
+            document.getElementById('statusGizi').textContent = status;
+            document.getElementById('statusGizi').className = 'hasil-gizi-status ' + 
+                (status === 'Gizi Normal' ? 'status-baik' : 
+                 status === 'Kekurangan Gizi' ? 'status-kurang' : 'status-berlebih');
+            document.getElementById('deskripsiGizi').textContent = deskripsi;
+
+            const listaRekomendasi = document.getElementById('listaRekomendasi');
+            listaRekomendasi.innerHTML = '';
+            rekomendasi.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                listaRekomendasi.appendChild(li);
             });
+
+            document.getElementById('hasilGizi').classList.add('show');
+        });
+
+        // Toggle Distribusi Detail
+        function toggleDistribusiDetail() {
+            const element = document.getElementById('distribusi-detail');
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                element.style.display = 'none';
+            }
         }
-
-        // Filter functionality for data tables
-        function applyFilter(tableId, filterData) {
-            const tableBody = document.getElementById(tableId);
-            if (!tableBody) return;
-
-            // Show loading state
-            tableBody.innerHTML = `
-                <tr>
-                    <td colspan="${tableBody.parentElement.querySelector('thead tr').children.length}" class="text-center py-4">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <p class="mt-2">Memfilter data...</p>
-                    </td>
-                </tr>
-            `;
-
-            // Simulate API call with setTimeout
-            setTimeout(() => {
-                // In a real application, this would make an API call with filterData
-                // For demo purposes, we'll just restore the original data
-                location.reload(); // Simple reload for demo
-            }, 1000);
-        }
-
-        // School filter
-        document.getElementById('applyFilterSekolah')?.addEventListener('click', function () {
-            const filterData = {
-                tahun: document.getElementById('tahunAjaranSekolah').value,
-                jenjang: document.getElementById('jenjangSekolah').value,
-                status: document.getElementById('statusSekolah').value,
-                kecamatan: document.getElementById('kecamatanSekolah').value,
-                search: document.getElementById('searchSekolah').value
-            };
-
-            applyFilter('sekolahTableBody', filterData);
-        });
-
-        // Posyandu filter
-        document.getElementById('applyFilterPosyandu')?.addEventListener('click', function () {
-            const filterData = {
-                tahun: document.getElementById('tahunPosyandu').value,
-                status: document.getElementById('statusPosyandu').value,
-                kecamatan: document.getElementById('kecamatanPosyandu').value,
-                search: document.getElementById('searchPosyandu').value
-            };
-
-            applyFilter('posyanduTableBody', filterData);
-        });
-
-        // Dapur filter
-        document.getElementById('applyFilterDapur')?.addEventListener('click', function () {
-            const filterData = {
-                tahun: document.getElementById('tahunDapur').value,
-                status: document.getElementById('statusDapur').value,
-                tipe: document.getElementById('tipeDapur').value,
-                kecamatan: document.getElementById('kecamatanDapur').value,
-                search: document.getElementById('searchDapur').value
-            };
-
-            applyFilter('dapurTableBody', filterData);
-        });
-
-        // Export functionality
-        document.querySelectorAll('.btn-export').forEach(button => {
-            button.addEventListener('click', function () {
-                const exportType = this.textContent.trim();
-                alert(`Fitur Export ${exportType} akan segera tersedia!`);
-            });
-        });
-
-        // View and Edit buttons
-        document.querySelectorAll('.btn-outline-primary, .btn-outline-success').forEach(button => {
-            button.addEventListener('click', function () {
-                const action = this.classList.contains('btn-outline-primary') ? 'View' : 'Edit';
-                const row = this.closest('tr');
-                const name = row.cells[1].textContent;
-                alert(`${action} data untuk: ${name}`);
-            });
-        });
     </script>
 </body>
-
 </html>
+
+
