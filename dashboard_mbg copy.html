@@ -40,10 +40,8 @@
             color: var(--text-dark);
             overflow-x: hidden;
             line-height: 1.7;
-            /* Increased line height */
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -61,7 +59,7 @@
             background: var(--secondary-color);
         }
 
-        /* Enhanced Navigation */
+        /* Navigation */
         .navbar {
             background: transparent;
             backdrop-filter: none;
@@ -69,6 +67,12 @@
             transition: all 0.3s ease;
             padding: 20px 0;
             border-bottom: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 999;
         }
 
         .navbar.scrolled {
@@ -76,13 +80,12 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: none;
         }
 
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: #2d3436 !important;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -108,15 +111,15 @@
             opacity: 0.8;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: inherit;
         }
 
         .navbar-brand-text .brand-name {
             font-size: 1.3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%);
+            background: linear-gradient(135deg, #D1B06C 0%, #E8D4A2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: #D1B06C;
         }
 
         .navbar.scrolled .navbar-brand {
@@ -134,16 +137,16 @@
         }
 
         .navbar-nav .nav-link {
-            color: rgba(255, 255, 255, 0.85) !important;
+            color: #2d3436 !important;
             font-weight: 500;
             margin: 0 10px;
             position: relative;
             transition: all 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            text-shadow: none;
         }
 
         .navbar.scrolled .navbar-nav .nav-link {
-            color: var(--text-dark) !important;
+            color: #2d3436 !important;
             text-shadow: none;
         }
 
@@ -155,7 +158,7 @@
             transform: translateX(-50%);
             width: 0;
             height: 3px;
-            background: var(--primary-gradient);
+            background: #D1B06C;
             transition: width 0.3s ease;
         }
 
@@ -173,6 +176,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(209, 176, 108, 0.3);
+            cursor: pointer;
         }
 
         .btn-login:hover {
@@ -180,210 +184,17 @@
             box-shadow: 0 8px 25px rgba(209, 176, 108, 0.4);
         }
 
-        /* Regulation Section - New Sidebar Layout */
-        .regulasi-wrapper {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .regulasi-sidebar {
-            background: white;
-            border-radius: 15px;
-            padding: 30px 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-
-        .regulasi-sidebar h6 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #D1B06C;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .regulasi-menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .regulasi-menu li {
-            margin-bottom: 0;
-        }
-
-        .regulasi-menu a {
-            display: block;
-            padding: 12px 15px;
-            color: #071E49;
-            text-decoration: none;
-            border-left: 3px solid transparent;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .regulasi-menu a:hover {
-            background: #f5f5f5;
-            border-left-color: #D1B06C;
-            color: #D1B06C;
-        }
-
-        .regulasi-menu a.active {
-            background: #f5f5f5;
-            border-left-color: #D1B06C;
-            color: #D1B06C;
-            font-weight: 600;
-        }
-
-        .regulasi-content {
-            display: grid;
-            gap: 25px;
-        }
-
-        .regulasi-card-compact {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid #667eea;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 30px;
-            align-items: start;
-            transition: all 0.3s ease;
-        }
-
-        .regulasi-card-compact:hover {
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
-            transform: translateY(-5px);
-        }
-
-        .regulasi-card-left {
-            flex: 1;
-        }
-
-        .regulasi-card-left h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #071E49;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .regulasi-card-meta {
-            font-size: 0.85rem;
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .regulasi-card-desc {
-            font-size: 0.95rem;
-            color: #071E49;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .regulasi-card-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .regulasi-logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #667eea20;
-        }
-
-        .regulasi-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-        }
-
-        .btn-download-regulasi {
-            background: #D1B06C;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(209, 176, 108, 0.2);
-            text-decoration: none;
-        }
-
-        .btn-download-regulasi:hover {
-            background: #C49955;
-            box-shadow: 0 6px 16px rgba(209, 176, 108, 0.3);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 1024px) {
-            .regulasi-wrapper {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .regulasi-sidebar {
-                position: static;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .regulasi-card-compact {
-                grid-template-columns: 1fr;
-            }
-
-            .regulasi-card-right {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .regulasi-card-compact {
-                padding: 20px;
-            }
-
-            .regulasi-logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .regulasi-card-left h4 {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Enhanced Hero Section */
+        /* Hero Section */
         .hero-section {
             background: #071E49;
             position: relative;
-            padding: 120px 0 80px;
+            padding: 0;
             overflow: hidden;
+            margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-section::before {
@@ -410,120 +221,114 @@
             z-index: 1;
         }
 
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 20s infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) translateX(0);
-            }
-
-            25% {
-                transform: translateY(-100px) translateX(50px);
-            }
-
-            50% {
-                transform: translateY(-50px) translateX(-50px);
-            }
-
-            75% {
-                transform: translateY(-150px) translateX(25px);
-            }
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
+            display: none;
         }
 
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 25px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: white;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn-hero {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-hero-primary {
-            background: #D1B06C;
-            color: white;
-            box-shadow: 0 10px 30px rgba(209, 176, 108, 0.3);
-        }
-
-        .btn-hero-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(209, 176, 108, 0.4);
-            background: #C49955;
-        }
-
-        .btn-hero-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-hero-outline:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: float-image 6s ease-in-out infinite;
-        }
-
-        @keyframes float-image {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .hero-image img {
+        /* Carousel */
+        .hero-carousel-container {
+            position: absolute;
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: none;
         }
 
-        /* Enhanced Statistics Section */
+        .hero-carousel {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: grab;
+            user-select: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: #D1B06C;
+            border-color: #D1B06C;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(209, 176, 108, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        /* Stats Section */
         .stats-section {
             padding: 80px 0;
             background: #F5FAFB;
@@ -543,8 +348,6 @@
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0.05);
             cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s ease;
         }
 
         .stat-card-modern::before {
@@ -576,47 +379,6 @@
             z-index: 2;
         }
 
-        .stat-card-modern::after {
-            content: "";
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: "bootstrap-icons";
-            font-size: 90px;
-            color: rgba(0, 0, 0, 0.12);
-            /* abu gelap transparan */
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .col-lg-4:nth-of-type(1) .stat-card-modern::after {
-            content: "\f4cf";
-        }
-
-        .col-lg-4:nth-of-type(2) .stat-card-modern::after {
-            content: "\f3e8";
-        }
-
-        .col-lg-4:nth-of-type(3) .stat-card-modern::after {
-            content: "\f1f3";
-        }
-
-        .col-lg-4:nth-of-type(4) .stat-card-modern::after {
-            content: "\f417";
-        }
-
-        .col-lg-4:nth-of-type(4) .stat-card-modern::after {
-            content: "\f417";
-        }
-
-        .col-lg-4:nth-of-type(5) .stat-card-modern::after {
-            content: "\f673";
-        }
-
-        .col-lg-4:nth-of-type(6) .stat-card-modern::after {
-            content: "\f672";
-        }
-
         .stat-icon-modern.gradient-1 {
             background: var(--primary-gradient);
         }
@@ -627,10 +389,6 @@
 
         .stat-icon-modern.gradient-3 {
             background: var(--success-gradient);
-        }
-
-        .stat-icon-modern.gradient-4 {
-            background: var(--warning-gradient);
         }
 
         .stat-icon-modern i {
@@ -653,36 +411,10 @@
             font-weight: 500;
         }
 
-        /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: #071E49;
-            color: white;
-        }
-
+        /* Section Header */
         .section-header {
             text-align: center;
             margin-bottom: 80px;
-            /* Increased from 60px */
-        }
-
-        /* Section dengan background gelap */
-        .about-section .section-header,
-        .distribution-section .section-header,
-        .map-section .section-header {
-            color: white;
-        }
-
-        .about-section .section-title,
-        .distribution-section .section-title,
-        .map-section .section-title {
-            color: white;
-        }
-
-        .about-section .section-subtitle,
-        .distribution-section .section-subtitle,
-        .map-section .section-subtitle {
-            color: rgba(255, 255, 255, 0.95);
         }
 
         .section-title {
@@ -713,6 +445,31 @@
             margin: 0 auto;
         }
 
+        .about-section .section-header,
+        .distribution-section .section-header,
+        .map-section .section-header {
+            color: white;
+        }
+
+        .about-section .section-title,
+        .distribution-section .section-title,
+        .map-section .section-title {
+            color: white;
+        }
+
+        .about-section .section-subtitle,
+        .distribution-section .section-subtitle,
+        .map-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: #071E49;
+            color: white;
+        }
+
         .about-card {
             background: white;
             border-radius: 25px;
@@ -724,20 +481,8 @@
         }
 
         .about-card.highlight {
-            background: #071E49;
+            background: linear-gradient(135deg, #6B46C1 0%, #5A3BA0 100%);
             color: white;
-        }
-
-        .about-card.highlight .about-title {
-            color: white;
-        }
-
-        .about-card.highlight .about-description {
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .about-card.highlight .about-icon {
-            background: #D4A017;
         }
 
         .about-card:hover {
@@ -774,7 +519,7 @@
             margin-bottom: 15px;
         }
 
-        .about-section .about-title {
+        .about-card.highlight .about-title {
             color: white;
         }
 
@@ -783,7 +528,7 @@
             line-height: 1.6;
         }
 
-        .about-section .about-description {
+        .about-card.highlight .about-description {
             color: rgba(255, 255, 255, 0.95);
         }
 
@@ -794,7 +539,6 @@
             color: #071E49;
         }
 
-        /* Distribution Container Styles */
         .dist-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -814,18 +558,10 @@
             line-height: 1.3;
         }
 
-        .distribution-section .dist-header h1 {
-            color: #071E49;
-        }
-
         .dist-header p {
             font-size: 1.1rem;
             color: #071E49;
             margin: 0;
-        }
-
-        .distribution-section .dist-header p {
-            color: #071E49;
         }
 
         .dist-stats-wrapper {
@@ -864,10 +600,6 @@
             border-color: #667eea;
         }
 
-        .dist-stat-icon-wrapper {
-            margin-bottom: 20px;
-        }
-
         .dist-stat-icon {
             font-size: 3rem;
             display: inline-block;
@@ -887,10 +619,6 @@
             margin-bottom: 12px;
         }
 
-        .distribution-section .dist-stat-label {
-            color: #667eea;
-        }
-
         .dist-stat-number {
             font-size: 2.2rem;
             font-weight: 800;
@@ -899,54 +627,13 @@
             line-height: 1;
         }
 
-        .distribution-section .dist-stat-number {
-            color: #071E49;
-        }
-
         .dist-stat-description {
             font-size: 0.95rem;
             color: #071E49;
             line-height: 1.5;
         }
 
-        .distribution-section .dist-stat-description {
-            color: #071E49;
-        }
-
-        @media (max-width: 768px) {
-            .dist-header h1 {
-                font-size: 2rem;
-            }
-
-            .dist-header p {
-                font-size: 1rem;
-            }
-
-            .dist-stats-wrapper {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-            }
-
-            .dist-stat-card {
-                padding: 25px 20px;
-            }
-
-            .dist-stat-icon {
-                font-size: 2.5rem;
-            }
-
-            .dist-stat-number {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 120px 0;
-            background: #F5FAFB;
-        }
-
-        /* Cek Gizi Section Styles */
+        /* Cek Gizi Section */
         .cek-gizi-section {
             padding: 100px 0;
             background: #F5FAFB;
@@ -992,9 +679,9 @@
             justify-content: center;
             margin: 0 auto 30px;
             font-size: 4rem;
-            transition: transform 0.6s ease;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
             color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
         }
 
         .cek-gizi-card:hover .cek-gizi-icon {
@@ -1020,26 +707,24 @@
             background: #D4A017;
             color: white;
             border: none;
-            padding: 14px 40px;
+            padding: 14px 35px;
             border-radius: 25px;
             font-weight: 600;
             font-size: 1rem;
-            width: 100%;
             transition: all 0.3s ease;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
             cursor: pointer;
         }
 
         .cek-gizi-button:hover {
-            background: linear-gradient(135deg, #764ba2, #667eea);
+            background: #C49955;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(209, 176, 108, 0.4);
         }
 
-        /* Form Gizi Styles */
+        /* Form Gizi */
         .form-gizi-modern {
             max-width: 100%;
         }
@@ -1093,7 +778,7 @@
             box-shadow: 0 10px 25px rgba(209, 176, 108, 0.3);
         }
 
-        /* Hasil Gizi Styles */
+        /* Hasil Gizi */
         .hasil-gizi-container {
             margin-top: 30px;
             padding: 30px;
@@ -1235,6 +920,364 @@
             font-size: 0.9rem;
         }
 
+        /* Regulasi Section */
+        .regulations-section {
+            padding: 100px 0;
+            background: #F5FAFB;
+        }
+
+        .regulasi-wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .regulasi-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .regulasi-sidebar h6 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #D1B06C;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .regulasi-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .regulasi-menu li {
+            margin-bottom: 0;
+        }
+
+        .regulasi-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: #071E49;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .regulasi-menu a:hover {
+            background: #f5f5f5;
+            border-left-color: #D1B06C;
+            color: #D1B06C;
+        }
+
+        .regulasi-menu a.active {
+            background: #f5f5f5;
+            border-left-color: #D1B06C;
+            color: #D1B06C;
+            font-weight: 600;
+        }
+
+        .regulasi-content {
+            display: grid;
+            gap: 25px;
+        }
+
+        .regulasi-card-compact {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .regulasi-card-compact:hover {
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .regulasi-card-left h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #071E49;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .regulasi-card-meta {
+            font-size: 0.9rem;
+            color: #D1B06C;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .regulasi-card-desc {
+            font-size: 0.95rem;
+            color: #636e72;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .regulasi-download-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 0;
+        }
+
+        .btn-download-regulasi-circle {
+            width: 55px;
+            height: 55px;
+            background: #D1B06C;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(209, 176, 108, 0.2);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .btn-download-regulasi-circle:hover {
+            background: #C49955;
+            box-shadow: 0 6px 16px rgba(209, 176, 108, 0.3);
+            transform: translateY(-2px) scale(1.1);
+        }
+
+        .btn-selengkapnya-regulasi {
+            background: #D1B06C;
+            color: #071E49;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(209, 176, 108, 0.3);
+        }
+
+        .btn-selengkapnya-regulasi:hover {
+            background: #C49955;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(209, 176, 108, 0.4);
+            color: #071E49;
+        }
+
+        .btn-read-regulasi {
+            background: #D1B06C;
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(209, 176, 108, 0.3);
+        }
+
+        .btn-read-regulasi:hover {
+            background: #C49955;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-back-overview {
+            background: #D1B06C;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .btn-back-overview:hover {
+            background: #C49955;
+            color: white;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 100px 0;
+            background: #071E49;
+            color: white;
+        }
+
+        .map-info-card {
+            background: rgba(7, 30, 73, 0.95);
+            border-radius: 24px;
+            padding: 20px 32px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border: 1.5px solid rgba(209, 176, 108, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+        }
+
+        .map-info-card:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            background: rgba(7, 30, 73, 0.98);
+        }
+
+        .map-info-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .map-info-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: #D4A017;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-info-card:hover .map-info-icon {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .map-info-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .map-info-description {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-view-map {
+            background: #D1B06C;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(209, 176, 108, 0.3);
+        }
+
+        .btn-view-map:hover {
+            background: #C49955;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 120px 0;
+            background: #F5FAFB;
+        }
+
+        .accordion-modern {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .accordion-item-modern {
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .accordion-item-modern:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-button-modern {
+            background: white;
+            color: #071E49;
+            font-weight: 600;
+            padding: 20px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .accordion-button-modern:not(.collapsed) {
+            background: linear-gradient(135deg, #D1B06C 0%, #C49955 100%);
+            color: white;
+            box-shadow: none;
+        }
+
+        .accordion-body-modern {
+            padding: 20px 30px;
+            color: #071E49;
+            line-height: 1.8;
+        }
+
         /* Modal Styles */
         .modal-content-modern {
             border: none;
@@ -1254,79 +1297,46 @@
             background: white;
         }
 
-        /* Loader & Back to Top */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
+        .form-floating-modern {
+            position: relative;
         }
 
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-circle {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f0f0f0;
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            opacity: 0;
-            visibility: hidden;
+        .form-control-modern-login {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            color: #2d3436;
             transition: all 0.3s ease;
-            z-index: 1000;
+        }
+
+        .form-control-modern-login:focus {
+            background: white;
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+
+        .btn-login-modern {
+            background: #D1B06C;
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        .btn-login-modern:hover {
+            background: #C49955;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(209, 176, 108, 0.3);
         }
 
         /* Footer */
         .footer-modern {
-            background: var(--dark-gradient);
+            background: linear-gradient(135deg, #071E49 0%, #6B46C1 100%);
             color: white;
             padding: 80px 0 40px;
             position: relative;
@@ -1484,363 +1494,134 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Accordion */
-        .accordion-modern {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-
-        .accordion-item-modern {
-            border: none;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .accordion-item-modern:last-child {
-            border-bottom: none;
-        }
-
-        .accordion-button-modern {
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: white;
-            color: #071E49;
-            font-weight: 600;
-            padding: 20px 30px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .accordion-button-modern:not(.collapsed) {
-            background: var(--primary-gradient);
-            color: white;
-            box-shadow: none;
-        }
-
-        .accordion-body-modern {
-            padding: 20px 30px;
-            color: #071E49;
-            line-height: 1.8;
-        }
-
-        /* Map Section Styles */
-        .map-section {
-            padding: 100px 0;
-            background: #071E49;
-            color: white;
-        }
-
-        .map-info-card {
-            background: #EAF0FA;
-            border-radius: 24px;
-            padding: 20px 32px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            border: 1.5px solid rgba(7, 30, 73, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 280px;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
         }
 
-
-        .map-info-card:hover {
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
-            transform: translateY(-5px);
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
-        /* Map Info Card Decorative Images */
-        .map-info-card-horse-left {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%) scaleX(-1);
-            width: 280px;
-            height: 280px;
-            object-fit: contain;
-            opacity: 0.15;
-            z-index: 1;
-        }
-
-        .map-info-card-horse-right {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 280px;
-            height: 280px;
-            object-fit: contain;
-            opacity: 0.15;
-            z-index: 1;
-        }
-
-        @media (max-width: 768px) {
-            .map-info-card {
-                padding: 40px 25px;
-                min-height: 300px;
-                flex-direction: column;
-            }
-
-            .map-info-card-horse-left,
-            .map-info-card-horse-right {
-                width: 150px;
-                height: 150px;
-            }
-
-            .map-info-card-horse-left {
-                left: 10px;
-            }
-
-            .map-info-card-horse-right {
-                right: 10px;
-            }
-        }
-
-        /* Map Info Card Content Styles */
-        .map-info-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .map-info-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: #D4A017;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .map-info-card:hover .map-info-icon {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        }
-
-        .map-info-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #2d3436;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .map-section .map-info-title {
-            color: white;
-        }
-
-        .map-info-description {
-            color: #636e72;
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .map-section .map-info-description {
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .btn-view-map {
-            background: #D1B06C;
-            color: white;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(209, 176, 108, 0.3);
-        }
-
-        .btn-view-map:hover {
-            background: #C49955;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
-            color: white;
-            text-decoration: none;
-        }
-
-        .btn-view-map:focus {
-            outline: none;
-            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
-        }
-
-        /* Map Info Card Responsive */
-        @media (max-width: 768px) {
-            .map-info-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-
-            .map-info-title {
-                font-size: 1.4rem;
-            }
-
-            .map-info-description {
-                font-size: 0.95rem;
-            }
-
-            .btn-view-map {
-                padding: 12px 30px;
-                font-size: 0.95rem;
-            }
-        }
-
-        /* Button Baca Selengkapnya */
-        .btn-read-more {
-            background: #D1B06C;
-            color: white;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(209, 176, 108, 0.3);
-            margin-top: 40px;
-        }
-
-        .btn-read-more:hover {
-            background: #C49955;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(209, 176, 108, 0.4);
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Image Carousel Styles */
-        .hero-carousel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-carousel {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: grab;
-            user-select: none;
-        }
-
-        .hero-carousel:active {
-            cursor: grabbing;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            position: relative;
-            animation: float-image 6s ease-in-out infinite;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .carousel-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .carousel-dot:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: scale(1.2);
-        }
-
-        .carousel-dot.active {
-            background: #D1B06C;
-            border-color: #D1B06C;
-            width: 30px;
-            border-radius: 6px;
-        }
-
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            border: none;
+        .loader-circle {
             width: 50px;
             height: 50px;
+            border: 5px solid #f0f0f0;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            color: white;
             font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .carousel-arrow:hover {
-            background: rgba(209, 176, 108, 0.9);
-            transform: translateY(-50%) scale(1.1);
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .carousel-arrow.prev {
-            left: 20px;
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
-        .carousel-arrow.next {
-            right: 20px;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .regulasi-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .regulasi-sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
+            .hero-carousel-container {
+                height: 100vh;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
             .carousel-slide img {
                 height: 400px;
             }
 
-            .carousel-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
+            .stat-card-modern {
+                padding: 25px 20px;
             }
 
-            .carousel-arrow.prev {
-                left: 10px;
+            .section-title {
+                font-size: 2rem;
             }
 
-            .carousel-arrow.next {
-                right: 10px;
+            .dist-header h1 {
+                font-size: 2rem;
+            }
+
+            .cek-gizi-section {
+                padding: 60px 0;
+            }
+
+            .faq-section {
+                padding: 60px 0;
+            }
+
+            .hasil-gizi-info {
+                grid-template-columns: 1fr;
+            }
+
+            .map-info-card {
+                min-height: 300px;
             }
         }
     </style>
@@ -1852,18 +1633,14 @@
         <div class="loader-circle"></div>
     </div>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
-        <i class="bi bi-arrow-up"></i>
-    </div>
-
-    <!-- Enhanced Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+        <div class="container-xl">
             <a class="navbar-brand" href="#beranda">
-                <img src="rusa.png" alt="KOTA Bogor Logo">
+                <img src="logo.png" alt="BGN Logo">
                 <div class="navbar-brand-text">
-                    <span class="brand-name">KOTA Bogor</span>
+                    <span class="brand-label">Program Nasional</span>
+                    <span class="brand-name">Makan Bergizi Gratis</span>
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -1871,136 +1648,80 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#beranda">Beranda</a>
+                    <li class="nav-item"><a class="nav-link" href="#beranda" data-section="beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#statistik" data-section="statistik">Statistik</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tentang">Tentang</a>
+                    <li class="nav-item"><a class="nav-link" href="#tentang" data-section="tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cek-gizi" data-section="cek-gizi">Cek Gizi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#statistik">Statistik</a>
+                    <li class="nav-item"><a class="nav-link" href="#regulasi" data-section="regulasi">Regulasi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#regulasi">Regulasi</a>
+                    <li class="nav-item"><a class="nav-link" href="#peta-mbg" data-section="peta-mbg">Peta MBG</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#cek-gizi">Cek Gizi</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#faq" data-section="faq">FAQ</a></li>
                 </ul>
+                <button class="btn-login ms-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="bi bi-box-arrow-in-right"></i> Masuk
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="beranda" class="hero-section">
-        <div class="container-fluid px-0">
-            <div class="hero-carousel-container">
-                <div class="hero-carousel" id="heroCarousel">
-                    <div class="carousel-slide">
-                        <img src="https://picsum.photos/seed/healthy-food-1/1920/600" alt="Makanan Bergizi 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://picsum.photos/seed/healthy-food-2/1920/600" alt="Makanan Bergizi 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://picsum.photos/seed/healthy-food-3/1920/600" alt="Makanan Bergizi 3">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://picsum.photos/seed/healthy-food-4/1920/600" alt="Makanan Bergizi 4">
-                    </div>
+        <div class="hero-particles" id="particlesContainer"></div>
+        <div class="hero-carousel-container">
+            <div class="hero-carousel" id="heroCarousel">
+                <div class="carousel-slide">
+                    <img src="bogor.png" alt="Slide Bogor">
                 </div>
-                <button class="carousel-arrow prev" onclick="moveCarousel(-1)">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="carousel-arrow next" onclick="moveCarousel(1)">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
-                <div class="carousel-controls" id="carouselDots"></div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/nutrition2/1920/1080.jpg" alt="Slide 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/nutrition3/1920/1080.jpg" alt="Slide 3">
+                </div>
             </div>
+            <button class="carousel-arrow prev" onclick="moveCarousel(-1)">❮</button>
+            <button class="carousel-arrow next" onclick="moveCarousel(1)">❯</button>
+            <div class="carousel-controls" id="carouselDots"></div>
         </div>
     </section>
 
-    <!-- Enhanced Statistics Section -->
+    <!-- Statistics Section -->
     <section id="statistik" class="stats-section">
         <div class="container">
-            <div class="row g-4">
-                <!-- 1 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Statistik Program</h2>
+                <p class="section-subtitle">Dampak nyata program Makan Bergizi Gratis di seluruh Indonesia</p>
+            </div>
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-4 mb-4">
                     <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-1"><i class="bi bi-people-fill"></i></div>
-                        <div class="stat-number-modern" data-target="2500000">
-                            <span class="number">0</span><span> +</span>
+                        <div class="stat-icon-modern gradient-1">
+                            <i class="bi bi-people-fill"></i>
                         </div>
-                        <div class="stat-label">
-                            <b>Penerima Manfaat</b>
-                        </div>
+                        <div class="stat-number-modern">2.5 Juta</div>
+                        <div class="stat-label">Penerima Manfaat</div>
                     </div>
                 </div>
-
-                <!-- 2 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 mb-4">
                     <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-2"><i class="bi bi-building"></i></div>
-                        <div class="stat-number-modern" data-target="85230">
-                            <span class="number">0</span><span></span>
+                        <div class="stat-icon-modern gradient-2">
+                            <i class="bi bi-building"></i>
                         </div>
-                        <div class="stat-label">
-                            <b>Institusi Pendidikan</b>
-                        </div>
+                        <div class="stat-number-modern">15,000+</div>
+                        <div class="stat-label">Lokasi Distribusi</div>
                     </div>
                 </div>
-
-                <!-- 3 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-3"><i class="bi bi-map-fill"></i></div>
-                        <div class="stat-number-modern" data-target="514">
-                            <span class="number">0</span><span></span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Kecamatan Tercakup</b>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-4"><i class="bi bi-heart-pulse-fill"></i></div>
-                        <div class="stat-number-modern" data-target="98">
-                            <span class="number">0</span><span>%</span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Tingkat Kepuasan</b>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-4 mb-4">
                     <div class="stat-card-modern">
                         <div class="stat-icon-modern gradient-3">
-                            <i class="bi bi-graph-up-arrow"></i>
+                            <i class="bi bi-calendar-check"></i>
                         </div>
-                        <div class="stat-number-modern" data-target="87">
-                            <span class="number">0</span><span>%</span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Peningkatan Gizi</b>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="stat-card-modern">
-                        <div class="stat-icon-modern gradient-4"><i class="bi bi-graph-down-arrow"></i></div>
-                        <div class="stat-number-modern" data-target="23">
-                            <span class="number">0</span><span>%</span>
-                        </div>
-                        <div class="stat-label">
-                            <b>Penurunan Stunting</b>
-                        </div>
+                        <div class="stat-number-modern">365 Hari</div>
+                        <div class="stat-label">Program Setahun</div>
                     </div>
                 </div>
             </div>
@@ -2011,39 +1732,36 @@
     <section id="tentang" class="about-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Tentang Program MBG</h2>
-                <p class="section-subtitle">Mengenal lebih dekat program Makan Bergizi Gratis dan tujuannya
-                </p>
+                <h2 class="section-title">Tentang Program</h2>
+                <p class="section-subtitle">Membangun generasi emas melalui pemenuhan gizi optimal</p>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-4 mb-4">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h3 class="about-title">Visi</h3>
+                        <p class="about-description">Mewujudkan Indonesia bebas stunting dengan generasi emas yang sehat, cerdas, dan produktif.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
                     <div class="about-card highlight">
                         <div class="about-icon">
-                            <i class="bi bi-bullseye"></i>
+                            <i class="bi bi-target"></i>
                         </div>
-                        <h4 class="about-title">Visi & Misi</h4>
-                        <p class="about-description">Mewujudkan generasi Indonesia yang sehat, cerdas, dan produktif
-                            melalui akses nutrisi berkualitas tinggi untuk semua anak bangsa.</p>
+                        <h3 class="about-title">Misi</h3>
+                        <p class="about-description">Memberikan makanan bergizi berkualitas tinggi kepada seluruh lapisan masyarakat tanpa terkecuali.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 mb-4">
                     <div class="about-card">
                         <div class="about-icon">
-                            <i class="bi bi-award"></i>
+                            <i class="bi bi-hand-thumbs-up"></i>
                         </div>
-                        <h4 class="about-title">Tujuan Program</h4>
-                        <p class="about-description">Mengurangi angka stunting, meningkatkan kualitas gizi masyarakat,
-                            dan mendukung pertumbuhan optimal anak-anak Indonesia.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="about-card">
-                        <div class="about-icon">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <h4 class="about-title">Komitmen Pemerintah</h4>
-                        <p class="about-description">Program nasional yang didukung penuh oleh pemerintah untuk
-                            memastikan ketersediaan makanan bergizi bagi seluruh lapisan masyarakat.</p>
+                        <h3 class="about-title">Manfaat</h3>
+                        <p class="about-description">Meningkatkan kesehatan, prestasi belajar, dan produktivitas masyarakat Indonesia.</p>
                     </div>
                 </div>
             </div>
@@ -2051,82 +1769,79 @@
     </section>
 
     <!-- Distribution Section -->
-    <section id="statistik-distribusi" class="distribution-section">
+    <section id="distribusi" class="distribution-section">
         <div class="dist-container">
-            <!-- Header -->
-            <div class="dist-header">
-                <h1>Statistik Distribusi MBG</h1>
-                <p>Data Penyaluran Program Makan Bergizi Gratis di Indonesia</p>
+            <div class="dist-header" data-aos="fade-up">
+                <h1>Distribusi Program MBG</h1>
+                <p>Data persebaran penerima manfaat berdasarkan kategori</p>
             </div>
 
-            <!-- Stats Cards -->
-            <div class="dist-stats-wrapper">
+            <div class="dist-stats-wrapper" data-aos="fade-up">
                 <div class="dist-stat-card">
                     <div class="dist-stat-icon-wrapper">
                         <div class="dist-stat-icon">🎓</div>
                     </div>
                     <div class="dist-stat-label">Total Penerima</div>
-                    <div class="dist-stat-number">2.5M+</div>
-                    <div class="dist-stat-description">Penerima manfaat di seluruh Indonesia</div>
-                </div>
-
-                <div class="dist-stat-card">
-                    <div class="dist-stat-icon-wrapper">
-                        <div class="dist-stat-icon">🏫</div>
-                    </div>
-                    <div class="dist-stat-label">Total Sekolah</div>
-                    <div class="dist-stat-number">85,230</div>
-                    <div class="dist-stat-description">Sekolah yang terdaftar dalam program</div>
+                    <div class="dist-stat-number">2,500,000</div>
+                    <div class="dist-stat-description">Anak-anak dan dewasa</div>
                 </div>
 
                 <div class="dist-stat-card">
                     <div class="dist-stat-icon-wrapper">
                         <div class="dist-stat-icon">📍</div>
                     </div>
-                    <div class="dist-stat-label">Kecamatan</div>
-                    <div class="dist-stat-number">514</div>
-                    <div class="dist-stat-description">Kecamatan tercakup program MBG</div>
+                    <div class="dist-stat-label">Jangkauan</div>
+                    <div class="dist-stat-number">34 Provinsi</div>
+                    <div class="dist-stat-description">Seluruh Indonesia</div>
                 </div>
 
                 <div class="dist-stat-card">
                     <div class="dist-stat-icon-wrapper">
-                        <div class="dist-stat-icon">🍽️</div>
+                        <div class="dist-stat-icon">🏫</div>
                     </div>
-                    <div class="dist-stat-label">SPPG Aktif</div>
-                    <div class="dist-stat-number">8,750</div>
-                    <div class="dist-stat-description">Satuan Pelayanan Penyediaan Gizi</div>
+                    <div class="dist-stat-label">Sekolah</div>
+                    <div class="dist-stat-number">150,000+</div>
+                    <div class="dist-stat-description">Dari berbagai jenjang</div>
+                </div>
+
+                <div class="dist-stat-card">
+                    <div class="dist-stat-icon-wrapper">
+                        <div class="dist-stat-icon">👨‍⚕️</div>
+                    </div>
+                    <div class="dist-stat-label">Fasilitator</div>
+                    <div class="dist-stat-number">50,000+</div>
+                    <div class="dist-stat-description">Petugas lapangan</div>
                 </div>
             </div>
 
-            <!-- Button Baca Selengkapnya -->
-            <div style="text-align: center;">
-                <button class="btn-read-more" data-bs-toggle="modal" data-bs-target="#distribusiDetailModal">
-                    <i class="bi bi-arrow-right"></i> Baca Selengkapnya
-                </button>
+            <div class="row mt-5">
+                <div class="col-lg-12 text-center">
+                    <button class="btn-read-regulasi" data-bs-toggle="modal" data-bs-target="#distribusiDetailModal">
+                        <i class="bi bi-graph-up"></i> Lihat Detail Distribusi
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CEK GIZI SECTION -->
+    <!-- Cek Gizi Section -->
     <section id="cek-gizi" class="cek-gizi-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Cek Status Gizi Anda</h2>
-                <p class="section-subtitle">Ketahui apakah Anda mengalami kekurangan gizi atau tidak</p>
+                <p class="section-subtitle">Pantau kesehatan dan status nutrisi Anda dengan mudah</p>
             </div>
-            <div class="row" data-aos="fade-up">
-                <div class="col-lg-6 col-md-8 mx-auto">
+
+            <div class="row">
+                <div class="col-lg-4 mx-auto" data-aos="fade-up">
                     <div class="cek-gizi-card">
                         <div class="cek-gizi-icon">
                             <i class="bi bi-heart-pulse"></i>
                         </div>
-                        <h3 class="cek-gizi-title">Pemeriksaan Gizi Gratis</h3>
-                        <p class="cek-gizi-description">
-                            Masukkan data diri Anda untuk mengetahui status gizi dan mendapatkan rekomendasi nutrisi
-                            yang tepat.
-                        </p>
+                        <h3 class="cek-gizi-title">Hitung BMI Anda</h3>
+                        <p class="cek-gizi-description">Masukkan data pribadi Anda untuk mengetahui status gizi dan rekomendasi kesehatan yang tepat.</p>
                         <button class="cek-gizi-button" data-bs-toggle="modal" data-bs-target="#cekGiziModal">
-                            <i class="bi bi-arrow-right"></i> Mulai Cek Gizi
+                            <i class="bi bi-calculator"></i> Mulai Cek Gizi
                         </button>
                     </div>
                 </div>
@@ -2134,240 +1849,91 @@
         </div>
     </section>
 
-    <!-- Regulations Section -->
-    <section id="regulasi" class="regulations-section">
+    <!-- Regulasi Section -->
+    <section id="regulasi" class="regulations-section" style="padding: 100px 0; background: #F5FAFB;">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Regulasi & Kebijakan</h2>
-                <p class="section-subtitle">
-                    Peraturan dan Petunjuk Teknis Terkait Program Makan Bergizi Gratis
-                </p>
+                <h2 class="section-title">Peraturan & Regulasi</h2>
+                <p class="section-subtitle">Dokumen resmi program Makan Bergizi Gratis</p>
             </div>
 
-            <!-- Initial View - Overview Cards -->
-            <div class="regulasi-overview" id="regulasiOverview" data-aos="fade-up">
-                <div class="row g-4">
-                    <!-- Card 1 -->
-                    <div class="col-lg-6 col-md-12">
-                        <div class="regulasi-overview-card">
-                            <div class="regulasi-overview-icon">
-                                <i class="bi bi-file-earmark-text"></i>
-                            </div>
-                            <h3>Peraturan Pemerintah</h3>
-                            <p>Peraturan Presiden dan Keputusan Menteri terkait Program Makan Bergizi Gratis untuk
-                                seluruh lapisan masyarakat.</p>
-                            <ul class="regulasi-overview-list">
-                                <li><i class="bi bi-check-circle"></i> Perpres Nomor 83 Tahun 2024</li>
-                                <li><i class="bi bi-check-circle"></i> Surat Keputusan Menteri</li>
-                                <li><i class="bi bi-check-circle"></i> Panduan Implementasi</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="col-lg-6 col-md-12">
-                        <div class="regulasi-overview-card">
-                            <div class="regulasi-overview-icon">
-                                <i class="bi bi-book"></i>
-                            </div>
-                            <h3>Pedoman Teknis</h3>
-                            <p>Standar Operasional Prosedur dan panduan pelaksanaan program di berbagai tingkat satuan
-                                pendidikan.</p>
-                            <ul class="regulasi-overview-list">
-                                <li><i class="bi bi-check-circle"></i> SOP Program MBG</li>
-                                <li><i class="bi bi-check-circle"></i> Pedoman Sekolah</li>
-                                <li><i class="bi bi-check-circle"></i> Panduan Mitra</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="col-lg-6 col-md-12">
-                        <div class="regulasi-overview-card">
-                            <div class="regulasi-overview-icon">
-                                <i class="bi bi-clipboard-check"></i>
-                            </div>
-                            <h3>Formulir & Sertifikat</h3>
-                            <p>Formulir permohonan dan persyaratan untuk penyelenggaraan program di fasilitas mitra.</p>
-                            <ul class="regulasi-overview-list">
-                                <li><i class="bi bi-check-circle"></i> Permohonan SLHS</li>
-                                <li><i class="bi bi-check-circle"></i> Form IKL Restoran</li>
-                                <li><i class="bi bi-check-circle"></i> Form IKL Jasa Boga</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="col-lg-6 col-md-12">
-                        <div class="regulasi-overview-card">
-                            <div class="regulasi-overview-icon">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <h3>Standar & Ketentuan</h3>
-                            <p>Standar kualitas, keamanan pangan, dan persyaratan khusus penyelenggaraan program.</p>
-                            <ul class="regulasi-overview-list">
-                                <li><i class="bi bi-check-circle"></i> Standar Gizi Minuman</li>
-                                <li><i class="bi bi-check-circle"></i> Keamanan Pangan</li>
-                                <li><i class="bi bi-check-circle"></i> Persyaratan Higienis</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Button Baca Selengkapnya -->
-                <div class="regulasi-overview-action">
-                    <button class="btn-read-regulasi" onclick="tampilkanDetailRegulasi()">
-                        <i class="bi bi-arrow-right"></i> Lihat Detail Lengkap
+            <div class="regulasi-wrapper" data-aos="fade-up">
+                <div class="regulasi-sidebar">
+                    <h6>Peraturan Terkait BGN</h6>
+                    <ul class="regulasi-menu">
+                        <li><a href="#reg-1" class="regulasi-item active" data-target="card-1">Perpres BGN 2024</a></li>
+                        <li><a href="#reg-2" class="regulasi-item" data-target="card-2">SOP Program MBG</a></li>
+                        <li><a href="#reg-3" class="regulasi-item" data-target="card-3">Pedoman MBG Sekolah</a></li>
+                        <li><a href="#reg-4" class="regulasi-item" data-target="card-4">Permohonan SLHS</a></li>
+                    </ul>
+                    <button class="btn-selengkapnya-regulasi">
+                        <i class="bi bi-download"></i> Selengkapnya
                     </button>
                 </div>
-            </div>
 
-            <!-- Detailed View - Menu & Content -->
-            <div class="regulasi-detail" id="regulasiDetail" style="display: none;">
-                <div class="regulasi-wrapper">
-                    <!-- Sidebar Menu -->
-                    <div class="regulasi-sidebar">
-                        <h6>Daftar Regulasi</h6>
-                        <ul class="regulasi-menu">
-                            <li><a href="#reg-1" class="regulasi-item active" data-target="card-1">SOP Program MBG</a>
-                            </li>
-                            <li><a href="#reg-2" class="regulasi-item" data-target="card-2">Pedoman MBG Sekolah</a></li>
-                            <li><a href="#reg-3" class="regulasi-item" data-target="card-3">Permohonan SLHS</a></li>
-                            <li><a href="#reg-4" class="regulasi-item" data-target="card-4">Form IKL Restoran</a></li>
-                            <li><a href="#reg-5" class="regulasi-item" data-target="card-5">Form IKL Jasa Boga</a></li>
-                            <li><a href="#reg-6" class="regulasi-item" data-target="card-6">Perpres BGN 2024</a></li>
-                        </ul>
-                        <button class="btn-back-overview" onclick="tampilkanOverviewRegulasi()">
-                            <i class="bi bi-arrow-left"></i> Kembali
-                        </button>
+                <div class="regulasi-content">
+                    <div class="regulasi-card-compact" id="card-1">
+                        <div class="regulasi-card-left">
+                            <h4>Peraturan Presiden (Perpres) Nomor 83 Tahun 2024</h4>
+                            <div class="regulasi-card-meta">
+                                <i class="bi bi-calendar3"></i> 2024
+                            </div>
+                            <p class="regulasi-card-desc">Perpres ini mengatur pembentukan Badan Gizi Nasional yang merupakan lembaga pemerintah berada di bawah dan bertanggung jawab kepada Presiden.</p>
+                            <div class="regulasi-download-wrapper">
+                                <a href="#" class="btn-download-regulasi-circle">
+                                    <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Content Cards -->
-                    <div class="regulasi-content">
-                        <!-- Card 1 -->
-                        <div class="regulasi-card-compact" id="card-1">
-                            <div class="regulasi-card-left">
-                                <h4>SOP Program MBG</h4>
-                                <div class="regulasi-card-meta">
-                                    <i class="bi bi-calendar3"></i> 2024
-                                </div>
-                                <p class="regulasi-card-desc">
-                                    Standar Operasional Prosedur (SOP) Program Makan Bergizi Gratis yang mengatur
-                                    mekanisme pelaksanaan program di lapangan, termasuk prosedur distribusi, verifikasi
-                                    penerima manfaat, dan pelaporan.
-                                </p>
-                                <a href="https://via.placeholder.com/150/764ba2/ffffff?text=SOP+MBG"
-                                    download="SOP-MBG-2024" class="btn-download-regulasi">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
+                    <div class="regulasi-card-compact" id="card-2" style="display: none;">
+                        <div class="regulasi-card-left">
+                            <h4>SOP Program MBG</h4>
+                            <div class="regulasi-card-meta">
+                                <i class="bi bi-calendar3"></i> 2024
                             </div>
-                            <div class="regulasi-card-right">
-                                <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/764ba2/ffffff?text=SOP" alt="SOP MBG">
-                                </div>
+                            <p class="regulasi-card-desc">Standar Operasional Prosedur Program Makan Bergizi Gratis yang mengatur mekanisme pelaksanaan program di lapangan.</p>
+                            <div class="regulasi-download-wrapper">
+                                <a href="#" class="btn-download-regulasi-circle">
+                                    <i class="bi bi-download"></i>
+                                </a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Card 2 -->
-                        <div class="regulasi-card-compact" id="card-2" style="display: none;">
-                            <div class="regulasi-card-left">
-                                <h4>Pedoman MBG Sekolah</h4>
-                                <div class="regulasi-card-meta">
-                                    <i class="bi bi-calendar3"></i> 2024
-                                </div>
-                                <p class="regulasi-card-desc">
-                                    Pedoman pelaksanaan Program Makan Bergizi Gratis di lingkungan sekolah, meliputi
-                                    penyelenggaraan makanan, manajemen program, dan koordinasi dengan stakeholder
-                                    pendidikan.
-                                </p>
-                                <a href="https://via.placeholder.com/150/4facfe/ffffff?text=Pedoman+Sekolah"
-                                    download="Pedoman-MBG-Sekolah-2024" class="btn-download-regulasi">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
+                    <div class="regulasi-card-compact" id="card-3" style="display: none;">
+                        <div class="regulasi-card-left">
+                            <h4>Pedoman MBG Sekolah</h4>
+                            <div class="regulasi-card-meta">
+                                <i class="bi bi-calendar3"></i> 2024
                             </div>
-                            <div class="regulasi-card-right">
-                                <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/4facfe/ffffff?text=Sekolah"
-                                        alt="Pedoman Sekolah">
-                                </div>
+                            <p class="regulasi-card-desc">Pedoman pelaksanaan Program Makan Bergizi Gratis di lingkungan sekolah dan koordinasi dengan stakeholder pendidikan.</p>
+                            <div class="regulasi-download-wrapper">
+                                <a href="#" class="btn-download-regulasi-circle">
+                                    <i class="bi bi-download"></i>
+                                </a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Card 3 -->
-                        <div class="regulasi-card-compact" id="card-3" style="display: none;">
-                            <div class="regulasi-card-left">
-                                <h4>Permohonan SLHS</h4>
-                                <div class="regulasi-card-meta">
-                                    <i class="bi bi-calendar3"></i> 2024
-                                </div>
-                                <p class="regulasi-card-desc">
-                                    Form permohonan Sertifikat Laik Higienitas dan Sanitasi (SLHS) untuk fasilitas
-                                    penyediaan makanan yang akan menyelenggarakan Program Makan Bergizi Gratis.
-                                </p>
-                                <a href="https://via.placeholder.com/150/fa709a/ffffff?text=SLHS"
-                                    download="Form-SLHS-2024" class="btn-download-regulasi">
-                                    <i class="bi bi-download"></i> Download
+                    <div class="regulasi-card-compact" id="card-4" style="display: none;">
+                        <div class="regulasi-card-left">
+                            <h4>Permohonan SLHS</h4>
+                            <div class="regulasi-card-meta">
+                                <i class="bi bi-calendar3"></i> 2024
+                            </div>
+                            <p class="regulasi-card-desc">Form permohonan Sertifikat Laik Higienitas dan Sanitasi untuk fasilitas penyediaan makanan program.</p>
+                            <div class="regulasi-download-wrapper">
+                                <a href="#" class="btn-download-regulasi-circle">
+                                    <i class="bi bi-download"></i>
                                 </a>
-                            </div>
-                            <div class="regulasi-card-right">
-                                <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/fa709a/ffffff?text=SLHS" alt="SLHS">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="regulasi-card-compact" id="card-4" style="display: none;">
-                            <div class="regulasi-card-left">
-                                <h4>Form IKL Restoran</h4>
-                                <div class="regulasi-card-meta">
-                                    <i class="bi bi-calendar3"></i> 2024
-                                </div>
-                                <p class="regulasi-card-desc">
-                                    Form Izin Kelayakan Operasional (IKL) untuk restoran yang akan bergabung sebagai
-                                    mitra dalam Program Makan Bergizi Gratis.
-                                </p>
-                                <a href="https://via.placeholder.com/150/fee140/000000?text=IKL+Restoran"
-                                    download="Form-IKL-Restoran-2024" class="btn-download-regulasi">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
-                            </div>
-                            <div class="regulasi-card-right">
-                                <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/fee140/000000?text=Restoran"
-                                        alt="IKL Restoran">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 5 -->
-                        <div class="regulasi-card-compact" id="card-5" style="display: none;">
-                            <div class="regulasi-card-left">
-                                <h4>Form IKL Jasa Boga</h4>
-                                <div class="regulasi-card-meta">
-                                    <i class="bi bi-calendar3"></i> 2024
-                                </div>
-                                <p class="regulasi-card-desc">
-                                    Form Izin Kelayakan Operasional (IKL) untuk jasa boga yang akan bergabung sebagai
-                                    mitra dalam Program Makan Bergizi Gratis.
-                                </p>
-                                <a href="https://via.placeholder.com/150/30cfd0/ffffff?text=IKL+Boga"
-                                    download="Form-IKL-Jasa-Boga-2024" class="btn-download-regulasi">
-                                    <i class="bi bi-download"></i> Download
-                                </a>
-                            </div>
-                            <div class="regulasi-card-right">
-                                <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/30cfd0/ffffff?text=Boga"
-                                        alt="IKL Jasa Boga">
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
     </section>
 
     <!-- Map Section -->
@@ -2375,32 +1941,18 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Peta Sebaran Program MBG</h2>
-                <p class="section-subtitle">
-                    Lokasi Satuan Pelayanan Penyediaan Gizi (SPPG) di seluruh Indonesia
-                </p>
+                <p class="section-subtitle">Lokasi Satuan Pelayanan Penyediaan Gizi di seluruh Indonesia</p>
             </div>
 
             <div class="row">
                 <div class="col-lg-12" data-aos="fade-up">
                     <div class="map-info-card">
-                        <img src="bogor.png" alt="Bogor Left" class="map-info-card-horse-left">
-                        <img src="bogor.png" alt="Bogor Right" class="map-info-card-horse-right">
-
                         <div class="map-info-content">
                             <div class="map-info-icon">
                                 <i class="bi bi-map"></i>
                             </div>
-
-                            <h3 class="map-info-title">
-                                Portal Geospatial Gizi Nasional
-                            </h3>
-
-                            <p class="map-info-description">
-                                Temukan data spasial terkait Program Pemenuhan Gizi,
-                                mulai dari persebaran lokasi hingga informasi capaian
-                                di setiap wilayah.
-                            </p>
-
+                            <h3 class="map-info-title">Portal Geospatial Gizi Nasional</h3>
+                            <p class="map-info-description">Temukan data spasial terkait Program Pemenuhan Gizi, mulai dari persebaran lokasi hingga informasi capaian di setiap wilayah.</p>
                             <button class="btn-view-map" data-bs-toggle="modal" data-bs-target="#mapsModalCustom">
                                 <i class="bi bi-geo-alt-fill"></i> Lihat Peta
                             </button>
@@ -2411,23 +1963,467 @@
         </div>
     </section>
 
-    <!-- Maps Modal Fullscreen -->
-    <div class="modal fade modal-maps-custom" id="mapsModalCustom" tabindex="-1" aria-labelledby="mapsModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
+    <!-- Maps Modal -->
+    <div class="modal fade modal-maps-custom" id="mapsModalCustom" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title">
+                        <i class="bi bi-map"></i> Peta Interaktif Sebaran SPPG
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <div class="map-container-modal">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                    <div class="map-controls-bottom">
+                        <h6><i class="bi bi-funnel"></i> Filter Lokasi</h6>
+                        <div class="map-control-group">
+                            <label>🔍 Cari Lokasi</label>
+                            <input type="text" placeholder="Masukkan nama kecamatan atau sekolah...">
+                        </div>
+                        <div class="map-control-group">
+                            <label>📍 Filter Provinsi</label>
+                            <select>
+                                <option selected>Semua Provinsi</option>
+                                <option>DKI Jakarta</option>
+                                <option>Jawa Barat</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+                <p class="section-subtitle">Informasi penting tentang program Makan Bergizi Gratis</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="accordion accordion-modern" id="faqAccordion">
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading1">
+                                <button class="accordion-button accordion-button-modern" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                    Siapa saja yang bisa mendaftar program Makan Bergizi Gratis?
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Program ini terbuka untuk:
+                                    <ul>
+                                        <li>Anak-anak usia 6-18 tahun dari keluarga pra-sejahtera</li>
+                                        <li>Ibu hamil dan menyusui dari keluarga berpenghasilan rendah</li>
+                                        <li>Lansia di atas 60 tahun yang tidak memiliki penghasilan tetap</li>
+                                        <li>Penyandang disabilitas dengan keterbatasan ekonomi</li>
+                                    </ul>
+                                    Persyaratan utama adalah memiliki KTP dan KK yang masih berlaku.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading2">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                    Apakah makanan yang disajikan halal dan aman?
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Ya, semua makanan yang disajikan:
+                                    <ul>
+                                        <li>Telah tersertifikasi halal dari MUI</li>
+                                        <li>Memenuhi standar keamanan pangan BPOM</li>
+                                        <li>Disiapkan di dapur yang bersih dan terstandar</li>
+                                        <li>Dikemas dengan higienis</li>
+                                        <li>Memiliki tanggal kedaluwarsa yang jelas</li>
+                                    </ul>
+                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan
+                                    makanan.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading3">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                    Bagaimana cara melaporkan jika ada masalah dengan makanan?
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Anda dapat melaporkan masalah melalui:
+                                    <ol>
+                                        <li>Hotline 24 jam: 1500-234</li>
+                                        <li>Aplikasi mobile "Makan Bergizi Gratis"</li>
+                                        <li>Website resmi di kolom pengaduan</li>
+                                        <li>Menghubungi petugas di lokasi distribusi</li>
+                                    </ol>
+                                    Setiap laporan akan ditindaklanjuti maksimal 6 jam dan kami memberikan kompensasi
+                                    jika terbukti ada kesalahan dari pihak kami.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordion-item-modern">
+                            <h2 class="accordion-header" id="heading4">
+                                <button class="accordion-button accordion-button-modern collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                    Apakah bisa mewakilkan pengambilan makanan?
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body accordion-body-modern">
+                                    Ya, pengambilan bisa diwakilkan dengan syarat:
+                                    <ul>
+                                        <li>Membawa kartu penerima manfaat asli</li>
+                                        <li>Membawa fotokopi KTP penerima dan penerima kuasa</li>
+                                        <li>Surat kuasa bermaterai (untuk jangka panjang)</li>
+                                        <li>Penerima kuasa harus berusia minimal 17 tahun</li>
+                                    </ul>
+                                    Untuk kasus khusus (lansia atau disabilitas), kami menyediakan layanan antar ke
+                                    rumah.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-modern">
+        <div class="container footer-content">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-brand">Makan Bergizi Gratis</h3>
+                    <p class="footer-description">Program nasional untuk Indonesia sehat dan bebas stunting. Mewujudkan
+                        generasi emas yang cerdas dan produktif melalui nutrisi terbaik.</p>
+                    <div class="social-icons-modern">
+                        <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Link Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="#beranda"><i class="bi bi-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#tentang"><i class="bi bi-chevron-right"></i> Tentang Program</a></li>
+                        <li><a href="#statistik"><i class="bi bi-chevron-right"></i> Statistik</a></li>
+                        <li><a href="#regulasi"><i class="bi bi-chevron-right"></i> Regulasi</a></li>
+                        <li><a href="#peta-mbg"><i class="bi bi-chevron-right"></i> Peta MBG</a></li>
+                    </ul>
+                </div                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Download Aplikasi</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Pengaduan</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Kontak Darurat</a></li>
+                        <li><a href="#faq"><i class="bi bi-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Karir</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="footer-description">Dapatkan informasi terbaru tentang program dan tips gizi seimbang
+                        langsung di email Anda.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda">
+                        <button type="submit" class="newsletter-button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+                    <div class="mt-3">
+                        <small>Hotline: 1500-234 | Email: info@makanbergizigratis.go.id</small>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Program Makan Bergizi Gratis. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title" id="loginModalLabel">
+                        <i class="bi bi-egg-fried"></i> Masuk ke Dashboard
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <form class="login-form-modern">
+                        <div class="form-floating form-floating-modern mb-3">
+                            <input type="text" class="form-control form-control-modern-login" id="username"
+                                placeholder="Username atau Email">
+                            <label for="username">Username atau Email</label>
+                        </div>
+                        <div class="form-floating form-floating-modern mb-3">
+                            <input type="password" class="form-control form-control-modern-login" id="password"
+                                placeholder="Password">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Ingat saya
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-login-modern">Masuk</button>
+                        <div class="text-center mt-3">
+                            <a href="#" class="text-decoration-none">Lupa password?</a>
+                        </div>
+                        <hr class="my-4">
+                        <div class="text-center">
+                            <p>Belum punya akun? <a href="#" class="text-decoration-none fw-bold">Daftar sekarang</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CEK GIZI MODAL -->
+    <div class="modal fade" id="cekGiziModal" tabindex="-1" aria-labelledby="cekGiziModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title" id="cekGiziModalLabel">
+                        <i class="bi bi-heart-pulse"></i> Form Cek Gizi
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <form class="form-gizi-modern" id="formCekGizi">
+                        <div class="form-group-gizi">
+                            <label for="umur">Umur (tahun)</label>
+                            <input type="number" id="umur" name="umur" required min="1" max="120"
+                                placeholder="Contoh: 25">
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="jenisKelamin">Jenis Kelamin</label>
+                            <select id="jenisKelamin" name="jenisKelamin" required>
+                                <option value="">-- Pilih Jenis Kelamin --</option>
+                                <option value="laki-laki">Laki-laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="tinggiBadan">Tinggi Badan (cm)</label>
+                            <input type="number" id="tinggiBadan" name="tinggiBadan" required min="50" max="250"
+                                placeholder="Contoh: 170">
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="beratBadan">Berat Badan (kg)</label>
+                            <input type="number" id="beratBadan" name="beratBadan" required min="5" max="300" step="0.1"
+                                placeholder="Contoh: 65.5">
+                        </div>
+
+                        <div class="form-group-gizi">
+                            <label for="aktivitas">Aktivitas (opsional)</label>
+                            <select id="aktivitas" name="aktivitas">
+                                <option value="">-- Pilih Tingkat Aktivitas --</option>
+                                <option value="ringan">Ringan (Jarang olahraga)</option>
+                                <option value="sedang">Sedang (Olahraga 3-4x/minggu)</option>
+                                <option value="berat">Berat (Olahraga 5-6x/minggu)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-cek-gizi">
+                            <i class="bi bi-check-circle"></i> Cek Gizi Saya
+                        </button>
+                    </form>
+
+                    <div class="hasil-gizi-container" id="hasilGizi">
+                        <div class="hasil-gizi-header">
+                            <div class="hasil-gizi-status" id="statusGizi"></div>
+                        </div>
+
+                        <div class="hasil-gizi-info">
+                            <div class="info-item">
+                                <div class="info-label">BMI</div>
+                                <div class="info-value" id="nilaiIMT">0.0</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Kategori</div>
+                                <div class="info-value" id="kategoriIMT" style="font-size: 1rem;">--</div>
+                            </div>
+                        </div>
+
+                        <div class="hasil-gizi-description" id="deskripsiGizi"></div>
+
+                        <div class="hasil-gizi-rekomendasi">
+                            <h4><i class="bi bi-lightbulb"></i> Rekomendasi</h4>
+                            <ul id="listaRekomendasi"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Distribusi Detail -->
+    <div class="modal fade modal-distribusi" id="distribusiDetailModal" tabindex="-1"
+        aria-labelledby="distribusiDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modal-content-modern">
+                <div class="modal-header modal-header-modern">
+                    <h5 class="modal-title" id="distribusiDetailLabel">
+                        <i class="bi bi-bar-chart"></i> Distribusi Berdasarkan Jenjang Pendidikan
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-modern">
+                    <!-- Distribution Cards -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                        <!-- SMA -->
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">🎓</div>
+                                <div style="font-weight: 600; color: #2d3436;">SMA & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">650,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 26%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">26% dari total penerima</div>
+                        </div>
+
+                        <!-- SMP -->
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">📚</div>
+                                <div style="font-weight: 600; color: #2d3436;">SMP & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">915,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 36.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">36.6% dari total penerima</div>
+                        </div>
+
+                        <!-- SD -->
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">✏️</div>
+                                <div style="font-weight: 600; color: #2d3436;">SD & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">765,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 30.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">30.6% dari total penerima</div>
+                        </div>
+
+                        <!-- TK/PAUD -->
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                                <div style="font-size: 2.5rem;">🎈</div>
+                                <div style="font-weight: 600; color: #2d3436;">TK / PAUD & Sederajat</div>
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">170,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 6.8%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; color: #636e72;">6.8% dari total penerima</div>
+                        </div>
+                    </div>
+
+                    <!-- Analisis Detail -->
+                    <div style="background: #F6FAFC; border-radius: 20px; padding: 30px; margin-top: 30px;">
+                        <h6 style="font-size: 1.2rem; font-weight: 700; color: #071E49; margin-bottom: 20px;">
+                            <i class="bi bi-graph-up"></i> Analisis Detail
+                        </h6>
+                        <div
+                            style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
+                            <p style="margin: 0; color: #071E49; line-height: 1.6;">
+                                <strong>Distribusi Terbesar:</strong> SMP & Sederajat mendominasi dengan 36.6% dari
+                                total penerima manfaat, diikuti oleh SD & Sederajat dengan 30.6%. Ini menunjukkan fokus
+                                program pada tingkat pendidikan menengah.
+                            </p>
+                        </div>
+                        <div
+                            style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
+                            <p style="margin: 0; color: #071E49; line-height: 1.6;">
+                                <strong>Penjangkauan TK/PAUD:</strong> Meskipun persentase kecil (6.8%), program tetap
+                                mencakup tingkat pra-sekolah untuk mendukung pertumbuhan optimal di usia dini.
+                            </p>
+                        </div>
+                        <div
+                            style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea;">
+                            <p style="margin: 0; color: #071E49; line-height: 1.6;">
+                                <strong>Target Strategis:</strong> Program disesuaikan untuk memenuhi kebutuhan gizi di
+                                setiap jenjang pendidikan sesuai dengan tahap pertumbuhan dan perkembangan optimal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Download Data -->
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button
+                            style="background: #D4A017; color: white; border: none; padding: 12px 30px; border-radius: 20px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="bi bi-download"></i> Unduh Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Peta Sebaran -->
+    <div class="modal fade" id="mapsModal" tabindex="-1" aria-labelledby="mapsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="mapsModalLabel">
-                        <i class="bi bi-map"></i> Peta Interaktif Sebaran SPPG
+                        <i class="bi bi-map"></i> Peta Sebaran Program MBG
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="map-container-modal">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1234567890"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
 
                     <!-- Map Controls -->
@@ -2461,7 +2457,6 @@
                                 <option>SMA</option>
                             </select>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -2892,12 +2887,20 @@
             offset: 100
         });
 
-        // Loader
+        // Loader - Improved
         window.addEventListener('load', function () {
             setTimeout(function () {
                 document.getElementById('loader').classList.add('hidden');
-            }, 1000);
+            }, 800);
         });
+
+        // Fallback loader (jika load event tidak trigger)
+        setTimeout(function() {
+            const loader = document.getElementById('loader');
+            if (loader && !loader.classList.contains('hidden')) {
+                loader.classList.add('hidden');
+            }
+        }, 3000);
 
         // Navbar scroll effect
         window.addEventListener('scroll', function () {
@@ -2910,29 +2913,36 @@
         });
 
         // Back to top button
-        const backToTop = document.getElementById('backToTop');
+        const backToTop = document.querySelector('.back-to-top');
 
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
+            if (backToTop) {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
             }
         });
 
-        backToTop.addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTop) {
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
-        });
+        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                const target = document.querySelector(href);
                 if (target) {
+                    e.preventDefault();
                     const offsetTop = target.offsetTop - 80;
                     window.scrollTo({
                         top: offsetTop,
@@ -2942,212 +2952,186 @@
             });
         });
 
-        // Active navigation highlighting
+        // Active navigation highlighting - IMPROVED VERSION
         window.addEventListener('scroll', function () {
             const sections = document.querySelectorAll('section[id]');
             const scrollY = window.pageYOffset;
 
+            let currentSection = '';
+
             sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
                 const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
                 const sectionId = section.getAttribute('id');
 
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelectorAll('.navbar-nav a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === '#' + sectionId) {
-                            link.classList.add('active');
-                        }
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = sectionId;
+                }
+            });
+
+            // Update active links
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                const section = link.getAttribute('data-section');
+                if (section === currentSection) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Click handler untuk navigation links
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(l => {
+                    l.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             });
-        });
-
-        // Counter animation
-        const counters = document.querySelectorAll('.stat-number-modern .number');
-        const speed = 200;
-
-        const countUp = () => {
-            counters.forEach(counter => {
-                const target = +counter.parentElement.dataset.target;
-                const count = +counter.innerText;
-                const increment = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(countUp, 50);
-                } else {
-                    counter.innerText = target;
-                }
-            });
-        };
-
-        // Trigger counter on scroll
-        window.addEventListener('scroll', () => {
-            const statsSection = document.querySelector('.stats-section');
-            if (statsSection && !statsSection.classList.contains('counted')) {
-                const rect = statsSection.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    statsSection.classList.add('counted');
-                    countUp();
-                }
-            }
-        });
-
-        // Distribution bar animation
-        const animateBars = () => {
-            const bars = document.querySelectorAll('.dist-percent-fill');
-            bars.forEach((bar, index) => {
-                const values = [26, 36.6, 30.6, 6.8];
-                setTimeout(() => {
-                    bar.style.width = values[index] + '%';
-                }, index * 100);
-            });
-        };
-
-        // Trigger bar animation on scroll
-        window.addEventListener('scroll', () => {
-            const distSection = document.querySelector('.distribution-section');
-            if (distSection && !distSection.classList.contains('animated')) {
-                const rect = distSection.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    distSection.classList.add('animated');
-                    animateBars();
-                }
-            }
         });
 
         // Regulasi menu navigation
         document.querySelectorAll('.regulasi-item').forEach(item => {
             item.addEventListener('click', function (e) {
                 e.preventDefault();
-
                 // Hide all cards
                 document.querySelectorAll('.regulasi-card-compact').forEach(card => {
                     card.style.display = 'none';
                 });
-
                 // Remove active class from all menu items
                 document.querySelectorAll('.regulasi-item').forEach(menu => {
                     menu.classList.remove('active');
                 });
-
                 // Show selected card
                 const target = this.dataset.target;
-                document.getElementById(target).style.display = 'block';
-
-                // Add active class to clicked item
-                this.classList.add('active');
+                const targetCard = document.getElementById(target);
+                if (targetCard) {
+                    targetCard.style.display = 'block';
+                    this.classList.add('active');
+                }
             });
         });
 
         // Form submission
-        document.querySelector('.login-form-modern')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Login functionality coming soon!');
-            bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
-        });
-
-        // Newsletter subscription
-        document.querySelector('.newsletter-form')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Terima kasih telah subscribe!');
-            e.target.reset();
-        });
-
-        // Form Cek Gizi
-        document.getElementById('formCekGizi')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const umur = parseFloat(document.getElementById('umur').value);
-            const jenisKelamin = document.getElementById('jenisKelamin').value;
-            const tinggiBadan = parseFloat(document.getElementById('tinggiBadan').value);
-            const beratBadan = parseFloat(document.getElementById('beratBadan').value);
-            const aktivitas = document.getElementById('aktivitas').value;
-
-            // Hitung BMI
-            const tinggiMeter = tinggiBadan / 100;
-            const bmi = beratBadan / (tinggiMeter * tinggiMeter);
-
-            // Tentukan kategori
-            let status = '';
-            let kategori = '';
-            let deskripsi = '';
-            let rekomendasi = [];
-
-            if (bmi < 18.5) {
-                status = 'Kekurangan Gizi';
-                kategori = 'Underweight';
-                deskripsi = 'Anda mengalami kekurangan gizi. Tingkatkan asupan kalori dan nutrisi dengan mengkonsumsi makanan bergizi tinggi.';
-                rekomendasi = [
-                    'Konsumsi makanan kaya protein seperti telur, ikan, dan daging',
-                    'Tambah asupan karbohidrat kompleks (nasi, roti gandum)',
-                    'Minum susu atau produk susu minimal 2 kali sehari',
-                    'Konsultasi dengan ahli gizi untuk menu makanan sesuai kebutuhan'
-                ];
-            } else if (bmi >= 18.5 && bmi < 25) {
-                status = 'Gizi Normal';
-                kategori = 'Normal';
-                deskripsi = 'Selamat! Anda memiliki status gizi yang ideal. Pertahankan pola makan sehat dan olahraga teratur.';
-                rekomendasi = [
-                    'Pertahankan pola makan sehat yang seimbang',
-                    'Olahraga minimal 30 menit setiap hari',
-                    'Konsumsi buah dan sayuran setiap hari',
-                    'Minum air putih minimal 8 gelas per hari'
-                ];
-            } else if (bmi >= 25 && bmi < 30) {
-                status = 'Berat Badan Berlebih';
-                kategori = 'Overweight';
-                deskripsi = 'Anda memiliki berat badan berlebih. Mulai kurangi asupan kalori dan tingkatkan aktivitas fisik.';
-                rekomendasi = [
-                    'Kurangi asupan makanan tinggi lemak dan gula',
-                    'Tingkatkan aktivitas fisik hingga 60 menit setiap hari',
-                    'Memperbanyak konsumsi sayur dan buah',
-                    'Hindari minuman bersoda dan alkohol'
-                ];
-            } else {
-                status = 'Obesitas';
-                kategori = 'Obese';
-                deskripsi = 'Anda mengalami obesitas. Segera konsultasikan dengan dokter untuk mendapatkan program penurunan berat badan yang tepat.';
-                rekomendasi = [
-                    'Konsultasi dengan dokter untuk program penurunan berat badan',
-                    'Ikuti program diet yang terukur dengan ahli gizi',
-                    'Lakukan olahraga rutin dengan bimbingan instruktur',
-                    'Hindari stress dan cukup istirahat'
-                ];
-            }
-
-            // Tampilkan hasil
-            document.getElementById('nilaiIMT').textContent = bmi.toFixed(1);
-            document.getElementById('kategoriIMT').textContent = kategori;
-            document.getElementById('statusGizi').textContent = status;
-            document.getElementById('statusGizi').className = 'hasil-gizi-status ' +
-                (status === 'Gizi Normal' ? 'status-baik' :
-                    status === 'Kekurangan Gizi' ? 'status-kurang' : 'status-berlebih');
-            document.getElementById('deskripsiGizi').textContent = deskripsi;
-
-            const listaRekomendasi = document.getElementById('listaRekomendasi');
-            listaRekomendasi.innerHTML = '';
-            rekomendasi.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                listaRekomendasi.appendChild(li);
+        const loginForm = document.querySelector('.login-form-modern');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Login functionality coming soon!');
+                const loginModal = document.getElementById('loginModal');
+                if (loginModal) {
+                    bootstrap.Modal.getInstance(loginModal).hide();
+                }
             });
-
-            document.getElementById('hasilGizi').classList.add('show');
-        });
-
-        // Tampilkan Detail Regulasi
-        function tampilkanDetailRegulasi() {
-            document.getElementById('regulasiOverview').style.display = 'none';
-            document.getElementById('regulasiDetail').style.display = 'block';
-            document.querySelector('.regulations-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Kembali ke Overview Regulasi
-        function tampilkanOverviewRegulasi() {
-            document.getElementById('regulasiOverview').style.display = 'block';
-            document.getElementById('regulasiDetail').style.display = 'none';
+        // Newsletter subscription
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Terima kasih telah subscribe!');
+                e.target.reset();
+            });
+        }
+
+        // Form Cek Gizi
+        const formCekGizi = document.getElementById('formCekGizi');
+        if (formCekGizi) {
+            formCekGizi.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const umur = parseFloat(document.getElementById('umur').value);
+                const tinggiBadan = parseFloat(document.getElementById('tinggiBadan').value);
+                const beratBadan = parseFloat(document.getElementById('beratBadan').value);
+
+                // Hitung BMI
+                const tinggiMeter = tinggiBadan / 100;
+                const bmi = beratBadan / (tinggiMeter * tinggiMeter);
+
+                // Tentukan kategori
+                let status = '';
+                let kategori = '';
+                let deskripsi = '';
+                let rekomendasi = [];
+
+                if (bmi < 18.5) {
+                    status = 'Kekurangan Gizi';
+                    kategori = 'Underweight';
+                    deskripsi = 'Anda mengalami kekurangan gizi. Tingkatkan asupan kalori dan nutrisi dengan mengkonsumsi makanan bergizi tinggi.';
+                    rekomendasi = [
+                        'Konsumsi makanan kaya protein seperti telur, ikan, dan daging',
+                        'Tambah asupan karbohidrat kompleks (nasi, roti gandum)',
+                        'Minum susu atau produk susu minimal 2 kali sehari',
+                        'Konsultasi dengan ahli gizi untuk menu makanan sesuai kebutuhan'
+                    ];
+                } else if (bmi >= 18.5 && bmi < 25) {
+                    status = 'Gizi Normal';
+                    kategori = 'Normal';
+                    deskripsi = 'Selamat! Anda memiliki status gizi yang ideal. Pertahankan pola makan sehat dan olahraga teratur.';
+                    rekomendasi = [
+                        'Pertahankan pola makan sehat yang seimbang',
+                        'Olahraga minimal 30 menit setiap hari',
+                        'Konsumsi buah dan sayuran setiap hari',
+                        'Minum air putih minimal 8 gelas per hari'
+                    ];
+                } else if (bmi >= 25 && bmi < 30) {
+                    status = 'Berat Badan Berlebih';
+                    kategori = 'Overweight';
+                    deskripsi = 'Anda memiliki berat badan berlebih. Mulai kurangi asupan kalori dan tingkatkan aktivitas fisik.';
+                    rekomendasi = [
+                        'Kurangi asupan makanan tinggi lemak dan gula',
+                        'Tingkatkan aktivitas fisik hingga 60 menit setiap hari',
+                        'Memperbanyak konsumsi sayur dan buah',
+                        'Hindari minuman bersoda dan alkohol'
+                    ];
+                } else {
+                    status = 'Obesitas';
+                    kategori = 'Obese';
+                    deskripsi = 'Anda mengalami obesitas. Segera konsultasikan dengan dokter untuk mendapatkan program penurunan berat badan yang tepat.';
+                    rekomendasi = [
+                        'Konsultasi dengan dokter untuk program penurunan berat badan',
+                        'Ikuti program diet yang terukur dengan ahli gizi',
+                        'Lakukan olahraga rutin dengan bimbingan instruktur',
+                        'Hindari stress dan cukup istirahat'
+                    ];
+                }
+
+                // Tampilkan hasil
+                document.getElementById('nilaiIMT').textContent = bmi.toFixed(1);
+                document.getElementById('kategoriIMT').textContent = kategori;
+                document.getElementById('statusGizi').textContent = status;
+                document.getElementById('statusGizi').className = 'hasil-gizi-status ' +
+                    (status === 'Gizi Normal' ? 'status-baik' :
+                        status === 'Kekurangan Gizi' ? 'status-kurang' : 'status-berlebih');
+                document.getElementById('deskripsiGizi').textContent = deskripsi;
+
+                const listaRekomendasi = document.getElementById('listaRekomendasi');
+                listaRekomendasi.innerHTML = '';
+                rekomendasi.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    listaRekomendasi.appendChild(li);
+                });
+
+                document.getElementById('hasilGizi').classList.add('show');
+            });
         }
 
         // ===== Image Carousel Functionality =====
@@ -3162,105 +3146,107 @@
         const slides = document.querySelectorAll('.carousel-slide');
         const totalSlides = slides.length;
 
-        // Create dots
-        const dotsContainer = document.getElementById('carouselDots');
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'carousel-dot';
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
-        }
+        if (carousel && totalSlides > 0) {
+            // Create dots
+            const dotsContainer = document.getElementById('carouselDots');
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
 
-        // Move carousel
-        function moveCarousel(direction) {
-            currentSlide += direction;
-            if (currentSlide < 0) currentSlide = totalSlides - 1;
-            if (currentSlide >= totalSlides) currentSlide = 0;
-            updateCarousel();
-            resetAutoSlide();
-        }
+            // Move carousel
+            function moveCarousel(direction) {
+                currentSlide += direction;
+                if (currentSlide < 0) currentSlide = totalSlides - 1;
+                if (currentSlide >= totalSlides) currentSlide = 0;
+                updateCarousel();
+                resetAutoSlide();
+            }
 
-        // Go to specific slide
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-            resetAutoSlide();
-        }
+            // Go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+                resetAutoSlide();
+            }
 
-        // Update carousel position
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            // Update carousel position
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-            // Update dots
-            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
+                // Update dots
+                document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
 
-        // Auto slide
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                moveCarousel(1);
-            }, 4000); // Change slide every 4 seconds
-        }
+            // Auto slide
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    moveCarousel(1);
+                }, 4000);
+            }
 
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+
+            // Touch/Mouse events for dragging
+            carousel.addEventListener('mousedown', dragStart);
+            carousel.addEventListener('touchstart', dragStart);
+            carousel.addEventListener('mouseup', dragEnd);
+            carousel.addEventListener('touchend', dragEnd);
+            carousel.addEventListener('mouseleave', dragEnd);
+            carousel.addEventListener('mousemove', drag);
+            carousel.addEventListener('touchmove', drag);
+
+            function dragStart(e) {
+                isDragging = true;
+                startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+                carousel.style.cursor = 'grabbing';
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+                currentTranslate = prevTranslate + currentPosition - startPos;
+            }
+
+            function dragEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const movedBy = currentTranslate - prevTranslate;
+
+                if (movedBy < -50 && currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                }
+                if (movedBy > 50 && currentSlide > 0) {
+                    currentSlide--;
+                }
+
+                updateCarousel();
+                resetAutoSlide();
+
+                prevTranslate = currentTranslate;
+                carousel.style.cursor = 'grab';
+            }
+
+            // Start auto slide on page load
             startAutoSlide();
-        }
 
-        // Touch/Mouse events for dragging
-        carousel.addEventListener('mousedown', dragStart);
-        carousel.addEventListener('touchstart', dragStart);
-        carousel.addEventListener('mouseup', dragEnd);
-        carousel.addEventListener('touchend', dragEnd);
-        carousel.addEventListener('mouseleave', dragEnd);
-        carousel.addEventListener('mousemove', drag);
-        carousel.addEventListener('touchmove', drag);
-
-        function dragStart(e) {
-            isDragging = true;
-            startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            carousel.style.cursor = 'grabbing';
-        }
-
-        function drag(e) {
-            if (!isDragging) return;
-            e.preventDefault();
-
-            const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            currentTranslate = prevTranslate + currentPosition - startPos;
-        }
-
-        function dragEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-
-            const movedBy = currentTranslate - prevTranslate;
-
-            // If moved enough, change slide
-            if (movedBy < -50 && currentSlide < totalSlides - 1) {
-                currentSlide++;
+            // Pause auto slide on hover
+            const carouselContainer = document.querySelector('.hero-carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+                carouselContainer.addEventListener('mouseleave', () => startAutoSlide());
             }
-            if (movedBy > 50 && currentSlide > 0) {
-                currentSlide--;
-            }
-
-            updateCarousel();
-            resetAutoSlide();
-
-            prevTranslate = currentTranslate;
-            carousel.style.cursor = 'grab';
         }
-
-        // Start auto slide on page load
-        startAutoSlide();
-
-        // Pause auto slide on hover
-        const carouselContainer = document.querySelector('.hero-carousel-container');
-        carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        carouselContainer.addEventListener('mouseleave', () => startAutoSlide());
     </script>
 </body>
 
