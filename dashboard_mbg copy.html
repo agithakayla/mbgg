@@ -63,18 +63,19 @@
 
         /* Enhanced Navigation */
         .navbar {
-            background: rgba(45, 52, 54, 0.15);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
             transition: all 0.3s ease;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            border-bottom: none;
         }
 
         .navbar.scrolled {
             padding: 10px 0;
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             border-bottom: none;
         }
 
@@ -1113,6 +1114,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1282,8 +1284,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .back-to-top {
@@ -1718,6 +1725,124 @@
             color: white;
             text-decoration: none;
         }
+
+        /* Image Carousel Styles */
+        .hero-carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-carousel {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: grab;
+            user-select: none;
+        }
+
+        .hero-carousel:active {
+            cursor: grabbing;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            animation: float-image 6s ease-in-out infinite;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: #D1B06C;
+            border-color: #D1B06C;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(209, 176, 108, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slide img {
+                height: 400px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow.prev {
+                left: 10px;
+            }
+
+            .carousel-arrow.next {
+                right: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -1768,28 +1893,29 @@
 
     <!-- Hero Section -->
     <section id="beranda" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="hero-content">
-                        <h1 class="hero-title">Makan Bergizi Gratis</h1>
-                        <p class="hero-subtitle">Program Nasional untuk Generasi Indonesia yang Sehat dan Cerdas
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="#tentang" class="btn-hero btn-hero-primary">
-                                <i class="bi bi-arrow-right"></i> Pelajari Lebih Lanjut
-                            </a>
-                            <a href="#cek-gizi" class="btn-hero btn-hero-outline">
-                                <i class="bi bi-heart-pulse"></i> Cek Gizi
-                            </a>
-                        </div>
+        <div class="container-fluid px-0">
+            <div class="hero-carousel-container">
+                <div class="hero-carousel" id="heroCarousel">
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/healthy-food-1/1920/600" alt="Makanan Bergizi 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/healthy-food-2/1920/600" alt="Makanan Bergizi 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/healthy-food-3/1920/600" alt="Makanan Bergizi 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://picsum.photos/seed/healthy-food-4/1920/600" alt="Makanan Bergizi 4">
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="hero-image">
-                        <img src="https://picsum.photos/seed/nutrition/500/400.jpg" alt="Makanan Bergizi">
-                    </div>
-                </div>
+                <button class="carousel-arrow prev" onclick="moveCarousel(-1)">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow next" onclick="moveCarousel(1)">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                <div class="carousel-controls" id="carouselDots"></div>
             </div>
         </div>
     </section>
@@ -1996,7 +2122,8 @@
                         </div>
                         <h3 class="cek-gizi-title">Pemeriksaan Gizi Gratis</h3>
                         <p class="cek-gizi-description">
-                            Masukkan data diri Anda untuk mengetahui status gizi dan mendapatkan rekomendasi nutrisi yang tepat.
+                            Masukkan data diri Anda untuk mengetahui status gizi dan mendapatkan rekomendasi nutrisi
+                            yang tepat.
                         </p>
                         <button class="cek-gizi-button" data-bs-toggle="modal" data-bs-target="#cekGiziModal">
                             <i class="bi bi-arrow-right"></i> Mulai Cek Gizi
@@ -2027,7 +2154,8 @@
                                 <i class="bi bi-file-earmark-text"></i>
                             </div>
                             <h3>Peraturan Pemerintah</h3>
-                            <p>Peraturan Presiden dan Keputusan Menteri terkait Program Makan Bergizi Gratis untuk seluruh lapisan masyarakat.</p>
+                            <p>Peraturan Presiden dan Keputusan Menteri terkait Program Makan Bergizi Gratis untuk
+                                seluruh lapisan masyarakat.</p>
                             <ul class="regulasi-overview-list">
                                 <li><i class="bi bi-check-circle"></i> Perpres Nomor 83 Tahun 2024</li>
                                 <li><i class="bi bi-check-circle"></i> Surat Keputusan Menteri</li>
@@ -2043,7 +2171,8 @@
                                 <i class="bi bi-book"></i>
                             </div>
                             <h3>Pedoman Teknis</h3>
-                            <p>Standar Operasional Prosedur dan panduan pelaksanaan program di berbagai tingkat satuan pendidikan.</p>
+                            <p>Standar Operasional Prosedur dan panduan pelaksanaan program di berbagai tingkat satuan
+                                pendidikan.</p>
                             <ul class="regulasi-overview-list">
                                 <li><i class="bi bi-check-circle"></i> SOP Program MBG</li>
                                 <li><i class="bi bi-check-circle"></i> Pedoman Sekolah</li>
@@ -2100,7 +2229,8 @@
                     <div class="regulasi-sidebar">
                         <h6>Daftar Regulasi</h6>
                         <ul class="regulasi-menu">
-                            <li><a href="#reg-1" class="regulasi-item active" data-target="card-1">SOP Program MBG</a></li>
+                            <li><a href="#reg-1" class="regulasi-item active" data-target="card-1">SOP Program MBG</a>
+                            </li>
                             <li><a href="#reg-2" class="regulasi-item" data-target="card-2">Pedoman MBG Sekolah</a></li>
                             <li><a href="#reg-3" class="regulasi-item" data-target="card-3">Permohonan SLHS</a></li>
                             <li><a href="#reg-4" class="regulasi-item" data-target="card-4">Form IKL Restoran</a></li>
@@ -2122,9 +2252,12 @@
                                     <i class="bi bi-calendar3"></i> 2024
                                 </div>
                                 <p class="regulasi-card-desc">
-                                    Standar Operasional Prosedur (SOP) Program Makan Bergizi Gratis yang mengatur mekanisme pelaksanaan program di lapangan, termasuk prosedur distribusi, verifikasi penerima manfaat, dan pelaporan.
+                                    Standar Operasional Prosedur (SOP) Program Makan Bergizi Gratis yang mengatur
+                                    mekanisme pelaksanaan program di lapangan, termasuk prosedur distribusi, verifikasi
+                                    penerima manfaat, dan pelaporan.
                                 </p>
-                                <a href="https://via.placeholder.com/150/764ba2/ffffff?text=SOP+MBG" download="SOP-MBG-2024" class="btn-download-regulasi">
+                                <a href="https://via.placeholder.com/150/764ba2/ffffff?text=SOP+MBG"
+                                    download="SOP-MBG-2024" class="btn-download-regulasi">
                                     <i class="bi bi-download"></i> Download
                                 </a>
                             </div>
@@ -2143,15 +2276,19 @@
                                     <i class="bi bi-calendar3"></i> 2024
                                 </div>
                                 <p class="regulasi-card-desc">
-                                    Pedoman pelaksanaan Program Makan Bergizi Gratis di lingkungan sekolah, meliputi penyelenggaraan makanan, manajemen program, dan koordinasi dengan stakeholder pendidikan.
+                                    Pedoman pelaksanaan Program Makan Bergizi Gratis di lingkungan sekolah, meliputi
+                                    penyelenggaraan makanan, manajemen program, dan koordinasi dengan stakeholder
+                                    pendidikan.
                                 </p>
-                                <a href="https://via.placeholder.com/150/4facfe/ffffff?text=Pedoman+Sekolah" download="Pedoman-MBG-Sekolah-2024" class="btn-download-regulasi">
+                                <a href="https://via.placeholder.com/150/4facfe/ffffff?text=Pedoman+Sekolah"
+                                    download="Pedoman-MBG-Sekolah-2024" class="btn-download-regulasi">
                                     <i class="bi bi-download"></i> Download
                                 </a>
                             </div>
                             <div class="regulasi-card-right">
                                 <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/4facfe/ffffff?text=Sekolah" alt="Pedoman Sekolah">
+                                    <img src="https://via.placeholder.com/120/4facfe/ffffff?text=Sekolah"
+                                        alt="Pedoman Sekolah">
                                 </div>
                             </div>
                         </div>
@@ -2164,9 +2301,11 @@
                                     <i class="bi bi-calendar3"></i> 2024
                                 </div>
                                 <p class="regulasi-card-desc">
-                                    Form permohonan Sertifikat Laik Higienitas dan Sanitasi (SLHS) untuk fasilitas penyediaan makanan yang akan menyelenggarakan Program Makan Bergizi Gratis.
+                                    Form permohonan Sertifikat Laik Higienitas dan Sanitasi (SLHS) untuk fasilitas
+                                    penyediaan makanan yang akan menyelenggarakan Program Makan Bergizi Gratis.
                                 </p>
-                                <a href="https://via.placeholder.com/150/fa709a/ffffff?text=SLHS" download="Form-SLHS-2024" class="btn-download-regulasi">
+                                <a href="https://via.placeholder.com/150/fa709a/ffffff?text=SLHS"
+                                    download="Form-SLHS-2024" class="btn-download-regulasi">
                                     <i class="bi bi-download"></i> Download
                                 </a>
                             </div>
@@ -2185,15 +2324,18 @@
                                     <i class="bi bi-calendar3"></i> 2024
                                 </div>
                                 <p class="regulasi-card-desc">
-                                    Form Izin Kelayakan Operasional (IKL) untuk restoran yang akan bergabung sebagai mitra dalam Program Makan Bergizi Gratis.
+                                    Form Izin Kelayakan Operasional (IKL) untuk restoran yang akan bergabung sebagai
+                                    mitra dalam Program Makan Bergizi Gratis.
                                 </p>
-                                <a href="https://via.placeholder.com/150/fee140/000000?text=IKL+Restoran" download="Form-IKL-Restoran-2024" class="btn-download-regulasi">
+                                <a href="https://via.placeholder.com/150/fee140/000000?text=IKL+Restoran"
+                                    download="Form-IKL-Restoran-2024" class="btn-download-regulasi">
                                     <i class="bi bi-download"></i> Download
                                 </a>
                             </div>
                             <div class="regulasi-card-right">
                                 <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/fee140/000000?text=Restoran" alt="IKL Restoran">
+                                    <img src="https://via.placeholder.com/120/fee140/000000?text=Restoran"
+                                        alt="IKL Restoran">
                                 </div>
                             </div>
                         </div>
@@ -2206,15 +2348,18 @@
                                     <i class="bi bi-calendar3"></i> 2024
                                 </div>
                                 <p class="regulasi-card-desc">
-                                    Form Izin Kelayakan Operasional (IKL) untuk jasa boga yang akan bergabung sebagai mitra dalam Program Makan Bergizi Gratis.
+                                    Form Izin Kelayakan Operasional (IKL) untuk jasa boga yang akan bergabung sebagai
+                                    mitra dalam Program Makan Bergizi Gratis.
                                 </p>
-                                <a href="https://via.placeholder.com/150/30cfd0/ffffff?text=IKL+Boga" download="Form-IKL-Jasa-Boga-2024" class="btn-download-regulasi">
+                                <a href="https://via.placeholder.com/150/30cfd0/ffffff?text=IKL+Boga"
+                                    download="Form-IKL-Jasa-Boga-2024" class="btn-download-regulasi">
                                     <i class="bi bi-download"></i> Download
                                 </a>
                             </div>
                             <div class="regulasi-card-right">
                                 <div class="regulasi-logo">
-                                    <img src="https://via.placeholder.com/120/30cfd0/ffffff?text=Boga" alt="IKL Jasa Boga">
+                                    <img src="https://via.placeholder.com/120/30cfd0/ffffff?text=Boga"
+                                        alt="IKL Jasa Boga">
                                 </div>
                             </div>
                         </div>
@@ -2267,7 +2412,8 @@
     </section>
 
     <!-- Maps Modal Fullscreen -->
-    <div class="modal fade modal-maps-custom" id="mapsModalCustom" tabindex="-1" aria-labelledby="mapsModalLabel" aria-hidden="true">
+    <div class="modal fade modal-maps-custom" id="mapsModalCustom" tabindex="-1" aria-labelledby="mapsModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -2287,7 +2433,7 @@
                     <!-- Map Controls -->
                     <div class="map-controls-bottom">
                         <h6><i class="bi bi-funnel"></i> Filter Lokasi</h6>
-                        
+
                         <div class="map-control-group">
                             <label>🔍 Cari Lokasi</label>
                             <input type="text" placeholder="Masukkan nama kecamatan atau sekolah...">
@@ -2368,7 +2514,8 @@
                                         <li>Dikemas dengan higienis</li>
                                         <li>Memiliki tanggal kedaluwarsa yang jelas</li>
                                     </ul>
-                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan makanan.
+                                    Kami melakukan quality control setiap hari untuk memastikan kualitas dan keamanan
+                                    makanan.
                                 </div>
                             </div>
                         </div>
@@ -2529,13 +2676,15 @@
                     <h5 class="modal-title" id="cekGiziModalLabel">
                         <i class="bi bi-heart-pulse"></i> Form Cek Gizi
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-body-modern">
                     <form class="form-gizi-modern" id="formCekGizi">
                         <div class="form-group-gizi">
                             <label for="umur">Umur (tahun)</label>
-                            <input type="number" id="umur" name="umur" required min="1" max="120" placeholder="Contoh: 25">
+                            <input type="number" id="umur" name="umur" required min="1" max="120"
+                                placeholder="Contoh: 25">
                         </div>
 
                         <div class="form-group-gizi">
@@ -2549,12 +2698,14 @@
 
                         <div class="form-group-gizi">
                             <label for="tinggiBadan">Tinggi Badan (cm)</label>
-                            <input type="number" id="tinggiBadan" name="tinggiBadan" required min="50" max="250" placeholder="Contoh: 170">
+                            <input type="number" id="tinggiBadan" name="tinggiBadan" required min="50" max="250"
+                                placeholder="Contoh: 170">
                         </div>
 
                         <div class="form-group-gizi">
                             <label for="beratBadan">Berat Badan (kg)</label>
-                            <input type="number" id="beratBadan" name="beratBadan" required min="5" max="300" step="0.1" placeholder="Contoh: 65.5">
+                            <input type="number" id="beratBadan" name="beratBadan" required min="5" max="300" step="0.1"
+                                placeholder="Contoh: 65.5">
                         </div>
 
                         <div class="form-group-gizi">
@@ -2601,66 +2752,89 @@
     </div>
 
     <!-- Modal Distribusi Detail -->
-    <div class="modal fade modal-distribusi" id="distribusiDetailModal" tabindex="-1" aria-labelledby="distribusiDetailLabel" aria-hidden="true">
+    <div class="modal fade modal-distribusi" id="distribusiDetailModal" tabindex="-1"
+        aria-labelledby="distribusiDetailLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content modal-content-modern">
                 <div class="modal-header modal-header-modern">
                     <h5 class="modal-title" id="distribusiDetailLabel">
                         <i class="bi bi-bar-chart"></i> Distribusi Berdasarkan Jenjang Pendidikan
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-body-modern">
                     <!-- Distribution Cards -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
                         <!-- SMA -->
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
                             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                                 <div style="font-size: 2.5rem;">🎓</div>
                                 <div style="font-weight: 600; color: #2d3436;">SMA & Sederajat</div>
                             </div>
-                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">650,000</div>
-                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
-                                <div style="width: 26%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">650,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 26%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
                             </div>
                             <div style="font-size: 0.9rem; color: #636e72;">26% dari total penerima</div>
                         </div>
 
                         <!-- SMP -->
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
                             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                                 <div style="font-size: 2.5rem;">📚</div>
                                 <div style="font-weight: 600; color: #2d3436;">SMP & Sederajat</div>
                             </div>
-                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">915,000</div>
-                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
-                                <div style="width: 36.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">915,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 36.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
                             </div>
                             <div style="font-size: 0.9rem; color: #636e72;">36.6% dari total penerima</div>
                         </div>
 
                         <!-- SD -->
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
                             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                                 <div style="font-size: 2.5rem;">✏️</div>
                                 <div style="font-weight: 600; color: #2d3436;">SD & Sederajat</div>
                             </div>
-                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">765,000</div>
-                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
-                                <div style="width: 30.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">765,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 30.6%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
                             </div>
                             <div style="font-size: 0.9rem; color: #636e72;">30.6% dari total penerima</div>
                         </div>
 
                         <!-- TK/PAUD -->
-                        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
+                        <div
+                            style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #667eea;">
                             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                                 <div style="font-size: 2.5rem;">🎈</div>
                                 <div style="font-weight: 600; color: #2d3436;">TK / PAUD & Sederajat</div>
                             </div>
-                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">170,000</div>
-                            <div style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
-                                <div style="width: 6.8%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                            <div style="font-size: 2rem; font-weight: 800; color: #667eea; margin-bottom: 10px;">170,000
+                            </div>
+                            <div
+                                style="background: #f0f0f0; height: 8px; border-radius: 10px; margin-bottom: 10px; overflow: hidden;">
+                                <div
+                                    style="width: 6.8%; height: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
                             </div>
                             <div style="font-size: 0.9rem; color: #636e72;">6.8% dari total penerima</div>
                         </div>
@@ -2671,26 +2845,34 @@
                         <h6 style="font-size: 1.2rem; font-weight: 700; color: #071E49; margin-bottom: 20px;">
                             <i class="bi bi-graph-up"></i> Analisis Detail
                         </h6>
-                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
+                        <div
+                            style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
                             <p style="margin: 0; color: #071E49; line-height: 1.6;">
-                                <strong>Distribusi Terbesar:</strong> SMP & Sederajat mendominasi dengan 36.6% dari total penerima manfaat, diikuti oleh SD & Sederajat dengan 30.6%. Ini menunjukkan fokus program pada tingkat pendidikan menengah.
+                                <strong>Distribusi Terbesar:</strong> SMP & Sederajat mendominasi dengan 36.6% dari
+                                total penerima manfaat, diikuti oleh SD & Sederajat dengan 30.6%. Ini menunjukkan fokus
+                                program pada tingkat pendidikan menengah.
                             </p>
                         </div>
-                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
+                        <div
+                            style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 15px;">
                             <p style="margin: 0; color: #071E49; line-height: 1.6;">
-                                <strong>Penjangkauan TK/PAUD:</strong> Meskipun persentase kecil (6.8%), program tetap mencakup tingkat pra-sekolah untuk mendukung pertumbuhan optimal di usia dini.
+                                <strong>Penjangkauan TK/PAUD:</strong> Meskipun persentase kecil (6.8%), program tetap
+                                mencakup tingkat pra-sekolah untuk mendukung pertumbuhan optimal di usia dini.
                             </p>
                         </div>
-                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea;">
+                        <div
+                            style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #667eea;">
                             <p style="margin: 0; color: #071E49; line-height: 1.6;">
-                                <strong>Target Strategis:</strong> Program disesuaikan untuk memenuhi kebutuhan gizi di setiap jenjang pendidikan sesuai dengan tahap pertumbuhan dan perkembangan optimal.
+                                <strong>Target Strategis:</strong> Program disesuaikan untuk memenuhi kebutuhan gizi di
+                                setiap jenjang pendidikan sesuai dengan tahap pertumbuhan dan perkembangan optimal.
                             </p>
                         </div>
                     </div>
 
                     <!-- Download Data -->
                     <div style="text-align: center; margin-top: 30px;">
-                        <button style="background: #D4A017; color: white; border: none; padding: 12px 30px; border-radius: 20px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+                        <button
+                            style="background: #D4A017; color: white; border: none; padding: 12px 30px; border-radius: 20px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
                             <i class="bi bi-download"></i> Unduh Data
                         </button>
                     </div>
@@ -2837,28 +3019,28 @@
 
         // Regulasi menu navigation
         document.querySelectorAll('.regulasi-item').forEach(item => {
-            item.addEventListener('click', function(e) {
+            item.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // Hide all cards
                 document.querySelectorAll('.regulasi-card-compact').forEach(card => {
                     card.style.display = 'none';
                 });
-                
+
                 // Remove active class from all menu items
                 document.querySelectorAll('.regulasi-item').forEach(menu => {
                     menu.classList.remove('active');
                 });
-                
+
                 // Show selected card
                 const target = this.dataset.target;
                 document.getElementById(target).style.display = 'block';
-                
+
                 // Add active class to clicked item
                 this.classList.add('active');
             });
         });
-        
+
         // Form submission
         document.querySelector('.login-form-modern')?.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -2874,7 +3056,7 @@
         });
 
         // Form Cek Gizi
-        document.getElementById('formCekGizi')?.addEventListener('submit', function(e) {
+        document.getElementById('formCekGizi')?.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const umur = parseFloat(document.getElementById('umur').value);
@@ -2939,9 +3121,9 @@
             document.getElementById('nilaiIMT').textContent = bmi.toFixed(1);
             document.getElementById('kategoriIMT').textContent = kategori;
             document.getElementById('statusGizi').textContent = status;
-            document.getElementById('statusGizi').className = 'hasil-gizi-status ' + 
-                (status === 'Gizi Normal' ? 'status-baik' : 
-                 status === 'Kekurangan Gizi' ? 'status-kurang' : 'status-berlebih');
+            document.getElementById('statusGizi').className = 'hasil-gizi-status ' +
+                (status === 'Gizi Normal' ? 'status-baik' :
+                    status === 'Kekurangan Gizi' ? 'status-kurang' : 'status-berlebih');
             document.getElementById('deskripsiGizi').textContent = deskripsi;
 
             const listaRekomendasi = document.getElementById('listaRekomendasi');
@@ -2967,8 +3149,119 @@
             document.getElementById('regulasiOverview').style.display = 'block';
             document.getElementById('regulasiDetail').style.display = 'none';
         }
+
+        // ===== Image Carousel Functionality =====
+        let currentSlide = 0;
+        let autoSlideInterval;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        const carousel = document.getElementById('heroCarousel');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        // Create dots
+        const dotsContainer = document.getElementById('carouselDots');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'carousel-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        // Move carousel
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            updateCarousel();
+            resetAutoSlide();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetAutoSlide();
+        }
+
+        // Update carousel position
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update dots
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Auto slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                moveCarousel(1);
+            }, 4000); // Change slide every 4 seconds
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Touch/Mouse events for dragging
+        carousel.addEventListener('mousedown', dragStart);
+        carousel.addEventListener('touchstart', dragStart);
+        carousel.addEventListener('mouseup', dragEnd);
+        carousel.addEventListener('touchend', dragEnd);
+        carousel.addEventListener('mouseleave', dragEnd);
+        carousel.addEventListener('mousemove', drag);
+        carousel.addEventListener('touchmove', drag);
+
+        function dragStart(e) {
+            isDragging = true;
+            startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            carousel.style.cursor = 'grabbing';
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+
+            const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            currentTranslate = prevTranslate + currentPosition - startPos;
+        }
+
+        function dragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const movedBy = currentTranslate - prevTranslate;
+
+            // If moved enough, change slide
+            if (movedBy < -50 && currentSlide < totalSlides - 1) {
+                currentSlide++;
+            }
+            if (movedBy > 50 && currentSlide > 0) {
+                currentSlide--;
+            }
+
+            updateCarousel();
+            resetAutoSlide();
+
+            prevTranslate = currentTranslate;
+            carousel.style.cursor = 'grab';
+        }
+
+        // Start auto slide on page load
+        startAutoSlide();
+
+        // Pause auto slide on hover
+        const carouselContainer = document.querySelector('.hero-carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        carouselContainer.addEventListener('mouseleave', () => startAutoSlide());
     </script>
 </body>
+
 </html>
-
-
