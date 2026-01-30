@@ -376,6 +376,297 @@
             right: 15px;
         }
 
+            /* About Section - REDESIGN */
+        
+        .about-section {
+            padding: 100px 0 80px;
+            background: white;
+            color: white;
+            position: relative;
+            margin-top: -30px;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(30, 144, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .about-section::after {
+            content: "";
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: white;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* LEFT SIDE - ILLUSTRATION */
+        .about-illustration-side {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 550px;
+        }
+
+        .about-dino-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background Decorations */
+        .about-deco-circle-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at 30% 30%, rgba(30, 144, 255, 0.35) 0%, rgba(30, 144, 255, 0.15) 40%, rgba(30, 144, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            top: -50px;
+            left: -100px;
+            box-shadow: 0 0 80px rgba(30, 144, 255, 0.25);
+        }
+
+        .about-deco-dots {
+            position: absolute;
+            top: 50px;
+            left: 30px;
+            width: 220px;
+            height: 220px;
+            background-image: radial-gradient(circle, rgba(102, 126, 234, 0.6) 10px, transparent 10px);
+            background-size: 28px 28px;
+            z-index: 1;
+            opacity: 0.9;
+            filter: drop-shadow(0 10px 30px rgba(102, 126, 234, 0.3));
+        }
+
+        .about-deco-yellow-blob {
+            position: absolute;
+            bottom: 0;
+            left: -50px;
+            width: 450px;
+            height: 350px;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 100px rgba(255, 215, 0, 0.15);
+        }
+
+        /* Dino Character */
+        .about-dino-image {
+            position: relative;
+            z-index: 3;
+            width: 380px;
+            height: 420px;
+            animation: floatDino 4s ease-in-out infinite;
+        }
+
+        .about-dino-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.25));
+        }
+
+        @keyframes floatDino {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-40px);
+            }
+        }
+
+        /* RIGHT SIDE - CONTENT */
+        .about-content-side {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-section .section-header {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .about-section .section-title {
+            color: rgba(7, 30, 73, 0.5);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .about-section .section-title::after {
+            display: none;
+        }
+
+        .about-tagline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgba(7, 30, 73, 0.8);
+        }
+
+        .about-tagline i {
+            color: #FFD700;
+            font-size: 1.3rem;
+        }
+
+        .about-content-side h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1E90FF;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: none;
+        }
+
+        .about-content-side p {
+            font-size: 1.05rem;
+            color: rgba(7, 30, 73, 0.85);
+            line-height: 1.85;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 35px;
+        }
+
+        .about-highlight-item {
+            background: rgba(30, 144, 255, 0.08);
+            border-left: 4px solid #1E90FF;
+            padding: 18px 22px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-highlight-item:hover {
+            background: rgba(30, 144, 255, 0.15);
+            transform: translateX(8px);
+        }
+
+        .about-highlight-item strong {
+            color: #1E90FF;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .about-highlight-item span {
+            color: rgba(7, 30, 73, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1200px) {
+            .about-wrapper {
+                gap: 60px;
+            }
+
+            .about-content-side h2 {
+                font-size: 2.8rem;
+            }
+
+            .about-dino-image {
+                width: 320px;
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 80px 0 60px;
+            }
+
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-illustration-side {
+                min-height: 400px;
+                order: 2;
+            }
+
+            .about-content-side {
+                order: 1;
+            }
+
+            .about-section .section-header {
+                display: none;
+            }
+
+            .about-content-side h2 {
+                font-size: 2rem;
+            }
+
+            .about-content-side p {
+                font-size: 0.95rem;
+                text-align: left;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .about-highlight-item {
+                padding: 16px 18px;
+            }
+
+            .about-dino-image {
+                width: 280px;
+                height: 320px;
+            }
+
+            .about-deco-circle-bg {
+                width: 300px;
+                height: 300px;
+            }
+
+            .about-deco-dots {
+                width: 150px;
+                height: 150px;
+                background-size: 20px 20px;
+            }
+        }
+
         /* Hero Content */
         .hero-content {
             position: relative;
@@ -604,119 +895,6 @@
             margin: 0 auto;
         }
 
-        /* About Section */
-        .about-section {
-            padding: 50px 0 80px 0;
-            background: #0E2348;
-            color: white;
-            position: relative;
-            border-radius: 0 0 50px 50px;
-            margin-top: -30px;
-            padding-top: 50px;
-            padding-bottom: 140px;
-        }
-
-        .about-section::after {
-            content: "";
-            position: absolute;
-            bottom: -40px;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: #0E2348;
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-        }
-
-        .about-card {
-            background: white;
-            border-radius: 16px;
-            padding: 28px 22px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            transition: all 0.3s ease;
-            height: 100%;
-            color: #071E49;
-            position: relative;
-            border: none;
-            overflow: hidden;
-        }
-
-        .about-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .about-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .about-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-            position: relative;
-        }
-
-        .about-icon::after {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            border-radius: 18px;
-            background: inherit;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .about-icon.gradient-visi {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .about-icon.gradient-misi {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .about-icon.gradient-manfaat {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .about-icon i {
-            font-size: 2.4rem;
-            color: white;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-card:hover .about-icon {
-            transform: scale(1.12) rotateY(10deg);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #071E49;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .about-description {
-            color: #636e72;
-            line-height: 1.6;
-            font-size: 0.85rem;
-            margin: 0;
-        }
 
         /* Distribution Section */
         .distribution-section {
@@ -2500,39 +2678,62 @@
     </section>
 
     <!-- About Section -->
-    <section id="tentang" class="about-section">
-        <div class="container">
-            <div class="section-header text-white" data-aos="fade-up">
-                <h2 class="section-title" style="color: white;">Tentang Program</h2>
-                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Visi, Misi, dan Manfaat Program
-                    Makan Bergizi Gratis</p>
-            </div>
+<section id="visi-misi" class="about-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Visi & Misi</h2>
+            <p class="section-subtitle">Arah dan Tujuan Program</p>
+        </div>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6" data-aos="fade-up">
-                    <div class="about-card">
-                        <div class="about-icon gradient-visi">
-                            <i class="bi bi-eye"></i>
-                        </div>
-                        <h3 class="about-title">Visi</h3>
-                        <p class="about-description">Indonesia sehat dan bebas stunting dengan generasi emas yang
-                            cerdas, produktif, dan berdaya saing.</p>
+        <div class="about-wrapper" data-aos="fade-up">
+            <!-- ILUSTRASI -->
+            <div class="about-illustration-side">
+                <div class="about-dino-container">
+                    <div class="about-deco-circle-bg"></div>
+                    <div class="about-deco-dots"></div>
+                    <div class="about-deco-yellow-blob"></div>
+                    <div class="about-dino-image">
+                        <img src="animasi.gif" alt="Ilustrasi Program MBG">
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-card">
-                        <div class="about-icon gradient-misi">
-                            <i class="bi bi-eye"></i>
-                        </div>
-                        <h3 class="about-title">Misi</h3>
-                        <p class="about-description">Menyediakan nutrisi berkualitas untuk semua anak Indonesia, ibu
-                            hamil, dan kelompok rentan lainnya.</p>
+            <!-- KONTEN -->
+            <div class="about-content-side">
+                <div class="about-tagline">
+                    <i class="bi bi-bullseye text-warning"></i>
+                    <span>Komitmen untuk Masa Depan Sehat</span>
+                </div>
+
+                <h2 class="about-title">Visi</h2>
+                <p class="about-description">
+                    Terwujudnya generasi Indonesia yang sehat, cerdas, dan berkualitas melalui pemenuhan gizi seimbang yang merata dan berkelanjutan.
+                </p>
+
+                <h2 class="about-title mt-4">Misi</h2>
+                <div class="about-highlights">
+                    <div class="about-highlight-item">
+                        <strong>✔️ Pemenuhan Gizi</strong>
+                        <span>Menyediakan makanan bergizi seimbang bagi anak-anak dan kelompok rentan.</span>
+                    </div>
+                    <div class="about-highlight-item">
+                        <strong>✔️ Peningkatan Kesehatan</strong>
+                        <span>Mendukung pencegahan stunting dan peningkatan kesehatan masyarakat.</span>
+                    </div>
+                    <div class="about-highlight-item">
+                        <strong>✔️ Kolaboratif</strong>
+                        <span>Bekerja sama dengan sektor pendidikan, kesehatan, dan masyarakat.</span>
+                    </div>
+                    <div class="about-highlight-item">
+                        <strong>✔️ Berkelanjutan</strong>
+                        <span>Menjalankan program jangka panjang yang terukur dan berkesinambungan.</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Statistics Section -->
     <section id="statistik" class="stats-section">
