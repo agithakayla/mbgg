@@ -563,9 +563,9 @@
         }
 
         .about-content-side h2 {
-            font-size: 3.5rem;
+            font-size: 2rem;
             font-weight: 900;
-            color: #1E90FF;
+            color: #f0dc8b;
             margin-bottom: 30px;
             line-height: 1.1;
             text-shadow: none;
@@ -1433,6 +1433,38 @@
             box-shadow: 0 6px 18px rgba(209, 176, 108, 0.3);
         }
 
+        /* ================= FAQ BUTTON ================= */
+        .btn-faq {
+            background: #D1B06C;
+            color: white;
+            border: none;
+            width: 100%;
+            display: block;
+            padding: 12px 0;
+            border-radius: 22px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(209, 176, 108, 0.2);
+            transition: all 0.3s ease;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        .btn-faq:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(7, 30, 73, 0.45);
+        }
+
+
+        /* FAQ versi full width (opsional) */
+        .btn-faq.full {
+            width: 100%;
+            justify-content: center;
+        }
+
+
         /* Regulations Section */
         .regulations-section {
             padding: 50px 0;
@@ -1451,7 +1483,8 @@
             border-radius: 14px;
             padding: 20px 18px;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-            height: fit-content;
+            height: 100%;
+            /* ✅ */
             position: sticky;
             top: 100px;
         }
@@ -3257,6 +3290,8 @@
                         <li><a href="#reg-2" class="regulasi-item" data-target="card-2">SOP Program MBG</a></li>
                         <li><a href="#reg-3" class="regulasi-item" data-target="card-3">Pedoman MBG Sekolah</a></li>
                         <li><a href="#reg-4" class="regulasi-item" data-target="card-4">Permohonan SLHS</a></li>
+                        <li><a href="#reg-5" class="regulasi-item" data-target="card-5">Juknis Pelaksanaan MBG</a></li>
+                        <li><a href="#reg-6" class="regulasi-item" data-target="card-6">Standar Keamanan Pangan</a></li>
                     </ul> <button class="btn-selengkapnya-regulasi"> <i class="bi bi-download"></i> Selengkapnya
                     </button>
                 </div>
@@ -3374,6 +3409,79 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Card 5 -->
+                    <div class="regulasi-card-compact" id="card-5" style="display: none;">
+                        <div class="regulasi-card-icon">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+
+                        <div class="regulasi-card-main">
+                            <div class="regulasi-badges">
+                                <span class="reg_badge badge-type">Juknis</span>
+                                <span class="reg_badge badge-status">Aktif</span>
+                            </div>
+
+                            <h4>Petunjuk Teknis Pelaksanaan Program MBG</h4>
+                            <div class="regulasi-card-meta">
+                                <i class="bi bi-calendar3 me-1"></i> Tahun 2024
+                            </div>
+
+                            <p class="regulasi-card-desc">
+                                Dokumen teknis sebagai panduan operasional pelaksanaan MBG di lapangan
+                                bagi sekolah dan mitra penyedia makanan.
+                            </p>
+
+                            <ul class="regulasi-points">
+                                <li>Alur pelaksanaan MBG dari persiapan hingga distribusi.</li>
+                                <li>Peran sekolah, penyedia, dan pemerintah daerah.</li>
+                                <li>Standar pelaporan dan monitoring kegiatan.</li>
+                            </ul>
+
+                            <div class="regulasi-download-wrapper">
+                                <a href="#" class="btn-download-regulasi-circle">
+                                    <i class="bi bi-file-earmark-pdf"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="regulasi-card-compact" id="card-6" style="display: none;">
+                        <div class="regulasi-card-icon">
+                            <i class="bi bi-shield-fill-check"></i>
+                        </div>
+
+                        <div class="regulasi-card-main">
+                            <div class="regulasi-badges">
+                                <span class="reg_badge badge-type">Standar</span>
+                                <span class="reg_badge badge-status">Wajib</span>
+                            </div>
+
+                            <h4>Standar Keamanan & Mutu Pangan MBG</h4>
+                            <div class="regulasi-card-meta">
+                                <i class="bi bi-calendar3 me-1"></i> Berlaku Nasional
+                            </div>
+
+                            <p class="regulasi-card-desc">
+                                Standar wajib yang mengatur keamanan pangan untuk menjamin
+                                makanan MBG aman, higienis, dan layak konsumsi.
+                            </p>
+
+                            <ul class="regulasi-points">
+                                <li>Standar bahan baku dan penyimpanan makanan.</li>
+                                <li>Prosedur pengolahan makanan yang aman.</li>
+                                <li>Pencegahan kontaminasi dan keracunan pangan.</li>
+                            </ul>
+
+                            <div class="regulasi-download-wrapper">
+                                <a href="#" class="btn-download-regulasi-circle">
+                                    <i class="bi bi-file-earmark-pdf"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -3459,8 +3567,10 @@
                         <li><a href="#faq-4" class="regulasi-item" data-target="faq-card-4">Bagaimana proses
                                 pengawasan?</a>
                         </li>
-                        <button class="btn-selengkapnya-regulasi"> Selengkapnya
+                        <button class="btn-faq">
+                            Lihat FAQ
                         </button>
+
                     </ul>
                 </div>
 
