@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -10,7 +11,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <style>
+     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
@@ -3236,26 +3238,36 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
+        /* SEMUA JUDUL DI SECTION MBG */
+.about-section h2,
+.about-section h3,
+.about-section h5 {
+    font-weight: 700;
+    color: #CDAA66;
+}
 
-        .about-misi-list {
-            padding-left: 1.2rem;
-            margin-top: 0.5rem;
-        }
+/* JUDUL UTAMA */
+.about-content-side h3 {
+    font-size: 24px;
+}
 
-        .about-misi-list li {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
+/* JUDUL ITEM (Pembangunan Infrastruktur, dll) */
+.about-info-item h5,
+.about-bottom-item h5 {
+    font-weight: 700;
+    color: #CDAA66;
+}
 
-        .about-misi-list strong {
-            color: #0d6efd;
-            font-weight: 600;
-        }
+/* PARAGRAF TETAP NETRAL */
+.about-section p {
+    color: #374151;
+}
+.text-mbg {
+    color: #CDAA66;
+    font-weight: 700;
+}
 
-        .about-misi-list span {
-            font-size: 0.95rem;
-            color: #6c757d;
-        }
+
     </style>
 </head>
 
@@ -3282,7 +3294,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#beranda" data-section="beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#sasaran" data-section="sasaran">Sasaran</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Visi-misi" data-section="visi-misi">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="program-mbg" data-section="program-mbg">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#statistik" data-section="statistik">Statistik</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#regulasi" data-section="regulasi">Regulasi</a></li>
@@ -3351,7 +3363,6 @@
     </section>
 
     <!-- Sasaran  -->
-    <!-- kalo di tambhin cardnya jadi kebawah, dikhawatirkan nambah lagi programnya -->
     <section id="sasaran" class="sasaran-section">
         <div class="container">
             <div class="sasaran-header" data-aos="fade-up">
@@ -3467,68 +3478,99 @@
     </section>
 
     <!-- About Section -->
-    <section id="visi-misi" class="about-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Visi & Misi</h2>
-                <p class="section-subtitle">Arah dan Tujuan Program</p>
+<section id="program-mbg" class="about-section">
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="text-mbg">MBG Kota Bogor</h2>
+        </div>
+
+        <!-- ATAS -->
+        <div class="about-wrapper" data-aos="fade-up">
+
+            <!-- ILUSTRASI (TETAP) -->
+            <div class="about-illustration-side">
+                <div class="about-dino-container">
+                    <div class="about-deco-circle-bg"></div>
+                    <div class="about-deco-dots"></div>
+                    <div class="about-deco-yellow-blob"></div>
+                    <div class="about-dino-image">
+                        <img src="animasi.gif" alt="Ilustrasi Program MBG">
+                    </div>
+                </div>
             </div>
 
-            <div class="about-wrapper" data-aos="fade-up">
+            <!-- TEKS KANAN -->
+            <div class="about-content-side">
 
-                <!-- ILUSTRASI -->
-                <div class="about-illustration-side">
-                    <div class="about-dino-container">
-                        <div class="about-deco-circle-bg"></div>
-                        <div class="about-deco-dots"></div>
-                        <div class="about-deco-yellow-blob"></div>
-                        <div class="about-dino-image">
-                            <img src="animasi.gif" alt="Ilustrasi Program MBG">
-                        </div>
+                <h3 class="about-title">Program Makan Bergizi Gratis</h3>
+                <p class="about-description">
+                    Program Makan Bergizi Gratis (MBG) Kabupaten Bogor resmi dilaksanakan
+                    secara serentak mulai 6 Januari 2025. Pada tahap awal, program ini
+                    menjangkau 39 sekolah dengan total 8.667 siswa sebagai penerima manfaat
+                    dan terus diperluas cakupannya.
+                </p>
+
+                <div class="about-info-item">
+                    <div>
+                        <h5>Pembangunan Infrastruktur</h5>
+                        <p>
+                            Pemanfaatan aset Pemda untuk Dapur SPPG sebanyak 238 aset,
+                            dengan 94 lokasi direkomendasikan untuk operasional.
+                            Pembangunan juga didukung oleh Kemen PU dan BGN
+                            di beberapa wilayah Kabupaten Bogor.
+                        </p>
                     </div>
                 </div>
 
-                <!-- KONTEN -->
-                <div class="about-content-side">
-
-                    <div class="about-tagline">
-                        <i class="bi bi-bullseye text-warning"></i>
-                        <span>Komitmen untuk Masa Depan Sehat</span>
+                <div class="about-info-item">
+                    <div>
+                        <h5>Dukungan Anggaran</h5>
+                        <p>
+                            Pemerintah Kabupaten Bogor mengalokasikan anggaran
+                            melalui APBD untuk mendukung keberlangsungan program MBG.
+                        </p>
                     </div>
-
-                    <h2 class="about-title">Visi</h2>
-                    <p class="about-description">
-                        Terwujudnya generasi Indonesia yang sehat, cerdas, dan berkualitas melalui pemenuhan gizi
-                        seimbang yang merata dan berkelanjutan.
-                    </p>
-
-                    <h2 class="about-title mt-4">Misi</h2>
-
-                    <!-- MISI LIST TEKS -->
-                    <ol class="about-misi-list">
-                        <li>
-                            <strong>Pemenuhan Gizi</strong><br>
-                            <span>Menyediakan makanan bergizi seimbang bagi anak-anak dan kelompok rentan.</span>
-                        </li>
-                        <li>
-                            <strong>Peningkatan Kesehatan</strong><br>
-                            <span>Mendukung pencegahan stunting dan peningkatan kesehatan masyarakat.</span>
-                        </li>
-                        <li>
-                            <strong>Kolaboratif</strong><br>
-                            <span>Bekerja sama dengan sektor pendidikan, kesehatan, dan masyarakat.</span>
-                        </li>
-                        <li>
-                            <strong>Berkelanjutan</strong><br>
-                            <span>Menjalankan program jangka panjang yang terukur dan berkesinambungan.</span>
-                        </li>
-                    </ol>
-
-
                 </div>
+
             </div>
         </div>
-    </section>
+
+        <!-- BAWAH -->
+        <div class="about-bottom-grid" data-aos="fade-up">
+
+            <div class="about-bottom-item">
+                <h5>Dukungan Pangan Lokal</h5>
+                <p>
+                    Pemenuhan kebutuhan MBG per hari melibatkan potensi lokal,
+                    seperti sayuran, telur ayam, ayam/ikan, serta bumbu dapur
+                    untuk mendorong ekonomi masyarakat.
+                </p>
+            </div>
+
+            <div class="about-bottom-item">
+                <h5>Sinergi Stakeholder</h5>
+                <p>
+                    Program MBG dilaksanakan melalui sinergi Pemkab Bogor dengan
+                    TNI, POLRI, KADIN, PKK, organisasi keagamaan, organisasi kepemudaan,
+                    serta unsur masyarakat lainnya.
+                </p>
+            </div>
+
+            <div class="about-bottom-item">
+                <h5>Pengawasan & Evaluasi</h5>
+                <p>
+                    Dilakukan pelatihan keamanan pangan, pemeriksaan laboratorium,
+                    sertifikasi laik higiene sanitasi, serta inspeksi kesehatan
+                    lingkungan bersama Puskesmas.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <!-- Statistics Section -->
     <section id="statistik" class="stats-section">
