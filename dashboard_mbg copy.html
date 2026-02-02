@@ -795,7 +795,7 @@
         .fab-main {
             width: 65px;
             height: 65px;
-            background: #f5317f;
+            background: #CDAA66;
             /* Matching user's image color */
             color: white;
             border-radius: 50%;
@@ -830,7 +830,7 @@
             position: absolute;
             width: 60px;
             height: 60px;
-            background: #00B4DB;
+            background: #CDAA66;
             color: white;
             border-radius: 20px;
             display: flex;
@@ -1799,74 +1799,107 @@
 
         .accordion-body-modern {
             padding: 14px 20px;
-            color: #071E49;
+            color: #D1B06C;
             line-height: 1.6;
             font-size: 0.8rem;
         }
 
         /* Footer */
-        .footer-modern {
-            background: linear-gradient(135deg, #071E49 0%, #6B46C1 100%);
-            color: white;
-            padding: 45px 0 20px;
-            position: relative;
-            overflow: hidden;
-        }
+/* ===== FOOTER LIGHT GOLD STYLE ===== */
 
-        .footer-brand {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
+.footer-modern {
+  background: #ffffff;
+  color: #0b255a;
+  padding: 50px 0 30px;
+  border-top: 1px solid rgba(209, 176, 108, 0.35);
+}
 
-        .footer-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
+/* Brand */
+.footer-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0b255a;
+  line-height: 1.3;
+}
 
-        .footer-description {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
-            margin-bottom: 12px;
-            font-size: 0.8rem;
-        }
+/* Judul kolom */
+.footer-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #0b255a;
+  position: relative;
+}
 
-        .footer-links a {
-            font-size: 0.8rem;
-        }
+.footer-title::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #D1B06C;
+  margin-top: 6px;
+  border-radius: 2px;
+}
 
-        .social-icons-modern {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
+/* Deskripsi & kontak */
+.footer-description {
+  font-size: 0.8rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
 
-        .social-icon-modern {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+/* Link */
+.footer-links a {
+  font-size: 0.8rem;
+  color: #0b255a;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: all 0.25s ease;
+}
 
-        .social-icon-modern:hover {
-            background: #D1B06C;
-            transform: translateY(-3px);
-        }
+.footer-links a:hover {
+  color: #D1B06C;
+  text-decoration: underline;
+}
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 30px;
-            font-size: 0.8rem;
-        }
+/* Sosial Media */
+.social-icons-modern {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.social-icon-modern {
+  width: 36px;
+  height: 36px;
+  background: rgba(209, 176, 108, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D1B06C;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon-modern:hover {
+  background: #D1B06C;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Footer bawah */
+.footer-bottom {
+  text-align: center;
+  padding-top: 22px;
+  margin-top: 35px;
+  border-top: 1px solid rgba(209, 176, 108, 0.35);
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+
 
         /* Modal */
         .modal-content-modern {
@@ -2782,8 +2815,109 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* FAB Menu Styles - Optimized */
-        /* Handled above via .btn-floating-pill */
+        .logo-bar {
+            background: #0b255a;
+            padding: 14px 0;
+            /* tipis */
+        }
+
+        .logo-title {
+            text-align: center;
+            color: #ffffff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo-item {
+            background: #9aa6b2;
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-item img {
+            width: 38px;
+            height: auto;
+        }
+
+        .logo-bar {
+  position: relative;
+  background: #071e49;
+  padding: 36px 80px 40px;
+  overflow: hidden;
+}
+
+/* Judul */
+.logo-title {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Batik image */
+.batik-img {
+  position: absolute;
+  top: 50%;
+  width: 260px;
+  opacity: 0.35;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Kiri */
+.batik-left {
+  left: -80px;
+}
+
+/* Kanan (dibalik) */
+.batik-right {
+  right: -80px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card logo */
+.logo-item {
+  width: 72px;
+  height: 72px;
+  background: #cfd6e3;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* Logo image */
+.logo-item img {
+  max-width: 100%;
+  max-height: 46px;
+  object-fit: contain;
+}
+
     </style>
 </head>
 
@@ -3689,6 +3823,28 @@
         </div>
     </section>
 
+    <!-- Logo Bar Section -->
+<section class="logo-bar">
+  <!-- Batik kiri -->
+  <img src="batik.png" alt="Batik kiri" class="batik-img batik-left">
+
+  <!-- Batik kanan -->
+  <img src="batik.png" alt="Batik kanan" class="batik-img batik-right">
+
+  <div class="logo-title">
+    Berkolaborasi dan Bersinergi Bersama
+  </div>
+
+  <div class="logo-container">
+    <div class="logo-item"><img src="logo1.png"></div>
+    <div class="logo-item"><img src="logo2.png"></div>
+    <div class="logo-item"><img src="logo3.png"></div>
+    <div class="logo-item"><img src="logo4.png"></div>
+  </div>
+</section>
+
+
+
     <!-- Footer -->
     <footer class="footer-modern">
         <div class="container footer-content">
@@ -3740,73 +3896,13 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom d-flex flex-column flex-lg-row justify-content-between align-items-center gap-4">
-                <p class="mb-0">&copy; 2024 Program Makan Bergizi Gratis. Hak Cipta Dilindungi.</p>
-                <div class="footer-stats-horizontal">
-                    <div class="stat-item-h">
-                        <i class="bi bi-person-fill"></i> Hari Ini: <span class="stat-value-h"
-                            id="stat-today">1,245</span>
-                    </div>
-                    <div class="stat-item-h">
-                        <i class="bi bi-people-fill"></i> Total: <span class="stat-value-h"
-                            id="stat-total">856,432</span>
-                    </div>
-                    <div class="stat-item-h">
-                        <span class="online-dot"></span> Online: <span class="stat-value-h" id="stat-online">243</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </footer>
-
-    <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-content-modern">
-                <div class="modal-header modal-header-modern">
-                    <h5 class="modal-title" id="loginModalLabel">
-                        <i class="bi bi-egg-fried"></i> Masuk ke Dashboard
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body modal-body-modern">
-                    <form class="login-form-modern">
-                        <div class="form-floating form-floating-modern mb-3">
-                            <input type="text" class="form-control form-control-modern-login" id="username"
-                                placeholder="Username atau Email">
-                            <label for="username">Username atau Email</label>
-                        </div>
-                        <div class="form-floating form-floating-modern mb-3">
-                            <input type="password" class="form-control form-control-modern-login" id="password"
-                                placeholder="Password">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">
-                                Ingat saya
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-login-modern">Masuk</button>
-                        <div class="text-center mt-3">
-                            <a href="#" class="text-decoration-none">Lupa password?</a>
-                        </div>
-                        <hr class="my-4">
-                        <div class="text-center">
-                            <p>Belum punya akun? <a href="#" class="text-decoration-none fw-bold">Daftar sekarang</a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Floating Action Buttons - Radial Menu -->
     <div class="fab-container" id="radialFab">
         <button class="fab-main" onclick="toggleFab()">
-            <i class="bi bi-plus-lg"></i>
+           <i class="bi bi-list text-white"></i>
         </button>
         <div class="fab-items">
             <button class="fab-item item-1" data-bs-toggle="modal" data-bs-target="#cekGiziModal">
