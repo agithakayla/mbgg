@@ -2910,7 +2910,7 @@
         .batik-img {
             position: absolute;
             top: 50%;
-            width: 260px;
+            width: 210px;
             opacity: 0.35;
             transform: translateY(-50%);
             z-index: 1;
@@ -2919,13 +2919,14 @@
 
         /* Kiri */
         .batik-left {
-            left: -80px;
+            left: -10px;
+            
+            transform: translateY(-50%) scaleX(-1);
         }
 
         /* Kanan (dibalik) */
         .batik-right {
-            right: -80px;
-            transform: translateY(-50%) scaleX(-1);
+            right: -10px;
         }
 
         /* Logo container */
@@ -3036,6 +3037,28 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
+
+        .about-misi-list {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .about-misi-list li {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .about-misi-list strong {
+            color: #0d6efd;
+            font-weight: 600;
+        }
+
+        .about-misi-list span {
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+
+        
     </style>
 </head>
 
@@ -3045,7 +3068,7 @@
         <div class="loader-circle"></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
         <div class="container-xl">
             <a class="navbar-brand" href="#beranda">
@@ -3062,7 +3085,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#beranda" data-section="beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#sasaran" data-section="sasaran">Sasaran</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tentang" data-section="tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Visi-misi" data-section="visi-misi">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#statistik" data-section="statistik">Statistik</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#regulasi" data-section="regulasi">Regulasi</a></li>
@@ -3077,6 +3100,8 @@
     <section id="beranda" class="hero-section">
         <div class="container">
             <div class="row align-items-center">
+
+                <!-- CAROUSEL -->
                 <div class="col-lg-6">
                     <div class="hero-carousel-container">
                         <div class="hero-carousel" id="heroCarousel">
@@ -3090,39 +3115,46 @@
                                 <img src="3.png" alt="Slide 3" loading="lazy">
                             </div>
                         </div>
+
                         <button class="carousel-arrow prev" onclick="moveCarousel(-1)">
                             <i class="bi bi-chevron-left"></i>
                         </button>
                         <button class="carousel-arrow next" onclick="moveCarousel(1)">
                             <i class="bi bi-chevron-right"></i>
                         </button>
+
                         <div class="carousel-controls" id="carouselDots"></div>
                     </div>
                 </div>
 
+                <!-- KONTEN -->
                 <div class="col-lg-6">
                     <div class="hero-content" id="heroContent">
-                        <h1 class="hero-title" id="newsTitle">MBG Kota Bogor</h1>
-                        <p class="hero-subtitle" id="newsSubtitle">
-                            Nutrisi Seimbang untuk Generasi Emas Indonesia
-                        </p>
+                        <h1 class="hero-title" id="newsTitle">
+                            MBG Kota Bogor
+                        </h1>
+
                         <p class="hero-description" id="newsDesc">
                             Program Makan Bergizi Gratis (MBG) di Kota Bogor mulai dilaksanakan pada 6 Januari 2025.
                             Pada tahap awal, program ini menjangkau 25 sekolah dengan sekitar 6.000 siswa sebagai
                             penerima manfaat.
                         </p>
+
                         <div class="hero-buttons">
                             <a href="#" class="btn-hero-primary" id="newsLink">
-                                <i class="bi bi-book-half"></i> Baca Selengkapnya
+                                <i class="bi bi-book-half"></i>
+                                Baca Selengkapnya
                             </a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Sasaran BGN Section -->
+    <!-- Sasaran  -->
+     <!-- kalo di tambhin cardnya jadi kebawah, dikhawatirkan nambah lagi programnya -->
     <section id="sasaran" class="sasaran-section">
         <div class="container">
             <div class="sasaran-header" data-aos="fade-up">
@@ -3202,8 +3234,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="lansia.png" alt="Lansia">
+                                <span class="flip-card-label">Lansia</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Lansia</h3>
+                                <p>Pemenuhan gizi bagi lanjut usia untuk menjaga daya tahan tubuh dan kualitas hidup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- About Section -->
@@ -3215,6 +3263,7 @@
             </div>
 
             <div class="about-wrapper" data-aos="fade-up">
+
                 <!-- ILUSTRASI -->
                 <div class="about-illustration-side">
                     <div class="about-dino-container">
@@ -3229,6 +3278,7 @@
 
                 <!-- KONTEN -->
                 <div class="about-content-side">
+
                     <div class="about-tagline">
                         <i class="bi bi-bullseye text-warning"></i>
                         <span>Komitmen untuk Masa Depan Sehat</span>
@@ -3241,29 +3291,32 @@
                     </p>
 
                     <h2 class="about-title mt-4">Misi</h2>
-                    <div class="about-highlights">
-                        <div class="about-highlight-item">
-                            <strong>✔️ Pemenuhan Gizi</strong>
+
+                    <!-- MISI LIST TEKS -->
+                    <ol class="about-misi-list">
+                        <li>
+                            <strong>Pemenuhan Gizi</strong><br>
                             <span>Menyediakan makanan bergizi seimbang bagi anak-anak dan kelompok rentan.</span>
-                        </div>
-                        <div class="about-highlight-item">
-                            <strong>✔️ Peningkatan Kesehatan</strong>
+                        </li>
+                        <li>
+                            <strong>Peningkatan Kesehatan</strong><br>
                             <span>Mendukung pencegahan stunting dan peningkatan kesehatan masyarakat.</span>
-                        </div>
-                        <div class="about-highlight-item">
-                            <strong>✔️ Kolaboratif</strong>
+                        </li>
+                        <li>
+                            <strong>Kolaboratif</strong><br>
                             <span>Bekerja sama dengan sektor pendidikan, kesehatan, dan masyarakat.</span>
-                        </div>
-                        <div class="about-highlight-item">
-                            <strong>✔️ Berkelanjutan</strong>
+                        </li>
+                        <li>
+                            <strong>Berkelanjutan</strong><br>
                             <span>Menjalankan program jangka panjang yang terukur dan berkesinambungan.</span>
-                        </div>
-                    </div>
+                        </li>
+                    </ol>
+
+
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Statistics Section -->
     <section id="statistik" class="stats-section">
@@ -3322,7 +3375,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Cek Gizi Section (Hidden, moved to FAB) -->
     <section id="cek-gizi" class="cek-gizi-section" style="display: none;">
@@ -3749,7 +3801,6 @@
         </div>
     </section>
 
-
     <!-- Map Section -->
     <section id="peta-mbg" class="map-section">
         <div class="map-card-container">
@@ -3933,11 +3984,11 @@
 
     <!-- Logo Bar Section -->
     <section class="logo-bar">
-        <!-- Batik kiri -->
-        <img src="batik.png" alt="Batik kiri" class="batik-img batik-left">
 
-        <!-- Batik kanan -->
-        <img src="batik.png" alt="Batik kanan" class="batik-img batik-right">
+          <!-- Batik kanan -->
+        <img src="rubo_mencari.png" alt="Batik kanan" class="batik-img batik-right">
+        <!-- Batik kiri -->
+        <img src="rubo_mencari.png" alt="Batik kiri" class="batik-img batik-left">
 
         <div class="logo-title">
             Berkolaborasi dan Bersinergi Bersama
@@ -3948,64 +3999,81 @@
             <div class="logo-item"><img src="logo2.png"></div>
             <div class="logo-item"><img src="logo3.png"></div>
             <div class="logo-item"><img src="logo4.png"></div>
+             <div class="logo-item"><img src="logo4.png"></div>
+              <div class="logo-item"><img src="logo4.png"></div>
+               <div class="logo-item"><img src="logo4.png"></div>
+                <div class="logo-item"><img src="logo4.png"></div>
+                 <div class="logo-item"><img src="logo4.png"></div>
+                  <div class="logo-item"><img src="logo4.png"></div>
+                  
         </div>
     </section>
 
-
-
     <!-- Footer -->
-    <footer class="footer-modern">
-        <div class="container footer-content">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h3 class="footer-brand">Makan Bergizi Gratis</h3>
-                    <p class="footer-description">Program nasional untuk Indonesia sehat dan bebas stunting. Mewujudkan
-                        generasi emas yang cerdas dan produktif melalui nutrisi terbaik.</p>
-                    <div class="social-icons-modern">
-                        <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
-                        <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="footer-title">Link Cepat</h5>
-                    <ul class="footer-links">
-                        <li><a href="#beranda"><i class="bi bi-chevron-right"></i> Beranda</a></li>
-                        <li><a href="#tentang"><i class="bi bi-chevron-right"></i> Tentang Program</a></li>
-                        <li><a href="#statistik"><i class="bi bi-chevron-right"></i> Statistik</a></li>
-                        <li><a href="#regulasi"><i class="bi bi-chevron-right"></i> Regulasi</a></li>
-                        <li><a href="#peta-mbg"><i class="bi bi-chevron-right"></i> Peta MBG</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="footer-title">Layanan</h5>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Download Aplikasi</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Pengaduan</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Kontak Darurat</a></li>
-                        <li><a href="#faq"><i class="bi bi-chevron-right"></i> FAQ</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Karir</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <h5 class="footer-title">Newsletter</h5>
-                    <p class="footer-description">Dapatkan informasi terbaru tentang program dan tips gizi seimbang
-                        langsung di email Anda.</p>
-                    <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Email Anda">
-                        <button type="submit" class="newsletter-button">
-                            <i class="bi bi-send"></i>
-                        </button>
-                    </form>
-                    <div class="mt-3">
-                        <small>Hotline: 1500-234 | Email: info@makanbergizigratis.go.id</small>
-                    </div>
+<footer class="footer-modern">
+    <div class="container footer-content">
+        <div class="row">
+
+            <!-- Brand -->
+            <div class="col-lg-4 mb-4">
+                <h3 class="footer-brand">Makan Bergizi Gratis</h3>
+                <p class="footer-description">
+                    Program nasional untuk Indonesia sehat dan bebas stunting.
+                    Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.
+                </p>
+
+                <div class="social-icons-modern">
+                    <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
                 </div>
             </div>
+
+                        <!-- Alamat -->
+            <div class="col-lg-4 mb-4">
+                <h5 class="footer-title">Alamat</h5>
+                <p class="footer-description">
+                    <i class="bi bi-geo-alt"></i>
+                    Jl. Ir. H. Juanda No.10
+                    Kecamatan Bogor Tengah
+                    Kota Bogor, Jawa Barat 16121
+                    Indonesia
+                </p>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-lg-4 mb-4">
+                <h5 class="footer-title">Newsletter</h5>
+                <p class="footer-description">
+                    Dapatkan informasi terbaru tentang program dan tips gizi seimbang
+                    langsung di email Anda.
+                </p>
+
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Email Anda">
+                    <button type="submit" class="newsletter-button">
+                        <i class="bi bi-send"></i>
+                    </button>
+                </form>
+
+                <div class="mt-3">
+                    <small>
+                        Hotline: 1500-234<br>
+                        Email: info@makanbergizigratis.go.id
+                    </small>
+                </div>
+            </div>
+
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>&copy; Pemerintah Kota Bogor. Hak Cipta Dilindungi.</p>
+        </div>
+    </div>
+</footer>
+
 
     <!-- Floating Action Buttons - Radial Menu -->
     <div class="fab-container" id="radialFab">
@@ -4129,19 +4197,16 @@
         const newsData = [
             {
                 title: "MBG Kota Bogor",
-                subtitle: "Nutrisi Seimbang untuk Generasi Emas Indonesia",
                 desc: "Program Makan Bergizi Gratis (MBG) di Kota Bogor mulai dilaksanakan pada 6 Januari 2025. Pada tahap awal, program ini menjangkau 25 sekolah dengan sekitar 6.000 siswa sebagai penerima manfaat.",
                 link: "#news-bogor"
             },
             {
                 title: "Standar Gizi Nasional",
-                subtitle: "Pedoman Pemenuhan Nutrisi Pelajar",
                 desc: "Berdasarkan standar terbaru, setiap paket makanan MBG harus mengandung protein, serat, dan mikronutrisi yang seimbang. Program ini diawasi ketat oleh ahli gizi untuk memastikan kualitas terbaik.",
                 link: "#news-gizi"
             },
             {
                 title: "Implementasi Sekolah",
-                subtitle: "Infrastruktur Dapur Satuan Pelayanan",
                 desc: "Setiap sekolah atau titik distribusi kini dilengkapi dengan standar dapur higienis yang modern. Proses pengolahan hingga distribusi dilakukan dengan protokol keamanan pangan yang ketat.",
                 link: "#news-sekolah"
             }
@@ -4161,7 +4226,6 @@
             // Update news text with animation
             const heroContent = document.getElementById('heroContent');
             const newsTitle = document.getElementById('newsTitle');
-            const newsSubtitle = document.getElementById('newsSubtitle');
             const newsDesc = document.getElementById('newsDesc');
             const newsLink = document.getElementById('newsLink');
 
@@ -4172,7 +4236,6 @@
                 setTimeout(() => {
                     const currentNews = newsData[currentSlide];
                     newsTitle.innerText = currentNews.title;
-                    newsSubtitle.innerText = currentNews.subtitle;
                     newsDesc.innerText = currentNews.desc;
                     newsLink.setAttribute('href', currentNews.link);
 
