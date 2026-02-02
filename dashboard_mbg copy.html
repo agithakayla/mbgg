@@ -1844,28 +1844,31 @@
         }
 
         /* Footer */
-        /* ===== FOOTER LIGHT GOLD STYLE ===== */
+        /* ===== FOOTER MODERN DARK STYLE ===== */
 
         .footer-modern {
             background: #ffffff;
             color: #0b255a;
-            padding: 50px 0 30px;
+            padding: 60px 0 30px;
             border-top: 1px solid rgba(209, 176, 108, 0.35);
+            position: relative;
         }
 
         /* Brand */
         .footer-brand {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #0b255a;
-            line-height: 1.3;
+            line-height: 1.4;
+            margin-bottom: 20px;
         }
 
         /* Judul kolom */
+        /* Judul kolom */
         .footer-title {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            margin-bottom: 14px;
+            margin-bottom: 20px;
             color: #0b255a;
             position: relative;
         }
@@ -1881,20 +1884,23 @@
         }
 
         /* Deskripsi & kontak */
+        /* Deskripsi & kontak */
         .footer-description {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #4a5568;
             line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         /* Link */
+        /* Link */
         .footer-links a {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #0b255a;
             text-decoration: none;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             transition: all 0.25s ease;
+            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -1929,12 +1935,13 @@
         }
 
         /* Footer bawah */
+        /* Footer bawah */
         .footer-bottom {
             text-align: center;
-            padding-top: 22px;
-            margin-top: 35px;
-            border-top: 1px solid rgba(209, 176, 108, 0.35);
-            font-size: 0.75rem;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
             color: #6b7280;
         }
 
@@ -2141,18 +2148,51 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
-        /* Footer Visitor Statistics - Compact Horizontal */
-        .footer-stats-horizontal {
+        /* Footer Stats Widget (Vertical / Compact Grid) */
+        .footer-stats-widget {
+            margin-top: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+        }
+
+        .stat-item-w {
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 8px;
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-            padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #4a5568;
         }
+
+        .stat-item-w:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-item-w i {
+            color: #D1B06C;
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .online-dot-w {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+            animation: pulse-green 2s infinite;
+        }
+
+        .stat-value-w {
+            font-weight: 700;
+            color: #0b255a;
+        }
+
 
         .stat-item-h {
             display: flex;
@@ -2854,6 +2894,102 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Sasaran Slider Styles */
+        .sasaran-slider-wrapper {
+            position: relative;
+            margin-top: 40px;
+            padding: 0 50px;
+        }
+
+        .sasaran-slider-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 5px 40px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .sasaran-slider-container::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .sasaran-slider-item {
+            flex: 0 0 calc(25% - 19px);
+            /* Default 4 items for desktop */
+            min-width: 300px;
+            scroll-snap-align: start;
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 1200px) {
+            .sasaran-slider-item {
+                flex: 0 0 calc(33.333% - 17px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .sasaran-slider-item {
+                flex: 0 0 calc(50% - 13px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sasaran-slider-item {
+                flex: 0 0 100%;
+            }
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 54px;
+            height: 54px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            z-index: 100;
+            /* Higher z-index */
+            border: 1px solid #eee;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #071E49;
+            pointer-events: auto;
+        }
+
+        .slider-nav:hover {
+            background: #D1B06C;
+            color: white;
+            border-color: #D1B06C;
+            box-shadow: 0 10px 30px rgba(209, 176, 108, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .slider-nav.prev {
+            left: 5px;
+        }
+
+        .slider-nav.next {
+            right: 5px;
+        }
+
+        .hero-buttons a {
+            cursor: default;
+        }
+
         .logo-bar {
             background: #0b255a;
             padding: 14px 0;
@@ -2920,7 +3056,7 @@
         /* Kiri */
         .batik-left {
             left: -10px;
-            
+
             transform: translateY(-50%) scaleX(-1);
         }
 
@@ -3057,8 +3193,6 @@
             font-size: 0.95rem;
             color: #6c757d;
         }
-
-        
     </style>
 </head>
 
@@ -3154,7 +3288,7 @@
     </section>
 
     <!-- Sasaran  -->
-     <!-- kalo di tambhin cardnya jadi kebawah, dikhawatirkan nambah lagi programnya -->
+    <!-- kalo di tambhin cardnya jadi kebawah, dikhawatirkan nambah lagi programnya -->
     <section id="sasaran" class="sasaran-section">
         <div class="container">
             <div class="sasaran-header" data-aos="fade-up">
@@ -3165,93 +3299,108 @@
                     dan berkualitas.</p>
             </div>
 
-            <div class="row g-4">
-                <!-- Card 1: Text Info -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front text-card">
-                                <h3>Sasaran Pemenuhan Gizi MBG</h3>
-                                <p>Kami mendukung kesehatan gizi melalui berbagai program untuk memastikan setiap
-                                    individu mendapatkan kebutuhan gizi yang optimal.</p>
+            <div class="sasaran-slider-wrapper" data-aos="fade-up">
+                <button class="slider-nav prev" onclick="slideSasaran(-1)">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div class="sasaran-slider-container" id="sasaranSlider">
+                    <!-- Card 1: Text Info -->
+                    <div class="sasaran-slider-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front text-card">
+                                    <h3>Sasaran Pemenuhan Gizi MBG</h3>
+                                    <p>Kami mendukung kesehatan gizi melalui berbagai program untuk memastikan setiap
+                                        individu mendapatkan kebutuhan gizi yang optimal.</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Komitmen Kami</h3>
+                                    <p>Melayani seluruh lapisan masyarakat dari Sabang sampai Merauke dengan standar
+                                        gizi
+                                        terbaik dan pengawasan ketat demi masa depan bangsa.</p>
+                                </div>
                             </div>
-                            <div class="flip-card-back">
-                                <h3>Komitmen Kami</h3>
-                                <p>Melayani seluruh lapisan masyarakat dari Sabang sampai Merauke dengan standar gizi
-                                    terbaik dan pengawasan ketat demi masa depan bangsa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Siswa Sekolah -->
+                    <div class="sasaran-slider-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="siswa.png" alt="Siswa Sekolah" loading="lazy">
+                                    <span class="flip-card-label">Anak Sekolah</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Siswa Sekolah</h3>
+                                    <p>Pemberian makan bergizi gratis untuk siswa PAUD hingga SMA/SMK untuk mendukung
+                                        konsentrasi belajar dan pertumbuhan fisik yang optimal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Balita -->
+                    <div class="sasaran-slider-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="balita.png" alt="Balita" loading="lazy">
+                                    <span class="flip-card-label">Balita & Anak</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Balita & Anak</h3>
+                                    <p>Intervensi gizi dini untuk anak usia 0-5 tahun guna mencegah stunting dan
+                                        memastikan
+                                        perkembangan otak yang maksimal di masa emas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Ibu Hamil -->
+                    <div class="sasaran-slider-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="ibumenyusui.png" alt="Ibu Hamil" loading="lazy">
+                                    <span class="flip-card-label">Ibu Hamil & Menyusui</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Ibu Hamil & Menyusui</h3>
+                                    <p>Pemenuhan nutrisi bagi ibu hamil dan menyusui untuk kesehatan ibu dan janin,
+                                        serta
+                                        mendukung pemberian ASI eksklusif berkualitas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Lansia -->
+                    <div class="sasaran-slider-item">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="lansia.png" alt="Lansia">
+                                    <span class="flip-card-label">Lansia</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Lansia</h3>
+                                    <p>Pemenuhan gizi bagi lanjut usia untuk menjaga daya tahan tubuh dan kualitas
+                                        hidup.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Siswa Sekolah -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img src="siswa.png" alt="Siswa Sekolah" loading="lazy">
-                                <span class="flip-card-label">Anak Sekolah</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Siswa Sekolah</h3>
-                                <p>Pemberian makan bergizi gratis untuk siswa PAUD hingga SMA/SMK untuk mendukung
-                                    konsentrasi belajar dan pertumbuhan fisik yang optimal.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Balita -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img src="balita.png" alt="Balita" loading="lazy">
-                                <span class="flip-card-label">Balita & Anak</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Balita & Anak</h3>
-                                <p>Intervensi gizi dini untuk anak usia 0-5 tahun guna mencegah stunting dan memastikan
-                                    perkembangan otak yang maksimal di masa emas.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: Ibu Hamil -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img src="ibumenyusui.png" alt="Ibu Hamil" loading="lazy">
-                                <span class="flip-card-label">Ibu Hamil & Menyusui</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Ibu Hamil & Menyusui</h3>
-                                <p>Pemenuhan nutrisi bagi ibu hamil dan menyusui untuk kesehatan ibu dan janin, serta
-                                    mendukung pemberian ASI eksklusif berkualitas.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img src="lansia.png" alt="Lansia">
-                                <span class="flip-card-label">Lansia</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <h3>Lansia</h3>
-                                <p>Pemenuhan gizi bagi lanjut usia untuk menjaga daya tahan tubuh dan kualitas hidup.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <button class="slider-nav next" onclick="slideSasaran(1)">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
+
     </section>
 
     <!-- About Section -->
@@ -3833,7 +3982,7 @@
                     <div class="map-container-modal"
                         style="width: 100%; height: 400px; border-radius: 15px; overflow: hidden; margin-bottom: 20px;">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sus!4v1234567890"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.78959492354284!3d-6.186740766349471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sBogor%2C%20West%20Java!5e0!3m2!1sen%2sus!4v1234567890"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
 
@@ -3985,7 +4134,7 @@
     <!-- Logo Bar Section -->
     <section class="logo-bar">
 
-          <!-- Batik kanan -->
+        <!-- Batik kanan -->
         <img src="rubo_mencari.png" alt="Batik kanan" class="batik-img batik-right">
         <!-- Batik kiri -->
         <img src="rubo_mencari.png" alt="Batik kiri" class="batik-img batik-left">
@@ -3999,80 +4148,98 @@
             <div class="logo-item"><img src="logo2.png"></div>
             <div class="logo-item"><img src="logo3.png"></div>
             <div class="logo-item"><img src="logo4.png"></div>
-             <div class="logo-item"><img src="logo4.png"></div>
-              <div class="logo-item"><img src="logo4.png"></div>
-               <div class="logo-item"><img src="logo4.png"></div>
-                <div class="logo-item"><img src="logo4.png"></div>
-                 <div class="logo-item"><img src="logo4.png"></div>
-                  <div class="logo-item"><img src="logo4.png"></div>
-                  
+            <div class="logo-item"><img src="logo4.png"></div>
+            <div class="logo-item"><img src="logo4.png"></div>
+            <div class="logo-item"><img src="logo4.png"></div>
+            <div class="logo-item"><img src="logo4.png"></div>
+            <div class="logo-item"><img src="logo4.png"></div>
+            <div class="logo-item"><img src="logo4.png"></div>
+
         </div>
     </section>
 
     <!-- Footer -->
-<footer class="footer-modern">
-    <div class="container footer-content">
-        <div class="row">
+    <footer class="footer-modern">
+        <div class="container footer-content">
+            <div class="row">
 
-            <!-- Brand -->
-            <div class="col-lg-4 mb-4">
-                <h3 class="footer-brand">Makan Bergizi Gratis</h3>
-                <p class="footer-description">
-                    Program nasional untuk Indonesia sehat dan bebas stunting.
-                    Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.
-                </p>
+                <!-- Brand -->
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-brand">Makan Bergizi Gratis</h3>
+                    <p class="footer-description">
+                        Program nasional untuk Indonesia sehat dan bebas stunting.
+                        Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.
+                    </p>
 
-                <div class="social-icons-modern">
-                    <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
+                    <div class="social-icons-modern">
+                        <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+
+                    <!-- Visitor Stats Widget -->
+                    <div class="footer-stats-widget">
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-eye"></i> Hari Ini</div>
+                            <span class="stat-value-w" id="stat-today">1,245</span>
+                        </div>
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-people"></i> Total</div>
+                            <span class="stat-value-w" id="stat-total">856,432</span>
+                        </div>
+                        <div class="stat-item-w">
+                            <div>
+                                <div class="online-dot-w d-inline-block me-2"></div> Online
+                            </div>
+                            <span class="stat-value-w" id="stat-online">243</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-                        <!-- Alamat -->
-            <div class="col-lg-4 mb-4">
-                <h5 class="footer-title">Alamat</h5>
-                <p class="footer-description">
-                    <i class="bi bi-geo-alt"></i>
-                    Jl. Ir. H. Juanda No.10
-                    Kecamatan Bogor Tengah
-                    Kota Bogor, Jawa Barat 16121
-                    Indonesia
-                </p>
-            </div>
-
-            <!-- Newsletter -->
-            <div class="col-lg-4 mb-4">
-                <h5 class="footer-title">Newsletter</h5>
-                <p class="footer-description">
-                    Dapatkan informasi terbaru tentang program dan tips gizi seimbang
-                    langsung di email Anda.
-                </p>
-
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Email Anda">
-                    <button type="submit" class="newsletter-button">
-                        <i class="bi bi-send"></i>
-                    </button>
-                </form>
-
-                <div class="mt-3">
-                    <small>
-                        Hotline: 1500-234<br>
-                        Email: info@makanbergizigratis.go.id
-                    </small>
+                <!-- Alamat -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Alamat</h5>
+                    <p class="footer-description">
+                        <i class="bi bi-geo-alt"></i>
+                        Jl. Ir. H. Juanda No.10
+                        Kecamatan Bogor Tengah
+                        Kota Bogor, Jawa Barat 16121
+                        Indonesia
+                    </p>
                 </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="footer-description">
+                        Dapatkan informasi terbaru tentang program dan tips gizi seimbang
+                        langsung di email Anda.
+                    </p>
+
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda">
+                        <button type="submit" class="newsletter-button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+
+                    <div class="mt-3">
+                        <small>
+                            Hotline: 1500-234<br>
+                            Email: info@makanbergizigratis.go.id
+                        </small>
+                    </div>
+                </div>
+
             </div>
 
+            <div class="footer-bottom">
+                <p class="mb-0 mt-3">&copy; Pemerintah Kota Bogor. Hak Cipta Dilindungi.</p>
+            </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; Pemerintah Kota Bogor. Hak Cipta Dilindungi.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <!-- Floating Action Buttons - Radial Menu -->
@@ -4211,6 +4378,19 @@
                 link: "#news-sekolah"
             }
         ];
+
+        // Sasaran Slider Navigation
+        function slideSasaran(direction) {
+            const slider = document.getElementById('sasaranSlider');
+            if (slider) {
+                const item = slider.querySelector('.sasaran-slider-item');
+                const itemWidth = item ? item.offsetWidth + 25 : 350;
+                slider.scrollBy({
+                    left: direction * itemWidth,
+                    behavior: 'smooth'
+                });
+            }
+        }
 
         function moveCarousel(direction) {
             currentSlide += direction;
