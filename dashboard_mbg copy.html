@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -11,8 +10,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-     <style>
-
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
@@ -1847,31 +1845,34 @@
         }
 
         /* Footer */
-        /* ===== FOOTER MODERN DARK STYLE ===== */
-
         .footer-modern {
             background: #ffffff;
             color: #0b255a;
-            padding: 60px 0 30px;
+            padding: 16px 0 8px;
             border-top: 1px solid rgba(209, 176, 108, 0.35);
             position: relative;
+            font-size: 0.85rem;
+        }
+
+        /* Kolom bootstrap agar rapat */
+        .footer-modern .mb-4 {
+            margin-bottom: 12px !important;
         }
 
         /* Brand */
         .footer-brand {
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #0b255a;
-            line-height: 1.4;
-            margin-bottom: 20px;
+            line-height: 1.3;
+            margin-bottom: 6px;
         }
 
         /* Judul kolom */
-        /* Judul kolom */
         .footer-title {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             color: #0b255a;
             position: relative;
         }
@@ -1879,29 +1880,27 @@
         .footer-title::after {
             content: "";
             display: block;
-            width: 28px;
+            width: 22px;
             height: 2px;
             background: #D1B06C;
-            margin-top: 6px;
+            margin-top: 3px;
             border-radius: 2px;
         }
 
         /* Deskripsi & kontak */
-        /* Deskripsi & kontak */
         .footer-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            line-height: 1.35;
+            margin-bottom: 6px;
         }
 
         /* Link */
-        /* Link */
         .footer-links a {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #0b255a;
             text-decoration: none;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
             transition: all 0.25s ease;
             display: inline-block;
         }
@@ -1914,40 +1913,118 @@
         /* Sosial Media */
         .social-icons-modern {
             display: flex;
-            gap: 12px;
-            margin-top: 12px;
+            gap: 6px;
+            margin-top: 6px;
         }
 
         .social-icon-modern {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             background: rgba(209, 176, 108, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #D1B06C;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             text-decoration: none;
+            font-size: 0.8rem;
         }
 
         .social-icon-modern:hover {
             background: #D1B06C;
             color: #ffffff;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
-        /* Footer bawah */
+        /* Visitor Stats Widget */
+        .footer-stats-widget {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.8rem;
+        }
+
+        .stat-item-w {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #4a5568;
+        }
+
+        .stat-item-w i {
+            margin-right: 4px;
+            color: #0b255a;
+        }
+
+        .stat-value-w {
+            font-weight: 600;
+            color: #0b255a;
+        }
+
+        /* Newsletter */
+        .newsletter-form {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .newsletter-input:focus {
+            border-color: #D1B06C;
+        }
+
+        .newsletter-button {
+            padding: 4px 10px;
+            border: none;
+            background: #D1B06C;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.25s ease;
+        }
+
+        .newsletter-button:hover {
+            background: #b8964f;
+        }
+
         /* Footer bawah */
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
+            padding-top: 8px;
+            margin-top: 10px;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: #6b7280;
         }
 
+        /* =========================
+   RESPONSIVE MOBILE
+   ========================= */
+        @media (max-width: 768px) {
+            .footer-modern {
+                padding: 14px 0 6px;
+            }
+
+            .footer-modern .mb-4 {
+                margin-bottom: 10px !important;
+            }
+
+            .footer-bottom {
+                margin-top: 8px;
+                padding-top: 6px;
+            }
+        }
 
 
         /* Modal */
@@ -3055,109 +3132,111 @@
             cursor: default;
         }
 
-        .logo-bar {
-            background: #0b255a;
-            padding: 14px 0;
-            /* tipis */
-        }
+/* =========================
+   LOGO BAR - ULTRA SLIM
+   ========================= */
 
-        .logo-title {
-            text-align: center;
-            color: #ffffff;
-            font-size: 14px;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
+.logo-bar {
+    position: relative;
+    background: #071e49;
+    padding: 16px 40px 18px;
+    overflow: hidden;
+}
 
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+/* Judul */
+.logo-title {
+    text-align: center;
+    color: #D1B06C;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.4px;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+}
 
-        .logo-item {
-            background: #9aa6b2;
-            width: 58px;
-            height: 58px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Batik ornament */
+.batik-img {
+    position: absolute;
+    top: 50%;
+    width: 140px;
+    opacity: 0.25;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
 
-        .logo-item img {
-            width: 38px;
-            height: auto;
-        }
+.batik-left {
+    left: 10px;
+    transform: translateY(-50%) scaleX(-1);
+}
 
-        .logo-bar {
-            position: relative;
-            background: #071e49;
-            padding: 36px 80px 40px;
-            overflow: hidden;
-        }
+.batik-right {
+    right: 10px;
+}
 
-        /* Judul */
-        .logo-title {
-            text-align: center;
-            color: white;
-            font-weight: 600;
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 2;
-        }
+/* Container logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
 
-        /* Batik image */
-        .batik-img {
-            position: absolute;
-            top: 50%;
-            width: 210px;
-            opacity: 0.35;
-            transform: translateY(-50%);
-            z-index: 1;
-            pointer-events: none;
-        }
+/* Card logo */
+.logo-item {
+    width: 52px;
+    height: 52px;
+    background: #cfd6e3;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+}
 
-        /* Kiri */
-        .batik-left {
-            left: -10px;
+/* Gambar logo */
+.logo-item img {
+    max-width: 100%;
+    max-height: 32px;
+    object-fit: contain;
+}
 
-            transform: translateY(-50%) scaleX(-1);
-        }
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+    .logo-bar {
+        padding: 14px 20px 16px;
+    }
 
-        /* Kanan (dibalik) */
-        .batik-right {
-            right: -10px;
-        }
+    .logo-title {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
 
-        /* Logo container */
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
+    .logo-container {
+        gap: 10px;
+    }
 
-        /* Card logo */
-        .logo-item {
-            width: 72px;
-            height: 72px;
-            background: #cfd6e3;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
+    .logo-item {
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+    }
 
-        /* Logo image */
-        .logo-item img {
-            max-width: 100%;
-            max-height: 46px;
-            object-fit: contain;
-        }
+    .logo-item img {
+        max-height: 28px;
+    }
+
+    .batik-img {
+        width: 110px;
+        opacity: 0.2;
+    }
+}
 
         /* Accessibility Features */
         .accessibility-grayscale {
@@ -3238,36 +3317,36 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
+
         /* SEMUA JUDUL DI SECTION MBG */
-.about-section h2,
-.about-section h3,
-.about-section h5 {
-    font-weight: 700;
-    color: #CDAA66;
-}
+        .about-section h2,
+        .about-section h3,
+        .about-section h5 {
+            font-weight: 700;
+            color: #CDAA66;
+        }
 
-/* JUDUL UTAMA */
-.about-content-side h3 {
-    font-size: 24px;
-}
+        /* JUDUL UTAMA */
+        .about-content-side h3 {
+            font-size: 24px;
+        }
 
-/* JUDUL ITEM (Pembangunan Infrastruktur, dll) */
-.about-info-item h5,
-.about-bottom-item h5 {
-    font-weight: 700;
-    color: #CDAA66;
-}
+        /* JUDUL ITEM (Pembangunan Infrastruktur, dll) */
+        .about-info-item h5,
+        .about-bottom-item h5 {
+            font-weight: 700;
+            color: #CDAA66;
+        }
 
-/* PARAGRAF TETAP NETRAL */
-.about-section p {
-    color: #374151;
-}
-.text-mbg {
-    color: #CDAA66;
-    font-weight: 700;
-}
+        /* PARAGRAF TETAP NETRAL */
+        .about-section p {
+            color: #374151;
+        }
 
-
+        .text-mbg {
+            color: #CDAA66;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -3294,7 +3373,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#beranda" data-section="beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#sasaran" data-section="sasaran">Sasaran</a></li>
-                    <li class="nav-item"><a class="nav-link" href="program-mbg" data-section="program-mbg">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="program-mbg" data-section="program-mbg">Tentang</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#statistik" data-section="statistik">Statistik</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#regulasi" data-section="regulasi">Regulasi</a></li>
@@ -3366,7 +3446,6 @@
     <section id="sasaran" class="sasaran-section">
         <div class="container">
             <div class="sasaran-header" data-aos="fade-up">
-                <span class="text-uppercase fw-bold text-primary mb-2 d-block">Sasaran MBG</span>
                 <h2 class="sasaran-title">Makan Bergizi Gratis (MBG)</h2>
                 <p class="sasaran-subtitle">Program komprehensif yang dirancang untuk memastikan setiap individu
                     mendapatkan asupan gizi optimal, mendukung tercapainya Indonesia Emas melalui generasi yang sehat
@@ -3478,99 +3557,98 @@
     </section>
 
     <!-- About Section -->
-<section id="program-mbg" class="about-section">
-    <div class="container">
+    <section id="program-mbg" class="about-section">
+        <div class="container">
 
-        <!-- HEADER -->
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="text-mbg">MBG Kota Bogor</h2>
-        </div>
-
-        <!-- ATAS -->
-        <div class="about-wrapper" data-aos="fade-up">
-
-            <!-- ILUSTRASI (TETAP) -->
-            <div class="about-illustration-side">
-                <div class="about-dino-container">
-                    <div class="about-deco-circle-bg"></div>
-                    <div class="about-deco-dots"></div>
-                    <div class="about-deco-yellow-blob"></div>
-                    <div class="about-dino-image">
-                        <img src="animasi.gif" alt="Ilustrasi Program MBG">
-                    </div>
-                </div>
+            <!-- HEADER -->
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="text-mbg">MBG Kota Bogor</h2>
             </div>
 
-            <!-- TEKS KANAN -->
-            <div class="about-content-side">
+            <!-- ATAS -->
+            <div class="about-wrapper" data-aos="fade-up">
 
-                <h3 class="about-title">Program Makan Bergizi Gratis</h3>
-                <p class="about-description">
-                    Program Makan Bergizi Gratis (MBG) Kabupaten Bogor resmi dilaksanakan
-                    secara serentak mulai 6 Januari 2025. Pada tahap awal, program ini
-                    menjangkau 39 sekolah dengan total 8.667 siswa sebagai penerima manfaat
-                    dan terus diperluas cakupannya.
-                </p>
-
-                <div class="about-info-item">
-                    <div>
-                        <h5>Pembangunan Infrastruktur</h5>
-                        <p>
-                            Pemanfaatan aset Pemda untuk Dapur SPPG sebanyak 238 aset,
-                            dengan 94 lokasi direkomendasikan untuk operasional.
-                            Pembangunan juga didukung oleh Kemen PU dan BGN
-                            di beberapa wilayah Kabupaten Bogor.
-                        </p>
+                <!-- ILUSTRASI (TETAP) -->
+                <div class="about-illustration-side">
+                    <div class="about-dino-container">
+                        <div class="about-deco-circle-bg"></div>
+                        <div class="about-deco-dots"></div>
+                        <div class="about-deco-yellow-blob"></div>
+                        <div class="about-dino-image">
+                            <img src="animasi.gif" alt="Ilustrasi Program MBG">
+                        </div>
                     </div>
                 </div>
 
-                <div class="about-info-item">
-                    <div>
-                        <h5>Dukungan Anggaran</h5>
-                        <p>
-                            Pemerintah Kabupaten Bogor mengalokasikan anggaran
-                            melalui APBD untuk mendukung keberlangsungan program MBG.
-                        </p>
+                <!-- TEKS KANAN -->
+                <div class="about-content-side">
+
+                    <h3 class="about-title">Program Makan Bergizi Gratis</h3>
+                    <p class="about-description">
+                        Program Makan Bergizi Gratis (MBG) Kabupaten Bogor resmi dilaksanakan
+                        secara serentak mulai 6 Januari 2025. Pada tahap awal, program ini
+                        menjangkau 39 sekolah dengan total 8.667 siswa sebagai penerima manfaat
+                        dan terus diperluas cakupannya.
+                    </p>
+
+                    <div class="about-info-item">
+                        <div>
+                            <h5>Pembangunan Infrastruktur</h5>
+                            <p>
+                                Pemanfaatan aset Pemda untuk Dapur SPPG sebanyak 238 aset,
+                                dengan 94 lokasi direkomendasikan untuk operasional.
+                                Pembangunan juga didukung oleh Kemen PU dan BGN
+                                di beberapa wilayah Kabupaten Bogor.
+                            </p>
+                        </div>
                     </div>
+
+                    <div class="about-info-item">
+                        <div>
+                            <h5>Dukungan Anggaran</h5>
+                            <p>
+                                Pemerintah Kabupaten Bogor mengalokasikan anggaran
+                                melalui APBD untuk mendukung keberlangsungan program MBG.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BAWAH -->
+            <div class="about-bottom-grid" data-aos="fade-up">
+
+                <div class="about-bottom-item">
+                    <h5>Dukungan Pangan Lokal</h5>
+                    <p>
+                        Pemenuhan kebutuhan MBG per hari melibatkan potensi lokal,
+                        seperti sayuran, telur ayam, ayam/ikan, serta bumbu dapur
+                        untuk mendorong ekonomi masyarakat.
+                    </p>
+                </div>
+
+                <div class="about-bottom-item">
+                    <h5>Sinergi Stakeholder</h5>
+                    <p>
+                        Program MBG dilaksanakan melalui sinergi Pemkab Bogor dengan
+                        TNI, POLRI, KADIN, PKK, organisasi keagamaan, organisasi kepemudaan,
+                        serta unsur masyarakat lainnya.
+                    </p>
+                </div>
+
+                <div class="about-bottom-item">
+                    <h5>Pengawasan & Evaluasi</h5>
+                    <p>
+                        Dilakukan pelatihan keamanan pangan, pemeriksaan laboratorium,
+                        sertifikasi laik higiene sanitasi, serta inspeksi kesehatan
+                        lingkungan bersama Puskesmas.
+                    </p>
                 </div>
 
             </div>
         </div>
-
-        <!-- BAWAH -->
-        <div class="about-bottom-grid" data-aos="fade-up">
-
-            <div class="about-bottom-item">
-                <h5>Dukungan Pangan Lokal</h5>
-                <p>
-                    Pemenuhan kebutuhan MBG per hari melibatkan potensi lokal,
-                    seperti sayuran, telur ayam, ayam/ikan, serta bumbu dapur
-                    untuk mendorong ekonomi masyarakat.
-                </p>
-            </div>
-
-            <div class="about-bottom-item">
-                <h5>Sinergi Stakeholder</h5>
-                <p>
-                    Program MBG dilaksanakan melalui sinergi Pemkab Bogor dengan
-                    TNI, POLRI, KADIN, PKK, organisasi keagamaan, organisasi kepemudaan,
-                    serta unsur masyarakat lainnya.
-                </p>
-            </div>
-
-            <div class="about-bottom-item">
-                <h5>Pengawasan & Evaluasi</h5>
-                <p>
-                    Dilakukan pelatihan keamanan pangan, pemeriksaan laboratorium,
-                    sertifikasi laik higiene sanitasi, serta inspeksi kesehatan
-                    lingkungan bersama Puskesmas.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Statistics Section -->
     <section id="statistik" class="stats-section">
@@ -3677,7 +3755,7 @@
     </section>
 
     <!-- Cek Gizi Modal -->
-    <div class="modal fade" id="cekGiziModal" tabindex="-1" aria-labelledby="cekGiziModalLabel" aria-hidden="true">
+         <div class="modal fade" id="cekGiziModal" tabindex="-1" aria-labelledby="cekGiziModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content modal-content-modern">
                 <div class="modal-header modal-header-modern">
