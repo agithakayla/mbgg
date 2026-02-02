@@ -1476,17 +1476,21 @@
             grid-template-columns: 280px 1fr;
             gap: 25px;
             margin-top: 30px;
+            align-items: stretch;
+            /* Ensure children stretch to same height */
         }
 
         .regulasi-sidebar {
             background: white;
             border-radius: 14px;
-            padding: 20px 18px;
+            padding: 24px 20px;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
             height: 100%;
-            /* ✅ */
+            /* Fill grid cell height */
             position: sticky;
             top: 100px;
+            display: flex;
+            flex-direction: column;
         }
 
         .regulasi-sidebar h6 {
@@ -1512,9 +1516,42 @@
 
         .regulasi-menu a:hover,
         .regulasi-menu a.active {
-            background: #f5f5f5;
+            background: #f8f9fa;
             border-left-color: #D1B06C;
             color: #D1B06C;
+        }
+
+        .btn-selengkapnya-regulasi,
+        .btn-faq {
+            margin-top: auto;
+            background: #D1B06C;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(209, 176, 108, 0.2);
+        }
+
+        .btn-selengkapnya-regulasi:hover,
+        .btn-faq:hover {
+            background: #C49955;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(209, 176, 108, 0.3);
+        }
+
+        .regulasi-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .regulasi-card-compact {
@@ -1527,6 +1564,8 @@
             gap: 35px;
             transition: all 0.3s ease;
             width: 100%;
+            height: 100%;
+            /* Important for equal height */
             position: relative;
             overflow: hidden;
         }
@@ -1805,99 +1844,99 @@
         }
 
         /* Footer */
-/* ===== FOOTER LIGHT GOLD STYLE ===== */
+        /* ===== FOOTER LIGHT GOLD STYLE ===== */
 
-.footer-modern {
-  background: #ffffff;
-  color: #0b255a;
-  padding: 50px 0 30px;
-  border-top: 1px solid rgba(209, 176, 108, 0.35);
-}
+        .footer-modern {
+            background: #ffffff;
+            color: #0b255a;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(209, 176, 108, 0.35);
+        }
 
-/* Brand */
-.footer-brand {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0b255a;
-  line-height: 1.3;
-}
+        /* Brand */
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b255a;
+            line-height: 1.3;
+        }
 
-/* Judul kolom */
-.footer-title {
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-bottom: 14px;
-  color: #0b255a;
-  position: relative;
-}
+        /* Judul kolom */
+        .footer-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #0b255a;
+            position: relative;
+        }
 
-.footer-title::after {
-  content: "";
-  display: block;
-  width: 28px;
-  height: 2px;
-  background: #D1B06C;
-  margin-top: 6px;
-  border-radius: 2px;
-}
+        .footer-title::after {
+            content: "";
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #D1B06C;
+            margin-top: 6px;
+            border-radius: 2px;
+        }
 
-/* Deskripsi & kontak */
-.footer-description {
-  font-size: 0.8rem;
-  color: #4a5568;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
+        /* Deskripsi & kontak */
+        .footer-description {
+            font-size: 0.8rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
 
-/* Link */
-.footer-links a {
-  font-size: 0.8rem;
-  color: #0b255a;
-  text-decoration: none;
-  margin-bottom: 6px;
-  transition: all 0.25s ease;
-}
+        /* Link */
+        .footer-links a {
+            font-size: 0.8rem;
+            color: #0b255a;
+            text-decoration: none;
+            margin-bottom: 6px;
+            transition: all 0.25s ease;
+        }
 
-.footer-links a:hover {
-  color: #D1B06C;
-  text-decoration: underline;
-}
+        .footer-links a:hover {
+            color: #D1B06C;
+            text-decoration: underline;
+        }
 
-/* Sosial Media */
-.social-icons-modern {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
+        /* Sosial Media */
+        .social-icons-modern {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
 
-.social-icon-modern {
-  width: 36px;
-  height: 36px;
-  background: rgba(209, 176, 108, 0.15);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #D1B06C;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
+        .social-icon-modern {
+            width: 36px;
+            height: 36px;
+            background: rgba(209, 176, 108, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D1B06C;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-.social-icon-modern:hover {
-  background: #D1B06C;
-  color: #ffffff;
-  transform: translateY(-2px);
-}
+        .social-icon-modern:hover {
+            background: #D1B06C;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
 
-/* Footer bawah */
-.footer-bottom {
-  text-align: center;
-  padding-top: 22px;
-  margin-top: 35px;
-  border-top: 1px solid rgba(209, 176, 108, 0.35);
-  font-size: 0.75rem;
-  color: #6b7280;
-}
+        /* Footer bawah */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 22px;
+            margin-top: 35px;
+            border-top: 1px solid rgba(209, 176, 108, 0.35);
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
 
 
 
@@ -2851,73 +2890,152 @@
         }
 
         .logo-bar {
-  position: relative;
-  background: #071e49;
-  padding: 36px 80px 40px;
-  overflow: hidden;
-}
+            position: relative;
+            background: #071e49;
+            padding: 36px 80px 40px;
+            overflow: hidden;
+        }
 
-/* Judul */
-.logo-title {
-  text-align: center;
-  color: white;
-  font-weight: 600;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 2;
-}
+        /* Judul */
+        .logo-title {
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
 
-/* Batik image */
-.batik-img {
-  position: absolute;
-  top: 50%;
-  width: 260px;
-  opacity: 0.35;
-  transform: translateY(-50%);
-  z-index: 1;
-  pointer-events: none;
-}
+        /* Batik image */
+        .batik-img {
+            position: absolute;
+            top: 50%;
+            width: 260px;
+            opacity: 0.35;
+            transform: translateY(-50%);
+            z-index: 1;
+            pointer-events: none;
+        }
 
-/* Kiri */
-.batik-left {
-  left: -80px;
-}
+        /* Kiri */
+        .batik-left {
+            left: -80px;
+        }
 
-/* Kanan (dibalik) */
-.batik-right {
-  right: -80px;
-  transform: translateY(-50%) scaleX(-1);
-}
+        /* Kanan (dibalik) */
+        .batik-right {
+            right: -80px;
+            transform: translateY(-50%) scaleX(-1);
+        }
 
-/* Logo container */
-.logo-container {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
-}
+        /* Logo container */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
 
-/* Card logo */
-.logo-item {
-  width: 72px;
-  height: 72px;
-  background: #cfd6e3;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
+        /* Card logo */
+        .logo-item {
+            width: 72px;
+            height: 72px;
+            background: #cfd6e3;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
 
-/* Logo image */
-.logo-item img {
-  max-width: 100%;
-  max-height: 46px;
-  object-fit: contain;
-}
+        /* Logo image */
+        .logo-item img {
+            max-width: 100%;
+            max-height: 46px;
+            object-fit: contain;
+        }
 
+        /* Accessibility Features */
+        .accessibility-grayscale {
+            filter: grayscale(100%) !important;
+        }
+
+        .accessibility-high-contrast {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .accessibility-high-contrast *:not(.btn):not(.fab-item):not(.fab-main) {
+            background-color: #000 !important;
+            color: #fff !important;
+            border-color: #fff !important;
+        }
+
+        .accessibility-underlined a,
+        .accessibility-underlined .btn,
+        .accessibility-underlined [role="button"] {
+            text-decoration: underline !important;
+        }
+
+        .accessibility-big-cursor {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M7 2l12 11.2l-5.8.5l3.3 7.3l-2.2 1l-3.2-7.4L7 19z'/%3E%3Cpath fill='%23fff' d='M8 4.5l8 7.5h-4l2.5 5.5l-1 .5l-2.5-5.5l-3 3z'/%3E%3C/svg%3E"), auto !important;
+        }
+
+        .accessibility-big-cursor * {
+            cursor: inherit !important;
+        }
+
+        .accessibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .accessibility-btn {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            height: 100%;
+        }
+
+        .accessibility-btn:hover {
+            border-color: #D1B06C;
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .accessibility-btn.active {
+            background: #D1B06C;
+            border-color: #D1B06C;
+            color: white;
+        }
+
+        .accessibility-btn i {
+            font-size: 1.8rem;
+            color: #D1B06C;
+        }
+
+        .accessibility-btn.active i {
+            color: white;
+        }
+
+        .accessibility-btn span {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -3371,58 +3489,48 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="disabilitas-card-info" data-aos="fade-right">
-                                <div class="disabilitas-icon-box">
-                                    <i class="bi bi-shield-check"></i>
-                                </div>
-                                <h5>Pendampingan Khusus</h5>
-                                <p class="small text-muted mb-0">Kami menyediakan tim pendamping profesional untuk
-                                    membantu proses makan di sekolah bagi siswa berkebutuhan khusus.</p>
-                            </div>
-                            <div class="disabilitas-card-info" data-aos="fade-right" data-aos-delay="100">
-                                <div class="disabilitas-icon-box">
-                                    <i class="bi bi-egg-fried"></i>
-                                </div>
-                                <h5>Menu Personal</h5>
-                                <p class="small text-muted mb-0">Penyesuaian tekstur makanan (lunak/cair) dan diet
-                                    khusus sesuai rekomendasi medis untuk kondisi tertentu.</p>
-                            </div>
+                    <div class="accessibility-grid">
+                        <div class="accessibility-btn" onclick="increaseFontSize()">
+                            <i class="bi bi-fonts"></i>
+                            <span>Perbesar Teks</span>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="disabilitas-card-info" data-aos="fade-left">
-                                <div class="disabilitas-icon-box">
-                                    <i class="bi bi-geo-alt"></i>
-                                </div>
-                                <h5>Aksesibilitas Fasilitas</h5>
-                                <p class="small text-muted mb-0">Penyediaan area makan yang ramah disabilitas dan mudah
-                                    diakses di setiap titik sekolah penerima MBG.</p>
-                            </div>
-                            <form id="formDisabilitas" class="p-3 border rounded-4 bg-light" data-aos="fade-left"
-                                data-aos-delay="100">
-                                <h6 class="fw-bold mb-3">Ajukan Bantuan Khusus</h6>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control form-control-sm"
-                                        placeholder="Nama Lengkap Siswa" required>
-                                </div>
-                                <div class="mb-3">
-                                    <select class="form-select form-select-sm" required>
-                                        <option value="">Jenis Disabilitas...</option>
-                                        <option value="fisik">Fisik</option>
-                                        <option value="sensorik">Sensorik</option>
-                                        <option value="intelektual">Intelektual</option>
-                                        <option value="lainnya">Lainnya</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control form-control-sm" rows="2"
-                                        placeholder="Detail kebutuhan khusus..."></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-sm w-100 rounded-pill">Kirim
-                                    Pengajuan</button>
-                            </form>
+                        <div class="accessibility-btn" onclick="decreaseFontSize()">
+                            <i class="bi bi-textarea-t"></i>
+                            <span>Perkecil Teks</span>
                         </div>
+                        <div class="accessibility-btn" id="btnGrayscale" onclick="toggleGrayscale()">
+                            <i class="bi bi-circle-half"></i>
+                            <span>Monokrom</span>
+                        </div>
+                        <div class="accessibility-btn" id="btnContrast" onclick="toggleHighContrast()">
+                            <i class="bi bi-brightness-high-fill"></i>
+                            <span>Kontras Tinggi</span>
+                        </div>
+                        <div class="accessibility-btn" id="btnUnderline" onclick="toggleUnderline()">
+                            <i class="bi bi-type-underline"></i>
+                            <span>Garis Bawahi Tautan</span>
+                        </div>
+                        <div class="accessibility-btn" id="btnCursor" onclick="toggleBigCursor()">
+                            <i class="bi bi-cursor-fill"></i>
+                            <span>Kursor Besar</span>
+                        </div>
+                        <div class="accessibility-btn" id="btnReadText" onclick="toggleReadMode()">
+                            <i class="bi bi-volume-up-fill"></i>
+                            <span>Baca Teks</span>
+                        </div>
+                        <div class="accessibility-btn" onclick="resetAccessibility()">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                            <span>Reset Pengaturan</span>
+                        </div>
+                    </div>
+                    <div class="alert alert-info border-0 rounded-4 mt-2 mb-0">
+                        <small><i class="bi bi-info-circle me-1"></i> Gunakan menu di atas untuk menyesuaikan kenyamanan
+                            tampilan Anda saat menjelajahi portal Makan Bergizi Gratis.</small>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 pt-3 border-top">
+                        <button type="button" class="btn btn-login px-5 rounded-pill" data-bs-dismiss="modal">
+                            Selesai & Tutup
+                        </button>
                     </div>
                 </div>
             </div>
@@ -3824,24 +3932,24 @@
     </section>
 
     <!-- Logo Bar Section -->
-<section class="logo-bar">
-  <!-- Batik kiri -->
-  <img src="batik.png" alt="Batik kiri" class="batik-img batik-left">
+    <section class="logo-bar">
+        <!-- Batik kiri -->
+        <img src="batik.png" alt="Batik kiri" class="batik-img batik-left">
 
-  <!-- Batik kanan -->
-  <img src="batik.png" alt="Batik kanan" class="batik-img batik-right">
+        <!-- Batik kanan -->
+        <img src="batik.png" alt="Batik kanan" class="batik-img batik-right">
 
-  <div class="logo-title">
-    Berkolaborasi dan Bersinergi Bersama
-  </div>
+        <div class="logo-title">
+            Berkolaborasi dan Bersinergi Bersama
+        </div>
 
-  <div class="logo-container">
-    <div class="logo-item"><img src="logo1.png"></div>
-    <div class="logo-item"><img src="logo2.png"></div>
-    <div class="logo-item"><img src="logo3.png"></div>
-    <div class="logo-item"><img src="logo4.png"></div>
-  </div>
-</section>
+        <div class="logo-container">
+            <div class="logo-item"><img src="logo1.png"></div>
+            <div class="logo-item"><img src="logo2.png"></div>
+            <div class="logo-item"><img src="logo3.png"></div>
+            <div class="logo-item"><img src="logo4.png"></div>
+        </div>
+    </section>
 
 
 
@@ -3902,7 +4010,7 @@
     <!-- Floating Action Buttons - Radial Menu -->
     <div class="fab-container" id="radialFab">
         <button class="fab-main" onclick="toggleFab()">
-           <i class="bi bi-list text-white"></i>
+            <i class="bi bi-list text-white"></i>
         </button>
         <div class="fab-items">
             <button class="fab-item item-1" data-bs-toggle="modal" data-bs-target="#cekGiziModal">
@@ -4153,16 +4261,21 @@
         document.querySelectorAll('.regulasi-item').forEach(item => {
             item.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelectorAll('.regulasi-card-compact').forEach(card => {
+
+                const wrapper = this.closest('.regulasi-wrapper');
+                if (!wrapper) return;
+
+                wrapper.querySelectorAll('.regulasi-card-compact').forEach(card => {
                     card.style.display = 'none';
                 });
-                document.querySelectorAll('.regulasi-item').forEach(menu => {
+                wrapper.querySelectorAll('.regulasi-item').forEach(menu => {
                     menu.classList.remove('active');
                 });
+
                 const target = this.dataset.target;
                 const targetCard = document.getElementById(target);
                 if (targetCard) {
-                    targetCard.style.display = 'block';
+                    targetCard.style.display = 'flex'; // Use flex to maintain layout
                     this.classList.add('active');
                 }
             });
@@ -4203,16 +4316,102 @@
             }
         });
 
-        // Form Disabilitas
-        const formDisabilitas = document.getElementById('formDisabilitas');
-        if (formDisabilitas) {
-            formDisabilitas.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Terima kasih! Pengajuan bantuan khusus telah kami terima. Tim kami akan segera menghubungi Anda.');
-                const modal = bootstrap.Modal.getInstance(document.getElementById('disabilitasModal'));
-                modal.hide();
-                e.target.reset();
-            });
+        // Form Disabilitas - REMOVED (Replaced by Accessibility Tools)
+
+        // Accessibility Logic
+        let currentFontSize = 100;
+        let isReadMode = false;
+        let speechUtterance = null;
+
+        function updateFontSize() {
+            document.documentElement.style.fontSize = currentFontSize + '%';
+        }
+
+        function increaseFontSize() {
+            if (currentFontSize < 150) {
+                currentFontSize += 10;
+                updateFontSize();
+            }
+        }
+
+        function decreaseFontSize() {
+            if (currentFontSize > 80) {
+                currentFontSize -= 10;
+                updateFontSize();
+            }
+        }
+
+        function toggleGrayscale() {
+            document.body.classList.toggle('accessibility-grayscale');
+            document.getElementById('btnGrayscale').classList.toggle('active');
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle('accessibility-high-contrast');
+            document.getElementById('btnContrast').classList.toggle('active');
+        }
+
+        function toggleUnderline() {
+            document.body.classList.toggle('accessibility-underlined');
+            document.getElementById('btnUnderline').classList.toggle('active');
+        }
+
+        function toggleBigCursor() {
+            document.body.classList.toggle('accessibility-big-cursor');
+            document.getElementById('btnCursor').classList.toggle('active');
+        }
+
+        function toggleReadMode() {
+            const btn = document.getElementById('btnReadText');
+            if (!isReadMode) {
+                isReadMode = true;
+                btn.classList.add('active');
+                btn.querySelector('span').innerText = 'Berhenti Membaca';
+                startReading();
+            } else {
+                stopReading();
+            }
+        }
+
+        function startReading() {
+            if ('speechSynthesis' in window) {
+                // Ambil semua teks kecuali yang di dalam modal
+                const elements = document.querySelectorAll('body > *:not(.modal)');
+                let textToRead = "";
+                elements.forEach(el => {
+                    if (el.innerText) textToRead += el.innerText + " ";
+                });
+
+                speechUtterance = new SpeechSynthesisUtterance(textToRead);
+                speechUtterance.lang = 'id-ID';
+                speechUtterance.onend = stopReading;
+                window.speechSynthesis.speak(speechUtterance);
+            } else {
+                alert('Maaf, peramban Anda tidak mendukung fitur Baca Teks.');
+                stopReading();
+            }
+        }
+
+        function stopReading() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            isReadMode = false;
+            const btn = document.getElementById('btnReadText');
+            if (btn) {
+                btn.classList.remove('active');
+                btn.querySelector('span').innerText = 'Baca Teks';
+            }
+        }
+
+        function resetAccessibility() {
+            currentFontSize = 100;
+            updateFontSize();
+            document.body.classList.remove('accessibility-grayscale', 'accessibility-high-contrast', 'accessibility-underlined', 'accessibility-big-cursor');
+            stopReading();
+
+            // Reset active states on buttons
+            document.querySelectorAll('.accessibility-btn').forEach(btn => btn.classList.remove('active'));
         }
 
         const formCekGizi = document.getElementById('formCekGizi');
