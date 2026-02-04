@@ -3374,7 +3374,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#beranda" data-section="beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#sasaran" data-section="sasaran">Sasaran</a></li>
-                    <li class="nav-item"><a class="nav-link" href="program-mbg" data-section="program-mbg">Tentang</a>
+                    <li class="nav-item"><a class="nav-link" href="#data" data-section="data">Data</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#statistik" data-section="statistik">Statistik</a>
                     </li>
@@ -3482,7 +3482,7 @@
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src="siswa.png" alt="Siswa Sekolah" loading="lazy">
+                                    <img src="siswa.jpg" alt="Siswa Sekolah" loading="lazy">
                                     <span class="flip-card-label">Anak Sekolah</span>
                                 </div>
                                 <div class="flip-card-back">
@@ -3651,17 +3651,18 @@
     </section>
 
     <!-- Statistics Section -->
+     <section id="data">
        <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Data Penyaluran Program MBG di Kabupaten Bogor</h2>
+                <h2 class="section-title">Data Penyaluran Program MBG di Kota Bogor</h2>
                 <p class="section-subtitle">Cakupan penerima manfaat per kategori</p>
             </div>
-    <div style="
+<div class="data" style="
     width:100%;
     padding:32px 0;
-    box-sizing:border-box;
     position:relative;
-    background-color: #ffffff;
+    background:#ffffff;
 ">
+
         <!-- BUTTON LEFT -->
         <button onclick="slide(-1)" style="
     position:absolute;
@@ -3695,6 +3696,31 @@
     cursor:pointer;
     box-shadow:0 4px 10px rgba(0,0,0,0.15);
 "> <i class="bi bi-chevron-right"></i></button>
+
+<script>
+let currentIndex = 0;
+
+function slide(direction) {
+    const slider = document.getElementById("slider");
+    const cards = slider.children;
+    const cardWidth = cards[0].offsetWidth + 20; // 20 = gap
+
+    currentIndex += direction;
+
+    // Batas kiri
+    if (currentIndex < 0) currentIndex = 0;
+
+    // Batas kanan
+    const maxIndex = cards.length - 2;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+    slider.scrollTo({
+        left: currentIndex * cardWidth,
+        behavior: "smooth"
+    });
+}
+</script>
+
 
         <!-- WRAPPER -->
         <div style="
@@ -3960,6 +3986,7 @@
             </div>
         </div>
     </div>
+    </section>
 
     <!-- Cek Gizi Section (Hidden, moved to FAB) -->
     <section id="cek-gizi" class="cek-gizi-section" style="display: none;">
