@@ -1043,7 +1043,8 @@
         /* Section Header */
         .section-header {
             text-align: center;
-            margin-bottom: 35px;
+            
+            background-color: #ffffff;
         }
 
         .section-title {
@@ -3132,111 +3133,111 @@
             cursor: default;
         }
 
-/* =========================
+        /* =========================
    LOGO BAR - ULTRA SLIM
    ========================= */
 
-.logo-bar {
-    position: relative;
-    background: #071e49;
-    padding: 16px 40px 18px;
-    overflow: hidden;
-}
+        .logo-bar {
+            position: relative;
+            background: #071e49;
+            padding: 16px 40px 18px;
+            overflow: hidden;
+        }
 
-/* Judul */
-.logo-title {
-    text-align: center;
-    color: #D1B06C;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    letter-spacing: 0.4px;
-    position: relative;
-    z-index: 2;
-    font-weight: bold;
-}
+        /* Judul */
+        .logo-title {
+            text-align: center;
+            color: #D1B06C;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.4px;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+        }
 
-/* Batik ornament */
-.batik-img {
-    position: absolute;
-    top: 50%;
-    width: 140px;
-    opacity: 0.25;
-    transform: translateY(-50%);
-    z-index: 1;
-    pointer-events: none;
-}
+        /* Batik ornament */
+        .batik-img {
+            position: absolute;
+            top: 50%;
+            width: 140px;
+            opacity: 0.25;
+            transform: translateY(-50%);
+            z-index: 1;
+            pointer-events: none;
+        }
 
-.batik-left {
-    left: 10px;
-    transform: translateY(-50%) scaleX(-1);
-}
+        .batik-left {
+            left: 10px;
+            transform: translateY(-50%) scaleX(-1);
+        }
 
-.batik-right {
-    right: 10px;
-}
+        .batik-right {
+            right: 10px;
+        }
 
-/* Container logo */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
-}
+        /* Container logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
 
-/* Card logo */
-.logo-item {
-    width: 52px;
-    height: 52px;
-    background: #cfd6e3;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px;
-}
+        /* Card logo */
+        .logo-item {
+            width: 52px;
+            height: 52px;
+            background: #cfd6e3;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+        }
 
-/* Gambar logo */
-.logo-item img {
-    max-width: 100%;
-    max-height: 32px;
-    object-fit: contain;
-}
+        /* Gambar logo */
+        .logo-item img {
+            max-width: 100%;
+            max-height: 32px;
+            object-fit: contain;
+        }
 
-/* =========================
+        /* =========================
    RESPONSIVE
    ========================= */
-@media (max-width: 768px) {
-    .logo-bar {
-        padding: 14px 20px 16px;
-    }
+        @media (max-width: 768px) {
+            .logo-bar {
+                padding: 14px 20px 16px;
+            }
 
-    .logo-title {
-        font-size: 12px;
-        margin-bottom: 8px;
-    }
+            .logo-title {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
 
-    .logo-container {
-        gap: 10px;
-    }
+            .logo-container {
+                gap: 10px;
+            }
 
-    .logo-item {
-        width: 46px;
-        height: 46px;
-        border-radius: 10px;
-    }
+            .logo-item {
+                width: 46px;
+                height: 46px;
+                border-radius: 10px;
+            }
 
-    .logo-item img {
-        max-height: 28px;
-    }
+            .logo-item img {
+                max-height: 28px;
+            }
 
-    .batik-img {
-        width: 110px;
-        opacity: 0.2;
-    }
-}
+            .batik-img {
+                width: 110px;
+                opacity: 0.2;
+            }
+        }
 
         /* Accessibility Features */
         .accessibility-grayscale {
@@ -3431,7 +3432,6 @@
 
                         <div class="hero-buttons">
                             <a href="#" class="btn-hero-primary" id="newsLink">
-                                <i class="bi bi-book-half"></i>
                                 Baca Selengkapnya
                             </a>
                         </div>
@@ -3651,82 +3651,315 @@
     </section>
 
     <!-- Statistics Section -->
-    <section id="statistik" class="stats-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
+       <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Data Penyaluran Program MBG di Kabupaten Bogor</h2>
                 <p class="section-subtitle">Cakupan penerima manfaat per kategori</p>
             </div>
-            <div class="stats-slider-wrapper" data-aos="fade-up">
-                <button class="slider-nav prev" onclick="slideStats(-1)">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
+    <div style="
+    width:100%;
+    padding:32px 0;
+    box-sizing:border-box;
+    position:relative;
+    background-color: #ffffff;
+">
+        <!-- BUTTON LEFT -->
+        <button onclick="slide(-1)" style="
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-580px, -50%);
+    z-index:10;
+    width:50px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    background:#ffffff;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+"> <i class="bi bi-chevron-left"></i></button>
 
-                <div class="stats-slider-container" id="statsSlider">
-                    <div class="stats-slider-item">
-                        <div class="stat-card-modern">
-                            <div class="stat-icon-modern gradient-1">
-                                <i class="bi bi-person-heart"></i>
-                            </div>
-                            <div class="stat-number-modern">2.5M+</div>
-                            <div class="stat-label">Penerima Manfaat</div>
-                        </div>
+        <!-- BUTTON RIGHT -->
+        <button onclick="slide(1)" style="
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(540px, -50%);
+    z-index:10;
+    width:50px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    background:#ffffff;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+"> <i class="bi bi-chevron-right"></i></button>
+
+        <!-- WRAPPER -->
+        <div style="
+        width:1100px;              /* 2 card + gap */
+    margin:0 auto;         /* 🔥 POTONG CARD LEWAT */
+    position:relative;
+    ">
+
+            <!-- SLIDER -->
+            <div id="slider" style="
+            display:flex;
+            gap:20px;
+            scroll-behavior:smooth;
+
+            /* 🔥 INI KUNCI TENGAH BENERAN */
+            padding-left:calc((10vw - 360px) / 2);
+            padding-right:calc((43vw - 360px) / 2);
+            box-sizing:border-box;
+            overflow-x:auto;
+             scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* Edge lama */
+
+.slider-tengah::-webkit-scrollbar 
+    display: none;  
+            
+        ">
+
+                <!-- penerima manfaat -->
+                <div style="
+                min-width:360px;
+                height:160px;
+                background:#F3E5AB;
+                border-radius:18px;
+                padding:14px;
+                box-sizing:border-box;
+                display:flex;
+                gap:14px;
+                align-items:flex-start;
+            ">
+                    <div style="
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:6px;
+                ">
+                        <h3 style="margin:0;font-size:19px;font-weight:600;font-weight: bold; color:#071E49;">
+                            Penerima Manfaat
+                        </h3>
+                        <p style="
+                        margin:0;
+                        font-size:13px;
+                        color:#071E49;
+                        line-height:1.4;
+                    ">
+                            Mendukung pemenuhan gizi bagi penerima manfaat guna menunjang kesehatan, pertumbuhan
+                            optimal, serta pencegahan stunting di Kota Bogor.
+                        </p>
                     </div>
 
-                    <div class="stats-slider-item">
-                        <div class="stat-card-modern">
-                            <div class="stat-icon-modern gradient-2">
-                                <i class="bi bi-map-fill"></i>
-                            </div>
-                            <div class="stat-number-modern">34</div>
-                            <div class="stat-label">Provinsi Terjangkau</div>
-                        </div>
-                    </div>
-
-                    <div class="stats-slider-item">
-                        <div class="stat-card-modern">
-                            <div class="stat-icon-modern gradient-3">
-                                <i class="bi bi-mortarboard-fill"></i>
-                            </div>
-                            <div class="stat-number-modern">150K+</div>
-                            <div class="stat-label">Sekolah & Fasilitas</div>
-                        </div>
-                    </div>
-
-                    <div class="stats-slider-item">
-                        <div class="stat-card-modern">
-                            <div class="stat-icon-modern gradient-1">
-                                <i class="bi bi-heart-pulse-fill"></i>
-                            </div>
-                            <div class="stat-number-modern">100%</div>
-                            <div class="stat-label">Komitmen Kesehatan</div>
-                        </div>
-                    </div>
-
-                    <div class="stats-slider-item">
-                        <div class="stat-card-modern">
-                            <div class="stat-icon-modern gradient-2">
-                                <i class="fa-solid fa-kitchen-set"></i>
-                            </div>
-                            <div class="stat-number-modern">500+</div>
-                            <div class="stat-label">SPPG</div>
-                        </div>
+                    <div style="
+                    width:96px;
+                    height:96px;
+                    border-radius:14px;
+                    overflow:hidden;
+                    flex-shrink:0;
+                ">
+                        <img src="penerimamanfaat.jpg" style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                    ">
                     </div>
                 </div>
 
-                <button class="slider-nav next" onclick="slideStats(1)">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
-            </div>
-            <div class="row mt-4" data-aos="fade-up">
-                <div class="col-lg-12 text-center">
-                    <button class="btn-read-regulasi" id="btnLihatDetail">
-                        <i class="bi bi-graph-up"></i> Lihat Detail
-                    </button>
+                <!-- Wilayah Terjangkau -->
+                <div style="
+                min-width:360px;
+                height:160px;
+                background:#071E49;
+                border-radius:18px;
+                padding:14px;
+                box-sizing:border-box;
+                display:flex;
+                gap:14px;
+                align-items:flex-start;
+            ">
+                    <div style="
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:6px;
+                ">
+                        <h3 style="margin:0;font-size:19px;font-weight:600;color:#ffffff;">
+                            Wilayah Terjangkau
+                        </h3>
+                        <p style="
+                        margin:0;
+                        font-size:13px;
+                        color: #ffffff;
+                        line-height:1.4;
+                    ">
+                            Program Makan Bergizi Gratis menjangkau berbagai area di Kota Bogor sebagai upaya pemerataan akses gizi bagi masyarakat.
+                        </p>
+                    </div>
+
+                    <div style="
+                    width:96px;
+                    height:96px;
+                    border-radius:14px;
+                    overflow:hidden;
+                    flex-shrink:0;
+                ">
+                        <img src="bogorkota.jpg" style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                    ">
+                    </div>
                 </div>
+
+                <!-- sekolah & fasilitas -->
+                <div style="
+                min-width:360px;
+                height:160px;
+                background:#F3E5AB;
+                border-radius:18px;
+                padding:14px;
+                box-sizing:border-box;
+                display:flex;
+                gap:14px;
+                align-items:flex-start;
+            ">
+                    <div style="
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:6px;
+                ">
+                        <h3 style="margin:0;font-size:19px;font-weight:600; color:#071E49;">
+                            Sekolah & Fasilitas
+                        </h3>
+                        <p style="
+                        margin:0;
+                        font-size:13px;
+                         color:#071E49;
+                        line-height:1.4;
+                    ">
+                            Program ini menjangkau berbagai provinsi guna memastikan akses gizi yang merata bagi
+                            penerima manfaat di berbagai wilayah.
+                        </p>
+                    </div>
+
+                    <div style="
+                    width:96px;
+                    height:96px;
+                    border-radius:14px;
+                    overflow:hidden;
+                    flex-shrink:0;
+                ">
+                        <img src="fasilitas.jpg" style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                    ">
+                    </div>
+                </div>
+
+                <!-- Komite kesehatan  -->
+                <div style="
+                min-width:360px;
+                height:160px;
+                background:#071E49;
+                border-radius:18px;
+                padding:14px;
+                box-sizing:border-box;
+                display:flex;
+                gap:14px;
+                align-items:flex-start;
+            ">
+                    <div style="
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:6px;
+                ">
+                        <h3 style="margin:0;font-size:19px;font-weight:600;color: #ffffff;">
+                            Komite Kesehatan
+                        </h3>
+                        <p style="
+                        margin:0;
+                        font-size:13px;
+                        color: #ffffff;
+                        line-height:1.4;
+                    ">
+                            Bekerja sama dengan komite kesehatan untuk memastikan standar gizi, keamanan pangan, dan
+                            pemantauan kesehatan penerima manfaat berjalan secara berkelanjutan.
+                        </p>
+                    </div>
+
+                    <div style="
+                    width:96px;
+                    height:96px;
+                    border-radius:14px;
+                    overflow:hidden;
+                    flex-shrink:0;
+                ">
+                        <img src="kesehatan.jpg" style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                    ">
+                    </div>
+                </div>
+
+                <!-- SPPG  -->
+                <div style="
+                min-width:360px;
+                height:160px;
+                background:#F3E5AB;
+                border-radius:18px;
+                padding:14px;
+                box-sizing:border-box;
+                display:flex;
+                gap:14px;
+                align-items:flex-start;
+            ">
+                    <div style="
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:6px;
+                ">
+                        <h3 style="margin:0;font-size:19px;font-weight:600; color:#071E49;">
+                            SPPG
+                        </h3>
+                        <p style="
+                        margin:0;
+                        font-size:13px;
+                        color:#ffffff;
+                        line-height:1.4;
+                         color:#071E49;
+                    ">
+                            Dilaksanakan melalui SPPG sebagai pusat pengelolaan dan distribusi makanan bergizi yang
+                            terstandar dan tepat sasaran bagi penerima manfaat.
+                        </p>
+                    </div>
+
+                    <div style="
+                    width:96px;
+                    height:96px;
+                    border-radius:14px;
+                    overflow:hidden;
+                    flex-shrink:0;
+                ">
+                        <img src="sppg.jpg" style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                    ">
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Cek Gizi Section (Hidden, moved to FAB) -->
     <section id="cek-gizi" class="cek-gizi-section" style="display: none;">
@@ -3847,38 +4080,38 @@
                                 <div class="info-value" id="kategoriIMT">Ideal</div>
                             </div>
                         </div>
-                        </div>
+                    </div>
 
-                        <!-- Expert Quote Section -->
-                        <div class="expert-quote-box mb-3">
-                            <div class="d-flex">
-                                <div class="quote-icon me-3">
-                                    <i class="bi bi-chat-quote-fill text-primary fs-3"></i>
-                                </div>
-                                <div>
-                                    <p class="expert-text mb-1" id="deskripsiGizi">Deskripsi...</p>
-                                    <div class="expert-source text-muted fst-italic small" id="expertSource">-
-                                        Menurut Penjelasan Medis</div>
-                                </div>
+                    <!-- Expert Quote Section -->
+                    <div class="expert-quote-box mb-3">
+                        <div class="d-flex">
+                            <div class="quote-icon me-3">
+                                <i class="bi bi-chat-quote-fill text-primary fs-3"></i>
+                            </div>
+                            <div>
+                                <p class="expert-text mb-1" id="deskripsiGizi">Deskripsi...</p>
+                                <div class="expert-source text-muted fst-italic small" id="expertSource">-
+                                    Menurut Penjelasan Medis</div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="hasil-gizi-rekomendasi">
-                            <h4><i class="bi bi-lightbulb me-2 text-warning"></i>Rekomendasi Ahli:</h4>
-                            <ul id="listaRekomendasi">
-                                <!-- JS will populate this -->
-                            </ul>
-                        </div>
+                    <div class="hasil-gizi-rekomendasi">
+                        <h4><i class="bi bi-lightbulb me-2 text-warning"></i>Rekomendasi Ahli:</h4>
+                        <ul id="listaRekomendasi">
+                            <!-- JS will populate this -->
+                        </ul>
+                    </div>
 
-                        <div class="text-center mt-4 pt-3 border-top">
-                            <button class="btn btn-outline-primary rounded-pill px-4" onclick="resetGiziForm()">
-                                <i class="bi bi-arrow-counterclockwise me-2"></i>Cek Ulang
-                            </button>
-                        </div>
+                    <div class="text-center mt-4 pt-3 border-top">
+                        <button class="btn btn-outline-primary rounded-pill px-4" onclick="resetGiziForm()">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>Cek Ulang
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Modal Layanan Disabilitas -->
@@ -4352,98 +4585,90 @@
             <div class="logo-item"><img src="logo2.png"></div>
             <div class="logo-item"><img src="logo3.png"></div>
             <div class="logo-item"><img src="logo4.png"></div>
-            <div class="logo-item"><img src="logo4.png"></div>
-            <div class="logo-item"><img src="logo4.png"></div>
-            <div class="logo-item"><img src="logo4.png"></div>
-            <div class="logo-item"><img src="logo4.png"></div>
-            <div class="logo-item"><img src="logo4.png"></div>
-            <div class="logo-item"><img src="logo4.png"></div>
 
         </div>
     </section>
 
     <!-- Footer -->
-<footer class="footer-modern">
-    <div class="container footer-content">
-        <div class="row">
+    <footer class="footer-modern">
+        <div class="container footer-content">
+            <div class="row">
 
-            <!-- KIRI : BRAND + ALAMAT -->
-            <div class="col-lg-4 mb-4">
-                <h3 class="footer-brand">Makan Bergizi Gratis</h3>
-                <p class="footer-description">
-                    Program nasional untuk Indonesia sehat dan bebas stunting.
-                    Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.
-                </p>
+                <!-- KIRI : BRAND + ALAMAT -->
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-brand">Makan Bergizi Gratis</h3>
+                    <p class="footer-description">
+                        Program nasional untuk Indonesia sehat dan bebas stunting.
+                        Mewujudkan generasi emas yang cerdas dan produktif melalui nutrisi terbaik.
+                    </p>
 
-                <p class="footer-description">
-                     <h3 class="footer-brand">Alamat</h3>
+                    <p class="footer-description">
+                    <h3 class="footer-brand">Alamat</h3>
                     <i class="bi bi-geo-alt"></i>
                     Jl. Ir. H. Juanda No.10
                     Kecamatan Bogor Tengah
                     Kota Bogor, Jawa Barat 16121
                     Indonesia
-                </p>
+                    </p>
 
-                <div class="social-icons-modern">
-                    <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
-                </div>
-            </div>
-
-            <!-- TENGAH : VISITOR -->
-            <div class="col-lg-4 mb-4 "style="margin-top:-25px">
-
-                <div class="footer-stats-widget">
-                    <div class="stat-item-w">
-                        <div><i class="bi bi-calendar2-check-fill"></i> Hari Ini</div>
-                        <span class="stat-value-w" id="stat-today">1,245</span>
-                    </div>
-
-                    <div class="stat-item-w">
-                        <div><i class="bi bi-people-fill"></i> Total</div>
-                        <span class="stat-value-w" id="stat-total">856,432</span>
-                    </div>
-
-                    <div class="stat-item-w">
-                        <div><i class="bi bi-broadcast text-success"></i> Online</div>
-                        <span class="stat-value-w" id="stat-online">243</span>
+                    <div class="social-icons-modern">
+                        <a href="#" class="social-icon-modern"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-icon-modern"><i class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
+
+                <!-- TENGAH : VISITOR -->
+                <div class="col-lg-4 mb-4 " style="margin-top:-25px">
+
+                    <div class="footer-stats-widget">
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-calendar2-check-fill"></i> Hari Ini</div>
+                            <span class="stat-value-w" id="stat-today">1,245</span>
+                        </div>
+
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-people-fill"></i> Total</div>
+                            <span class="stat-value-w" id="stat-total">856,432</span>
+                        </div>
+
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-broadcast text-success"></i> Online</div>
+                            <span class="stat-value-w" id="stat-online">243</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KANAN : NEWSLETTER -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="footer-description">
+                        Dapatkan informasi terbaru tentang program dan tips gizi seimbang
+                        langsung di email Anda.
+                    </p>
+
+                    <form class="newsletter-form mb-3">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda">
+                        <button type="submit" class="newsletter-button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+
+                    <small>
+                        Hotline: 1500-234<br>
+                        Email: info@makanbergizigratis.go.id
+                    </small>
+                </div>
+
             </div>
 
-            <!-- KANAN : NEWSLETTER -->
-            <div class="col-lg-4 mb-4">
-                <h5 class="footer-title">Newsletter</h5>
-                <p class="footer-description">
-                    Dapatkan informasi terbaru tentang program dan tips gizi seimbang
-                    langsung di email Anda.
-                </p>
-
-                <form class="newsletter-form mb-3">
-                    <input type="email" class="newsletter-input" placeholder="Email Anda">
-                    <button type="submit" class="newsletter-button">
-                        <i class="bi bi-send"></i>
-                    </button>
-                </form>
-
-                <small>
-                    Hotline: 1500-234<br>
-                    Email: info@makanbergizigratis.go.id
-                </small>
+            <div class="footer-bottom">
+                <p class="mb-0 mt-3">&copy; Pemerintah Kota Bogor. Hak Cipta Dilindungi.</p>
             </div>
-
         </div>
-
-        <div class="footer-bottom">
-            <p class="mb-0 mt-3">&copy; Pemerintah Kota Bogor. Hak Cipta Dilindungi.</p>
-        </div>
-    </div>
-</footer>
-
-
+    </footer>
 
     <!-- Floating Action Buttons - Radial Menu -->
     <div class="fab-container" id="radialFab">
@@ -4568,17 +4793,17 @@
             {
                 title: "MBG Kota Bogor",
                 desc: "Program Makan Bergizi Gratis (MBG) di Kota Bogor mulai dilaksanakan pada 6 Januari 2025. Pada tahap awal, program ini menjangkau 25 sekolah dengan sekitar 6.000 siswa sebagai penerima manfaat.",
-                link: "#news-bogor"
+                link: "https://www.idntimes.com/news/indonesia/dari-90-dapur-mbg-siap-di-bogor-baru-31-punya-slhs-ini-kata-jenal-00-sk545-7y42x7"
             },
             {
                 title: "Standar Gizi Nasional",
                 desc: "Berdasarkan standar terbaru, setiap paket makanan MBG harus mengandung protein, serat, dan mikronutrisi yang seimbang. Program ini diawasi ketat oleh ahli gizi untuk memastikan kualitas terbaik.",
-                link: "#news-gizi"
+                link: "https://news.ralali.com/standarisasi-dan-kelengkapan-dapur-bgn-mewujudkan-program-makan-bergizi-gratis-yang-aman-dan-berkualitas/"
             },
             {
                 title: "Implementasi Sekolah",
                 desc: "Setiap sekolah atau titik distribusi kini dilengkapi dengan standar dapur higienis yang modern. Proses pengolahan hingga distribusi dilakukan dengan protokol keamanan pangan yang ketat.",
-                link: "#news-sekolah"
+                link: "https://djpb.kemenkeu.go.id/kppn/manna/id/data-publikasi/artikel/3240-implementasi-program-makan-bergizi-gratis-pada-wilayah-semaku.html"
             }
         ];
 
