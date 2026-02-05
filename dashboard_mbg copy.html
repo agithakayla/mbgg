@@ -1040,10 +1040,11 @@
             font-weight: 600;
         }
 
+
         /* Section Header */
         .section-header {
             text-align: center;
-            
+
             background-color: #ffffff;
         }
 
@@ -1939,30 +1940,47 @@
         }
 
         /* Visitor Stats Widget */
+        /* Visitor Stats Widget */
         .footer-stats-widget {
             margin-top: 8px;
             display: flex;
+            /* ganti dari inline-flex */
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
             font-size: 0.8rem;
+
+            width: 100%;
+            /* KUNCI: kotak full */
+            padding: 12px 16px;
+            /* bikin kotak lega */
         }
 
+        /* Satu baris */
         .stat-item-w {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            width: 100%;
+            /* baris ngikut kotak */
+        }
+
+        /* Label */
+        .stat-item-w>div:first-child {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             color: #4a5568;
         }
 
-        .stat-item-w i {
-            margin-right: 4px;
-            color: #0b255a;
-        }
-
+        /* Angka */
         .stat-value-w {
+            margin-left: auto;
+            /* dorong ke kanan kotak */
             font-weight: 600;
             color: #0b255a;
+            text-align: right;
         }
+
+
 
         /* Newsletter */
         .newsletter-form {
@@ -3348,6 +3366,81 @@
             color: #CDAA66;
             font-weight: 700;
         }
+
+        .map-control-group {
+            width: 100%;
+            position: relative;
+            /* WAJIB */
+            margin-bottom: 0;
+            transition: margin-bottom 0.2s ease;
+        }
+
+        .map-control-group:focus-within {
+            margin-bottom: 220px;
+            /* kasih ruang dropdown */
+        }
+
+        .map-label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+            color: #111827;
+        }
+
+        .map-combobox {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            outline: none;
+            background: #ffffff;
+            color: #111827;
+            /* 🔥 TEKS BALIK */
+        }
+
+        .map-combobox::placeholder {
+            color: #9ca3af;
+        }
+
+        .map-combobox:focus {
+            border-color: #0b255a;
+        }
+
+        /* DROPDOWN */
+        .combo-dropdown {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            max-height: 220px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1060;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .combo-dropdown.show {
+            display: block;
+        }
+
+        .combo-option {
+            padding: 10px 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #1f2937;
+        }
+
+        .combo-option:not(:last-child) {
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .combo-option:hover {
+            background: #f8fafc;
+        }
     </style>
 </head>
 
@@ -3386,7 +3479,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Beranda -->
     <section id="beranda" class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -3556,7 +3649,7 @@
 
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="program-mbg" class="about-section">
         <div class="container">
 
@@ -3650,21 +3743,21 @@
         </div>
     </section>
 
-    <!-- Statistics Section -->
-     <section id="data">
-       <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Data Penyaluran Program MBG di Kota Bogor</h2>
-                <p class="section-subtitle">Cakupan penerima manfaat per kategori</p>
-            </div>
-<div class="data" style="
+    <!-- Data -->
+    <section id="data">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Data Penyaluran Program MBG di Kota Bogor</h2>
+            <p class="section-subtitle">Cakupan penerima manfaat per kategori</p>
+        </div>
+        <div class="data" style="
     width:100%;
     padding:32px 0;
     position:relative;
     background:#ffffff;
 ">
 
-        <!-- BUTTON LEFT -->
-        <button onclick="slide(-1)" style="
+            <!-- BUTTON LEFT -->
+            <button onclick="slide(-1)" style="
     position:absolute;
     left:50%;
     top:50%;
@@ -3680,8 +3773,8 @@
     box-shadow:0 4px 10px rgba(0,0,0,0.15);
 "> <i class="bi bi-chevron-left"></i></button>
 
-        <!-- BUTTON RIGHT -->
-        <button onclick="slide(1)" style="
+            <!-- BUTTON RIGHT -->
+            <button onclick="slide(1)" style="
     position:absolute;
     left:50%;
     top:50%;
@@ -3697,40 +3790,40 @@
     box-shadow:0 4px 10px rgba(0,0,0,0.15);
 "> <i class="bi bi-chevron-right"></i></button>
 
-<script>
-let currentIndex = 0;
+            <script>
+                let currentIndex = 0;
 
-function slide(direction) {
-    const slider = document.getElementById("slider");
-    const cards = slider.children;
-    const cardWidth = cards[0].offsetWidth + 20; // 20 = gap
+                function slide(direction) {
+                    const slider = document.getElementById("slider");
+                    const cards = slider.children;
+                    const cardWidth = cards[0].offsetWidth + 20; // 20 = gap
 
-    currentIndex += direction;
+                    currentIndex += direction;
 
-    // Batas kiri
-    if (currentIndex < 0) currentIndex = 0;
+                    // Batas kiri
+                    if (currentIndex < 0) currentIndex = 0;
 
-    // Batas kanan
-    const maxIndex = cards.length - 2;
-    if (currentIndex > maxIndex) currentIndex = maxIndex;
+                    // Batas kanan
+                    const maxIndex = cards.length - 2;
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-    slider.scrollTo({
-        left: currentIndex * cardWidth,
-        behavior: "smooth"
-    });
-}
-</script>
+                    slider.scrollTo({
+                        left: currentIndex * cardWidth,
+                        behavior: "smooth"
+                    });
+                }
+            </script>
 
 
-        <!-- WRAPPER -->
-        <div style="
+            <!-- WRAPPER -->
+            <div style="
         width:1100px;              /* 2 card + gap */
     margin:0 auto;         /* 🔥 POTONG CARD LEWAT */
     position:relative;
     ">
 
-            <!-- SLIDER -->
-            <div id="slider" style="
+                <!-- SLIDER -->
+                <div id="slider" style="
             display:flex;
             gap:20px;
             scroll-behavior:smooth;
@@ -3748,8 +3841,8 @@ function slide(direction) {
             
         ">
 
-                <!-- penerima manfaat -->
-                <div style="
+                    <!-- penerima manfaat -->
+                    <div style="
                 min-width:360px;
                 height:160px;
                 background:#F3E5AB;
@@ -3760,43 +3853,43 @@ function slide(direction) {
                 gap:14px;
                 align-items:flex-start;
             ">
-                    <div style="
+                        <div style="
                     flex:1;
                     display:flex;
                     flex-direction:column;
                     gap:6px;
                 ">
-                        <h3 style="margin:0;font-size:19px;font-weight:600;font-weight: bold; color:#071E49;">
-                            Penerima Manfaat
-                        </h3>
-                        <p style="
+                            <h3 style="margin:0;font-size:19px;font-weight:600;font-weight: bold; color:#071E49;">
+                                Penerima Manfaat
+                            </h3>
+                            <p style="
                         margin:0;
                         font-size:13px;
                         color:#071E49;
                         line-height:1.4;
                     ">
-                            Mendukung pemenuhan gizi bagi penerima manfaat guna menunjang kesehatan, pertumbuhan
-                            optimal, serta pencegahan stunting di Kota Bogor.
-                        </p>
-                    </div>
+                                Mendukung pemenuhan gizi bagi penerima manfaat guna menunjang kesehatan, pertumbuhan
+                                optimal, serta pencegahan stunting di Kota Bogor.
+                            </p>
+                        </div>
 
-                    <div style="
+                        <div style="
                     width:96px;
                     height:96px;
                     border-radius:14px;
                     overflow:hidden;
                     flex-shrink:0;
                 ">
-                        <img src="penerimamanfaat.jpg" style="
+                            <img src="penerimamanfaat.jpg" style="
                         width:100%;
                         height:100%;
                         object-fit:cover;
                     ">
+                        </div>
                     </div>
-                </div>
 
-                <!-- Wilayah Terjangkau -->
-                <div style="
+                    <!-- Wilayah Terjangkau -->
+                    <div style="
                 min-width:360px;
                 height:160px;
                 background:#071E49;
@@ -3807,42 +3900,43 @@ function slide(direction) {
                 gap:14px;
                 align-items:flex-start;
             ">
-                    <div style="
+                        <div style="
                     flex:1;
                     display:flex;
                     flex-direction:column;
                     gap:6px;
                 ">
-                        <h3 style="margin:0;font-size:19px;font-weight:600;color:#ffffff;">
-                            Wilayah Terjangkau
-                        </h3>
-                        <p style="
+                            <h3 style="margin:0;font-size:19px;font-weight:600;color:#ffffff;">
+                                Wilayah Terjangkau
+                            </h3>
+                            <p style="
                         margin:0;
                         font-size:13px;
                         color: #ffffff;
                         line-height:1.4;
                     ">
-                            Program Makan Bergizi Gratis menjangkau berbagai area di Kota Bogor sebagai upaya pemerataan akses gizi bagi masyarakat.
-                        </p>
-                    </div>
+                                Program Makan Bergizi Gratis menjangkau berbagai area di Kota Bogor sebagai upaya
+                                pemerataan akses gizi bagi masyarakat.
+                            </p>
+                        </div>
 
-                    <div style="
+                        <div style="
                     width:96px;
                     height:96px;
                     border-radius:14px;
                     overflow:hidden;
                     flex-shrink:0;
                 ">
-                        <img src="bogorkota.jpg" style="
+                            <img src="bogorkota.jpg" style="
                         width:100%;
                         height:100%;
                         object-fit:cover;
                     ">
+                        </div>
                     </div>
-                </div>
 
-                <!-- sekolah & fasilitas -->
-                <div style="
+                    <!-- sekolah & fasilitas -->
+                    <div style="
                 min-width:360px;
                 height:160px;
                 background:#F3E5AB;
@@ -3853,43 +3947,43 @@ function slide(direction) {
                 gap:14px;
                 align-items:flex-start;
             ">
-                    <div style="
+                        <div style="
                     flex:1;
                     display:flex;
                     flex-direction:column;
                     gap:6px;
                 ">
-                        <h3 style="margin:0;font-size:19px;font-weight:600; color:#071E49;">
-                            Sekolah & Fasilitas
-                        </h3>
-                        <p style="
+                            <h3 style="margin:0;font-size:19px;font-weight:600; color:#071E49;">
+                                Sekolah & Fasilitas
+                            </h3>
+                            <p style="
                         margin:0;
                         font-size:13px;
                          color:#071E49;
                         line-height:1.4;
                     ">
-                            Program ini menjangkau berbagai provinsi guna memastikan akses gizi yang merata bagi
-                            penerima manfaat di berbagai wilayah.
-                        </p>
-                    </div>
+                                Program ini menjangkau berbagai provinsi guna memastikan akses gizi yang merata bagi
+                                penerima manfaat di berbagai wilayah.
+                            </p>
+                        </div>
 
-                    <div style="
+                        <div style="
                     width:96px;
                     height:96px;
                     border-radius:14px;
                     overflow:hidden;
                     flex-shrink:0;
                 ">
-                        <img src="fasilitas.jpg" style="
+                            <img src="fasilitas.jpg" style="
                         width:100%;
                         height:100%;
                         object-fit:cover;
                     ">
+                        </div>
                     </div>
-                </div>
 
-                <!-- Komite kesehatan  -->
-                <div style="
+                    <!-- Komite kesehatan  -->
+                    <div style="
                 min-width:360px;
                 height:160px;
                 background:#071E49;
@@ -3900,43 +3994,43 @@ function slide(direction) {
                 gap:14px;
                 align-items:flex-start;
             ">
-                    <div style="
+                        <div style="
                     flex:1;
                     display:flex;
                     flex-direction:column;
                     gap:6px;
                 ">
-                        <h3 style="margin:0;font-size:19px;font-weight:600;color: #ffffff;">
-                            Komite Kesehatan
-                        </h3>
-                        <p style="
+                            <h3 style="margin:0;font-size:19px;font-weight:600;color: #ffffff;">
+                                Komite Kesehatan
+                            </h3>
+                            <p style="
                         margin:0;
                         font-size:13px;
                         color: #ffffff;
                         line-height:1.4;
                     ">
-                            Bekerja sama dengan komite kesehatan untuk memastikan standar gizi, keamanan pangan, dan
-                            pemantauan kesehatan penerima manfaat berjalan secara berkelanjutan.
-                        </p>
-                    </div>
+                                Bekerja sama dengan komite kesehatan untuk memastikan standar gizi, keamanan pangan, dan
+                                pemantauan kesehatan penerima manfaat berjalan secara berkelanjutan.
+                            </p>
+                        </div>
 
-                    <div style="
+                        <div style="
                     width:96px;
                     height:96px;
                     border-radius:14px;
                     overflow:hidden;
                     flex-shrink:0;
                 ">
-                        <img src="kesehatan.jpg" style="
+                            <img src="kesehatan.jpg" style="
                         width:100%;
                         height:100%;
                         object-fit:cover;
                     ">
+                        </div>
                     </div>
-                </div>
 
-                <!-- SPPG  -->
-                <div style="
+                    <!-- SPPG  -->
+                    <div style="
                 min-width:360px;
                 height:160px;
                 background:#F3E5AB;
@@ -3947,48 +4041,48 @@ function slide(direction) {
                 gap:14px;
                 align-items:flex-start;
             ">
-                    <div style="
+                        <div style="
                     flex:1;
                     display:flex;
                     flex-direction:column;
                     gap:6px;
                 ">
-                        <h3 style="margin:0;font-size:19px;font-weight:600; color:#071E49;">
-                            SPPG
-                        </h3>
-                        <p style="
+                            <h3 style="margin:0;font-size:19px;font-weight:600; color:#071E49;">
+                                SPPG
+                            </h3>
+                            <p style="
                         margin:0;
                         font-size:13px;
                         color:#ffffff;
                         line-height:1.4;
                          color:#071E49;
                     ">
-                            Dilaksanakan melalui SPPG sebagai pusat pengelolaan dan distribusi makanan bergizi yang
-                            terstandar dan tepat sasaran bagi penerima manfaat.
-                        </p>
-                    </div>
+                                Dilaksanakan melalui SPPG sebagai pusat pengelolaan dan distribusi makanan bergizi yang
+                                terstandar dan tepat sasaran bagi penerima manfaat.
+                            </p>
+                        </div>
 
-                    <div style="
+                        <div style="
                     width:96px;
                     height:96px;
                     border-radius:14px;
                     overflow:hidden;
                     flex-shrink:0;
                 ">
-                        <img src="sppg.jpg" style="
+                            <img src="sppg.jpg" style="
                         width:100%;
                         height:100%;
                         object-fit:cover;
                     ">
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
-    <!-- Cek Gizi Section (Hidden, moved to FAB) -->
+    <!-- Cek Gizi Section -->
     <section id="cek-gizi" class="cek-gizi-section" style="display: none;">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -4438,7 +4532,7 @@ function slide(direction) {
             <div class="modal-content modal-content-modern">
                 <div class="modal-header modal-header-modern">
                     <h5 class="modal-title">
-                        <i class="bi bi-map"></i> Peta Interaktif Sebaran SPPG
+                        Peta Interaktif Sebaran SPPG
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -4451,21 +4545,70 @@ function slide(direction) {
                     </div>
 
                     <div class="map-controls-bottom">
-                        <h6><i class="bi bi-funnel"></i> Filter Lokasi</h6>
                         <div class="map-control-group" style="margin-bottom: 12px;">
-                            <label style="font-weight: 600; margin-bottom: 6px; display: block;">🔍 Cari Lokasi</label>
+                            <label style="font-weight: 600; margin-bottom: 6px; display: block;"> Cari Lokasi</label>
                             <input type="text" placeholder="Masukkan nama kecamatan atau sekolah..."
                                 style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
                         </div>
-                        <div class="map-control-group">
-                            <label style="font-weight: 600; margin-bottom: 6px; display: block;">📍 Filter
-                                Provinsi</label>
-                            <select style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px;">
-                                <option selected>Semua Provinsi</option>
-                                <option>DKI Jakarta</option>
-                                <option>Jawa Barat</option>
-                            </select>
+                        <div class="map-control-group" id="provinsiCombo">
+                            <label class="map-label">Filter Provinsi</label>
+
+                            <input type="text" class="map-combobox" placeholder="Ketik atau pilih provinsi..."
+                                autocomplete="off">
+
+                            <div class="combo-dropdown">
+                                <div class="combo-option">Semua Provinsi</div>
+                                <div class="combo-option">DKI Jakarta</div>
+                                <div class="combo-option">Jawa Barat</div>
+                                <div class="combo-option">Jawa Tengah</div>
+                                <div class="combo-option">Jawa Timur</div>
+                                <div class="combo-option">Banten</div>
+                            </div>
                         </div>
+                        <script>
+                            const combo = document.getElementById('provinsiCombo');
+                            const input = combo.querySelector('.map-combobox');
+                            const dropdown = combo.querySelector('.combo-dropdown');
+                            const options = combo.querySelectorAll('.combo-option');
+
+                            /* buka dropdown */
+                            input.addEventListener('focus', () => {
+                                dropdown.classList.add('show');
+                            });
+
+                            /* filter */
+                            input.addEventListener('input', () => {
+                                const val = input.value.toLowerCase();
+                                options.forEach(opt => {
+                                    opt.style.display = opt.textContent.toLowerCase().includes(val)
+                                        ? 'block'
+                                        : 'none';
+                                });
+                            });
+
+                            /* klik option */
+                            options.forEach(opt => {
+                                opt.addEventListener('click', () => {
+                                    input.value = opt.textContent;
+                                    dropdown.classList.remove('show');
+                                });
+                            });
+
+                            /* 🔥 INI KUNCINYA — KLIK LUAR = TUTUP */
+                            document.addEventListener('mousedown', (e) => {
+                                if (!combo.contains(e.target)) {
+                                    dropdown.classList.remove('show');
+                                }
+                            });
+
+                            /* optional: pas input blur */
+                            input.addEventListener('blur', () => {
+                                setTimeout(() => {
+                                    dropdown.classList.remove('show');
+                                }, 150);
+                            });
+                        </script>
+
                     </div>
                 </div>
             </div>
@@ -4647,27 +4790,6 @@ function slide(direction) {
                     </div>
                 </div>
 
-                <!-- TENGAH : VISITOR -->
-                <div class="col-lg-4 mb-4 " style="margin-top:-25px">
-
-                    <div class="footer-stats-widget">
-                        <div class="stat-item-w">
-                            <div><i class="bi bi-calendar2-check-fill"></i> Hari Ini</div>
-                            <span class="stat-value-w" id="stat-today">1,245</span>
-                        </div>
-
-                        <div class="stat-item-w">
-                            <div><i class="bi bi-people-fill"></i> Total</div>
-                            <span class="stat-value-w" id="stat-total">856,432</span>
-                        </div>
-
-                        <div class="stat-item-w">
-                            <div><i class="bi bi-broadcast text-success"></i> Online</div>
-                            <span class="stat-value-w" id="stat-online">243</span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- KANAN : NEWSLETTER -->
                 <div class="col-lg-4 mb-4">
                     <h5 class="footer-title">Newsletter</h5>
@@ -4687,6 +4809,27 @@ function slide(direction) {
                         Hotline: 1500-234<br>
                         Email: info@makanbergizigratis.go.id
                     </small>
+                </div>
+
+                <!-- TENGAH : VISITOR -->
+                <div class="col-lg-4 mb-8 " style="margin-top:-25px">
+
+                    <div class="footer-stats-widget">
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-calendar2-check-fill"></i> Hari Ini</div>
+                            <span class="stat-value-w" id="stat-today">1,245</span>
+                        </div>
+
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-people-fill"></i> Total</div>
+                            <span class="stat-value-w" id="stat-total">856,432</span>
+                        </div>
+
+                        <div class="stat-item-w">
+                            <div><i class="bi bi-broadcast text-success"></i> Online</div>
+                            <span class="stat-value-w" id="stat-online">243</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
