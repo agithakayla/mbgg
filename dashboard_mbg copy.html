@@ -3441,6 +3441,22 @@
         .combo-option:hover {
             background: #f8fafc;
         }
+
+        .detail-btn-wrapper {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .detail-btn {
+            background: #CDAA66;
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 
@@ -3468,8 +3484,6 @@
                     <li class="nav-item"><a class="nav-link" href="#beranda" data-section="beranda">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#sasaran" data-section="sasaran">Sasaran</a></li>
                     <li class="nav-item"><a class="nav-link" href="#data" data-section="data">Data</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#statistik" data-section="statistik">Statistik</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#regulasi" data-section="regulasi">Regulasi</a></li>
                     <li class="nav-item"><a class="nav-link" href="#peta-mbg" data-section="peta-mbg">Peta MBG</a></li>
@@ -3760,7 +3774,7 @@
             <button onclick="slide(-1)" style="
     position:absolute;
     left:50%;
-    top:50%;
+    top:35%;
     transform:translate(-580px, -50%);
     z-index:10;
     width:50px;
@@ -3777,7 +3791,7 @@
             <button onclick="slide(1)" style="
     position:absolute;
     left:50%;
-    top:50%;
+    top:35%;
     transform:translate(540px, -50%);
     z-index:10;
     width:50px;
@@ -4076,9 +4090,16 @@
                     ">
                         </div>
                     </div>
-
                 </div>
             </div>
+<div class="detail-btn-wrapper">
+    <button class="detail-btn" onclick="window.location.href='statistik-detail.html'">
+        <i class="bi bi-graph-up"></i>
+        Lihat Detail
+    </button>
+</div>
+
+        </div>
         </div>
     </section>
 
@@ -4636,9 +4657,10 @@
                         <li><a href="#faq-4" class="regulasi-item" data-target="faq-card-4">Bagaimana proses
                                 pengawasan?</a>
                         </li>
-                        <button class="btn-faq">
-                            Lihat FAQ
+                        <button id="faqBtn" class="btn-faq">
+                            <i class="bi bi-download"></i> Selengkapnya
                         </button>
+
 
                     </ul>
                 </div>
@@ -5401,8 +5423,6 @@
         // Initial setup
         hideAllSections();
         document.getElementById('beranda').classList.add('active');
-
-        // Distribution Detail Navigation
         // Distribution Detail Navigation
         const btnLihatDetail = document.getElementById('btnLihatDetail');
         if (btnLihatDetail) {
@@ -5418,6 +5438,12 @@
                 window.location.href = 'regulasi-detail.html';
             });
         }
+
+        // button faq
+        document.getElementById("faqBtn").onclick = function () {
+            window.location.href = "faq-detail.html";
+        };
+
     </script>
 </body>
 
